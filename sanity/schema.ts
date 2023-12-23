@@ -24,6 +24,11 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "string",
         },
         {
+          name: "description",
+          title: "Description",
+          type: "text",
+        },
+        {
           name: "size",
           title: "Size",
           type: "string",
@@ -44,7 +49,12 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "slug",
           options: {
             source: "name",
-          },
+          },  
+        },
+        {
+          name: "featured",
+          title: "Featured",
+          type: "boolean",
         },
         {
           name: "category",
