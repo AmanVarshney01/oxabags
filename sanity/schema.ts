@@ -1,28 +1,72 @@
-import { type SchemaTypeDefinition } from 'sanity'
+import { type SchemaTypeDefinition } from "sanity";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     {
-      name: 'Bag',
-      title: 'Bag',
-      type: 'document',
+      name: "product",
+      title: "Products",
+      type: "document",
       fields: [
         {
-          name: 'name',
-          title: 'Name',
-          type: 'string',
+          name: "name",
+          title: "Name",
+          type: "string",
         },
         {
-          name: 'color',
-          title: 'Color',
-          type: 'string',
+          name: "images",
+          type: "array",
+          title: "Images",
+          of: [{ type: "image" }],
         },
         {
-          name: 'price',
-          title: 'Price',
-          type: 'number',
+          name: "color",
+          title: "Color",
+          type: "string",
+        },
+        {
+          name: "size",
+          title: "Size",
+          type: "string",
+        },
+        {
+          name: "weight",
+          title: "Weight",
+          type: "string",
+        },
+        {
+          name: "price",
+          title: "Price",
+          type: "number",
+        },
+        {
+          name: "slug",
+          title: "Slug",
+          type: "slug",
+          options: {
+            source: "name",
+          },
+        },
+        {
+          name: "category",
+          title: "Product Category",
+          type: "reference",
+          to:   [{
+            type: "category",
+          }]
+        },  
+      ],
+    },
+    {
+      name: "category",
+      type: "document",
+      title: "Categories",
+      fields: [
+        {
+          name: "name",
+          title: "Name of Category",
+          type: "string",
         },
       ],
     },
   ],
-}
+};
