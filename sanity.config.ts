@@ -11,6 +11,7 @@ import {apiVersion, dataset, projectId} from './sanity/env'
 import {schema} from './sanity/schema'
 
 export default defineConfig({
+  title: "Amanasia Studio",
   basePath: '/studio',
   projectId,
   dataset,
