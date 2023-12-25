@@ -19,6 +19,10 @@ const featuredProductsQuery = `
   name,
   price,
   images[0],
+  category->{
+    name
+  },
+  slug,
 }`;
 
 export default async function Home() {
@@ -93,6 +97,15 @@ export default async function Home() {
             </Button>
           </CardContent>
         </Card>
+      </section>
+      <section className="overflow-x-auto w-full my-8">
+        <div className="flex space-x-6 px-10 py-4">
+          {products.map((item: any) => (
+            <ProductCard item={item} key={item._id} />
+          ))}
+        </div>
+      </section>
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-10 mb-8">
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
             <CardTitle className="text-2xl font-bold">Pouches</CardTitle>
@@ -155,13 +168,6 @@ export default async function Home() {
             </Button>
           </CardContent>
         </Card>
-      </section>
-      <section className="overflow-x-auto w-full my-8">
-        <div className="flex space-x-6 px-10 py-4">
-          {products.map((item: any) => (
-            <ProductCard item={item} key={item._id} />
-          ))}
-        </div>
       </section>
     </main>
   );
