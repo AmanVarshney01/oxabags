@@ -16,3 +16,12 @@ export async function getProducts() {
     }`
   );
 }
+
+export async function getCategories() {
+  return client.fetch(
+    groq`*[_type == "category"]{
+        _id,
+        name
+    }`
+  );
+}

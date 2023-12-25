@@ -1,28 +1,67 @@
-import Link from "next/link";
+"use client";
 import { Button } from "./ui/button";
-import { client } from "@/sanity/lib/client";
+import Link from "next/link";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
-const query = `*[_type == "category"] {
-  _id,
-  name
-}`;
-
-export default async function Navbar() {
-  const categories = await client.fetch(query);
+export default function Navbar({ categories }: any) {
   return (
-    <header className="flex flex-row gap-6 items-center p-4">
-      <h1 className="text-2xl">Amanasia</h1>
-      <nav className=" flex flex-row gap-4">
-        <Link href="/"><Button variant="link">All</Button></Link>
-        {categories.map((category: any) => (
-          <Link key={category._id} href={`/category/${category.name}`}>
-            <Button variant="link">{category.name}</Button>
+    <NavigationMenu>
+      <NavigationMenuList>
+      <NavigationMenuItem>
+          <Link href="/" passHref legacyBehavior>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Home
+            </NavigationMenuLink>
           </Link>
-        ))}
-      </nav>
-      <Link href="/about"><Button variant="link">About</Button></Link>
-      <Link href="/contact"><Button variant="link">Contact</Button></Link>
-      {/* <Button variant="link">Saved</Button> */}
-    </header>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[300px] gap-3 p-4 grid-cols-2 ">
+              {categories.map((category: any) => (
+                <li key={category._id}>
+                  <Link
+                    href={`/category/${category.name.toLowerCase().replace(" ", "-")}`}
+                    legacyBehavior
+                    passHref
+                  >
+                    <NavigationMenuLink
+                      className={navigationMenuTriggerStyle()}
+                    >
+                      {category.name}
+                    </NavigationMenuLink>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <NavigationMenuIndicator />
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/about" passHref legacyBehavior>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              About
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/contact" passHref legacyBehavior>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Contact
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
   );
 }

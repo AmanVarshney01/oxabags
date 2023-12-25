@@ -1,21 +1,175 @@
-import { urlForImage } from "@/sanity/lib/image"
-import { getProducts } from "@/sanity/lib/sanity.query"
-import Image from "next/image"
+import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
+import { getProducts } from "@/sanity/lib/sanity.query";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import Billboard from "@/components/Billboard";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
+const featuredProductsQuery = `
+*[ _type == "product" && featured == true ] {
+  _id,
+  name,
+  price,
+  images,
+}`;
 
 export default async function Home() {
-  const products = await getProducts()
+  const products = await client.fetch(featuredProductsQuery);
   return (
-    <main className="">
+    <main className="flex-1 p-6">
       {/* <h1 className='text-4xl'>Amanasia</h1> */}
-      {products.map((item : any) => (
-        <div key={item._id}>
-          <h2>{item.name}</h2>
-          <p>{item.color}</p>
-          <p>{item.price}</p>
-          <Image src={urlForImage(item.images[0])} width={200} height={200} alt="" />
-        </div>
-      ))}
+      {/* <div className=" grid grid-cols-2">
+        {products.map((item: any) => (
+          <div key={item._id}>
+            <Image
+              src={urlForImage(item.images[0])}
+              width={500}
+              height={500}
+              alt=""
+            />
+            <h2>{item.name}</h2>
+            <p>{item.price}</p>
+          </div>
+        ))}
+      </div> */}
+      <Billboard />
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <Card className="transform transition-all hover:scale-105">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-2xl font-bold">
+              Eco-Friendly Cotton Bags
+            </CardTitle>
+            <CardDescription className="">
+              Ethically sourced and made from 100% organic cotton.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Image
+              alt="Cotton Bag"
+              className="w-full h-3/5 object-cover"
+              height="200"
+              src="/testbag.jpg"
+              width="200"
+            />
+            <Button className="w-full mt-4" size="sm" variant="outline">
+              Shop Now
+            </Button>
+          </CardContent>
+        </Card>
+        <Card className="transform transition-all hover:scale-105">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-2xl font-bold">
+              Large Cotton Totes
+            </CardTitle>
+            <CardDescription className="">
+              Perfect for grocery shopping, ditch the plastic and go green.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Image
+              alt="Large Cotton Tote"
+              className="w-full h-3/5 object-cover"
+              height="200"
+              src="/testbag.jpg"
+              width="200"
+            />
+            <Button className="w-full mt-4" size="sm" variant="outline">
+              Shop Now
+            </Button>
+          </CardContent>
+        </Card>
+        <Card className="transform transition-all hover:scale-105">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-2xl font-bold">
+              Designer Canvas Bags
+            </CardTitle>
+            <CardDescription className="">
+              Trendy designs printed on high quality canvas.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Image
+              alt="Designer Cotton Bag"
+              className="w-full h-3/5 object-cover"
+              height="200"
+              src="/testbag.jpg"
+              width="200"
+            />
+            <Button className="w-full mt-4" size="sm" variant="outline">
+              Shop Now
+            </Button>
+          </CardContent>
+        </Card>
+        <Card className="transform transition-all hover:scale-105">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-2xl font-bold">Pouches</CardTitle>
+            <CardDescription className="">
+              Pouches for your everyday needs.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Image
+              alt="Designer Cotton Bag"
+              className="w-full h-3/5 object-cover"
+              height="200"
+              src="/testbag.jpg"
+              width="200"
+            />
+            <Button className="w-full mt-4" size="sm" variant="outline">
+              Shop Now
+            </Button>
+          </CardContent>
+        </Card>
+        <Card className="transform transition-all hover:scale-105">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-2xl font-bold">File Folders</CardTitle>
+            <CardDescription className="">
+              Keep your documents safe and organized.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Image
+              alt="Designer Cotton Bag"
+              className="w-full h-3/5 object-cover"
+              height="200"
+              src="/testbag.jpg"
+              width="200"
+            />
+            <Button className="w-full mt-4" size="sm" variant="outline">
+              Shop Now
+            </Button>
+          </CardContent>
+        </Card>
+        <Card className="transform transition-all hover:scale-105">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-2xl font-bold">
+              Promotional Items
+            </CardTitle>
+            <CardDescription className="">
+              Boost your brand visibility with custom promotional items.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Image
+              alt="Designer Cotton Bag"
+              className="w-full h-3/5 object-cover"
+              height="200"
+              src="/testbag.jpg"
+              width="200"
+            />
+            <Button className="w-full mt-4" size="sm" variant="outline">
+              Shop Now
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
     </main>
-  )
+  );
 }
