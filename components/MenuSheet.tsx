@@ -1,6 +1,8 @@
 import {
   Sheet,
   SheetContent,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "./ui/button";
@@ -14,10 +16,13 @@ export default async function MenuSheet({ categories }: any) {
         <MenuIcon size={22} />
       </SheetTrigger>
       <SheetContent side={"left"}>
-        <Link href="/">
-            <Button variant="link">Home</Button>
-        </Link>
-        <ul>
+        <SheetHeader>
+          <SheetTitle>Menu</SheetTitle>
+        </SheetHeader>
+        <ul className=" flex flex-col space-y-6 py-8">
+          <Link href="/">
+            <Button className="text-lg" variant="link">Home</Button>
+          </Link>
           {categories.map((category: any) => (
             <li key={category._id}>
               <Link
@@ -25,14 +30,17 @@ export default async function MenuSheet({ categories }: any) {
                   .toLowerCase()
                   .replace(" ", "-")}`}
               >
-                {category.name}
+                <Button className="text-lg" variant="link">{category.name}</Button>
               </Link>
             </li>
           ))}
+          <Link href="/about">
+            <Button className="text-lg" variant="link">About</Button>
+          </Link>
+          <Link href="/contact">
+            <Button className="text-lg" variant="link">Contact</Button>
+          </Link>
         </ul>
-        <Link href="/about">About</Link>
-        {/* <div></div> */}
-        <Link href="/contact">Contact</Link>
       </SheetContent>
     </Sheet>
   );
