@@ -1,6 +1,6 @@
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
-import { getProducts } from "@/sanity/lib/sanity.query";
+// import { getProducts } from "@/sanity/lib/sanity.query";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Billboard from "@/components/Billboard";
@@ -11,36 +11,22 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import ProductCard from "@/components/ProductCard";
 
 const featuredProductsQuery = `
 *[ _type == "product" && featured == true ] {
   _id,
   name,
   price,
-  images,
+  images[0],
 }`;
 
 export default async function Home() {
   const products = await client.fetch(featuredProductsQuery);
   return (
-    <main className="flex-1 p-6">
-      {/* <h1 className='text-4xl'>Amanasia</h1> */}
-      {/* <div className=" grid grid-cols-2">
-        {products.map((item: any) => (
-          <div key={item._id}>
-            <Image
-              src={urlForImage(item.images[0])}
-              width={500}
-              height={500}
-              alt=""
-            />
-            <h2>{item.name}</h2>
-            <p>{item.price}</p>
-          </div>
-        ))}
-      </div> */}
+    <main className="flex-1 px-10">
       <Billboard />
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-10">
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
             <CardTitle className="text-2xl font-bold">
@@ -54,9 +40,9 @@ export default async function Home() {
             <Image
               alt="Cotton Bag"
               className="w-full h-3/5 object-cover"
-              height="200"
+              height={200}
               src="/testbag.jpg"
-              width="200"
+              width={200}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
               Shop Now
@@ -76,9 +62,9 @@ export default async function Home() {
             <Image
               alt="Large Cotton Tote"
               className="w-full h-3/5 object-cover"
-              height="200"
+              height={200}
               src="/testbag.jpg"
-              width="200"
+              width={200}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
               Shop Now
@@ -98,9 +84,9 @@ export default async function Home() {
             <Image
               alt="Designer Cotton Bag"
               className="w-full h-3/5 object-cover"
-              height="200"
+              height={200}
               src="/testbag.jpg"
-              width="200"
+              width={200}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
               Shop Now
@@ -118,9 +104,9 @@ export default async function Home() {
             <Image
               alt="Designer Cotton Bag"
               className="w-full h-3/5 object-cover"
-              height="200"
+              height={200}
               src="/testbag.jpg"
-              width="200"
+              width={200}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
               Shop Now
@@ -138,9 +124,9 @@ export default async function Home() {
             <Image
               alt="Designer Cotton Bag"
               className="w-full h-3/5 object-cover"
-              height="200"
+              height={200}
               src="/testbag.jpg"
-              width="200"
+              width={200}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
               Shop Now
@@ -160,16 +146,23 @@ export default async function Home() {
             <Image
               alt="Designer Cotton Bag"
               className="w-full h-3/5 object-cover"
-              height="200"
+              height={200}
               src="/testbag.jpg"
-              width="200"
+              width={200}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
               Shop Now
             </Button>
           </CardContent>
         </Card>
-      </div>
+      </section>
+      <section className="overflow-x-auto w-full my-8">
+        <div className="flex space-x-6 px-10 py-4">
+          {products.map((item: any) => (
+            <ProductCard item={item} key={item._id} />
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
