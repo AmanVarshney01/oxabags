@@ -1,6 +1,4 @@
-import { client } from "@/sanity/lib/client";
-import { urlForImage } from "@/sanity/lib/image";
-// import { getProducts } from "@/sanity/lib/sanity.query";
+import { getFeaturedProducts } from "@/sanity/lib/sanity.query";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Billboard from "@/components/Billboard";
@@ -13,20 +11,8 @@ import {
 } from "@/components/ui/card";
 import ProductCard from "@/components/ProductCard";
 
-const featuredProductsQuery = `
-*[ _type == "product" && featured == true ] {
-  _id,
-  name,
-  price,
-  images[0],
-  category->{
-    name
-  },
-  slug,
-}`;
-
 export default async function Home() {
-  const products = await client.fetch(featuredProductsQuery);
+  const products = await getFeaturedProducts();
   return (
     <main className="flex-1 px-2 lg:px-10">
       <Billboard />
@@ -44,12 +30,12 @@ export default async function Home() {
             <Image
               alt="Cotton Bag"
               className="w-full h-3/5 object-cover"
-              height={200}
+              height={300}
               src="/testbag.jpg"
-              width={200}
+              width={300}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
-              Shop Now
+              See More
             </Button>
           </CardContent>
         </Card>
@@ -66,12 +52,12 @@ export default async function Home() {
             <Image
               alt="Large Cotton Tote"
               className="w-full h-3/5 object-cover"
-              height={200}
+              height={300}
               src="/testbag.jpg"
-              width={200}
+              width={300}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
-              Shop Now
+              See More
             </Button>
           </CardContent>
         </Card>
@@ -88,12 +74,12 @@ export default async function Home() {
             <Image
               alt="Designer Cotton Bag"
               className="w-full h-3/5 object-cover"
-              height={200}
+              height={300}
               src="/testbag.jpg"
-              width={200}
+              width={300}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
-              Shop Now
+              See More
             </Button>
           </CardContent>
         </Card>
@@ -117,12 +103,12 @@ export default async function Home() {
             <Image
               alt="Designer Cotton Bag"
               className="w-full h-3/5 object-cover"
-              height={200}
+              height={300}
               src="/testbag.jpg"
-              width={200}
+              width={300}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
-              Shop Now
+              See More
             </Button>
           </CardContent>
         </Card>
@@ -137,12 +123,12 @@ export default async function Home() {
             <Image
               alt="Designer Cotton Bag"
               className="w-full h-3/5 object-cover"
-              height={200}
+              height={300}
               src="/testbag.jpg"
-              width={200}
+              width={300}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
-              Shop Now
+              See More
             </Button>
           </CardContent>
         </Card>
@@ -159,12 +145,12 @@ export default async function Home() {
             <Image
               alt="Designer Cotton Bag"
               className="w-full h-3/5 object-cover"
-              height={200}
+              height={300}
               src="/testbag.jpg"
-              width={200}
+              width={300}
             />
             <Button className="w-full mt-4" size="sm" variant="outline">
-              Shop Now
+              See More
             </Button>
           </CardContent>
         </Card>

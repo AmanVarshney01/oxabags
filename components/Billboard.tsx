@@ -21,7 +21,7 @@ export default function Billboard() {
         }}
         plugins={[
           Autoplay({
-            delay: 5000,
+            delay: 4000,
             stopOnInteraction: false,
             stopOnMouseEnter: true,
           }),

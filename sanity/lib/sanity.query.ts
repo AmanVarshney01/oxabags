@@ -1,9 +1,9 @@
 import { groq } from "next-sanity";
-import {client} from "./client";
+import { client } from "./client";
 
-export async function getProducts() {
+export async function getProductBySlug(slug: string) {
   return client.fetch(
-    groq`*[_type == "product"]{
+    groq`*[_type == "product" && slug.current == "${slug}"][0]{
         _id,
         name,
         images,
@@ -12,7 +12,22 @@ export async function getProducts() {
         size,
         price,
         slug,
-        category
+        category->{name},
+    }`
+  );
+}
+
+export async function getFeaturedProducts() {
+  return client.fetch(
+    groq`*[ _type == "product" && featured == true ] {
+      _id,
+      name,
+      price,
+      images[0],
+      category->{
+        name
+      },
+      slug,
     }`
   );
 }

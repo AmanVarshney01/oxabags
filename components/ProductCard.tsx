@@ -23,7 +23,7 @@ export default function ProductCard({ item }: { item: any }) {
           alt={item.name}
           className="rounded-md"
         />
-        <Button className="absolute bottom-5 right-5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+        <Button variant="secondary" className="absolute shadow bottom-5 right-5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
           Quick Add
         </Button>
       </div>
