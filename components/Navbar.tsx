@@ -15,9 +15,9 @@ import {
 
 export default function Navbar({ categories }: any) {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
-      <NavigationMenuItem>
+        <NavigationMenuItem>
           <Link href="/" passHref legacyBehavior>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Home
@@ -31,7 +31,9 @@ export default function Navbar({ categories }: any) {
               {categories.map((category: any) => (
                 <li key={category._id}>
                   <Link
-                    href={`/category/${category.name.toLowerCase().replace(" ", "-")}`}
+                    href={`/category/${category.name
+                      .toLowerCase()
+                      .replace(" ", "-")}`}
                     legacyBehavior
                     passHref
                   >
@@ -62,6 +64,7 @@ export default function Navbar({ categories }: any) {
           </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
+      {/* <NavigationMenuViewport /> */}
     </NavigationMenu>
   );
 }

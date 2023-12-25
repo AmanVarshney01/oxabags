@@ -71,7 +71,7 @@ export default function Billboard() {
                   width="200"
                 />
               </div>
-              <div className="flex justify-center items-center space-x-2 mb-8">
+              <div className="lg:flex justify-center items-center space-x-2 mb-8 hidden">
                 <Button className="bg-pink-500 text-white">Choose Bag</Button>
                 <ArrowRightIcon className="text-gray-500" />
                 <Button className="bg-pink-500 text-white">

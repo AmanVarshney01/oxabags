@@ -1,3 +1,4 @@
+// import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -6,18 +7,22 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { ShoppingCartIcon } from "lucide-react";
 
 export default function CartSheet() {
   return (
     // <div>
       <Sheet>
-        <SheetTrigger className="ml-auto ">Open</SheetTrigger>
+        <SheetTrigger className="md:ml-auto ml-0">
+          <ShoppingCartIcon size={22} />
+        </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle>Are you sure absolutely sure?</SheetTitle>
+            <SheetTitle>
+                Cart
+            </SheetTitle> 
             <SheetDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
+              empty
             </SheetDescription>
           </SheetHeader>
         </SheetContent>

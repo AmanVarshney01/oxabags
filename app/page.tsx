@@ -28,9 +28,9 @@ const featuredProductsQuery = `
 export default async function Home() {
   const products = await client.fetch(featuredProductsQuery);
   return (
-    <main className="flex-1 px-10">
+    <main className="flex-1 px-2 lg:px-10">
       <Billboard />
-      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-10">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-2 lg:px-10">
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
             <CardTitle className="text-2xl font-bold">
@@ -99,13 +99,13 @@ export default async function Home() {
         </Card>
       </section>
       <section className="overflow-x-auto w-full my-8">
-        <div className="flex space-x-6 px-10 py-4">
+        <div className="flex space-x-6 px-2 lg:px-10 py-4">
           {products.map((item: any) => (
             <ProductCard item={item} key={item._id} />
           ))}
         </div>
       </section>
-      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-10 mb-8">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-2 lg:px-10 mb-8">
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
             <CardTitle className="text-2xl font-bold">Pouches</CardTitle>
