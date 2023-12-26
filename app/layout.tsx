@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "max-w-7xl mx-auto")}>
-        <Header />
-        {children}
-        <Footer />
+      <body className={inter.className}>
+        <main className="max-w-7xl mx-auto">
+          <Header />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );

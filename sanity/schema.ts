@@ -39,6 +39,16 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "string",
         },
         {
+          name: "weightcarrycapacity",
+          title: "Weight Carry Capacity",
+          type: "string",
+        },
+        {
+          name: "fabric",
+          title: "Fabric",
+          type: "string",
+        },
+        {
           name: "price",
           title: "Price",
           type: "number",
@@ -63,7 +73,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           to:   [{
             type: "category",
           }]
-        },  
+        },
       ],
     },
     {

@@ -12,6 +12,9 @@ export async function getProductBySlug(slug: string) {
         size,
         price,
         slug,
+        description,
+        weightcarrycapacity,
+        fabric,
         category->{name},
     }`
   );

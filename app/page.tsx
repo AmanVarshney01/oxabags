@@ -14,20 +14,20 @@ export default async function Home() {
   return (
     <main className="flex-1 px-2">
       <Billboard />
-      <section className="grid grid-cols-2 gap-4 md:grid-cols-3 px-2">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-3 px-2">
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="text-2xl font-bold">
+            <CardTitle className="md:text-2xl text-base font-bold">
               Eco-Friendly Cotton Bags
             </CardTitle>
-            <CardDescription className="">
+            <CardDescription className="md:text-base text-sm">
               Ethically sourced and made from 100% organic cotton.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Image
               alt="Cotton Bag"
-              className="w-full h-3/5 object-cover"
+              className="mx-auto object-cover"
               height={300}
               src="/testbag.jpg"
               width={300}
@@ -39,17 +39,17 @@ export default async function Home() {
         </Card>
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="text-2xl font-bold">
+            <CardTitle className="md:text-2xl text-base font-bold">
               Large Cotton Totes
             </CardTitle>
-            <CardDescription className="">
+            <CardDescription className="md:text-base text-sm ">
               Perfect for grocery shopping, ditch the plastic and go green.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Image
               alt="Large Cotton Tote"
-              className="w-full h-3/5 object-cover"
+              className="mx-auto object-cover"
               height={300}
               src="/testbag.jpg"
               width={300}
@@ -61,39 +61,17 @@ export default async function Home() {
         </Card>
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="text-2xl font-bold">
+            <CardTitle className="md:text-2xl text-base font-bold">
               Designer Canvas Bags
             </CardTitle>
-            <CardDescription className="">
+            <CardDescription className="md:text-base text-sm ">
               Trendy designs printed on high quality canvas.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Image
               alt="Designer Cotton Bag"
-              className="w-full h-3/5 object-cover"
-              height={300}
-              src="/testbag.jpg"
-              width={300}
-            />
-            <Button className="w-full mt-4" size="sm" variant="outline">
-              See More
-            </Button>
-          </CardContent>
-        </Card>
-        <Card className="transform transition-all hover:scale-105 block md:hidden">
-          <CardHeader className="pb-4">
-            <CardTitle className="text-2xl font-bold">
-              Promotional Items
-            </CardTitle>
-            <CardDescription className="">
-              Boost your brand visibility with custom promotional items.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Image
-              alt="Designer Cotton Bag"
-              className="w-full h-3/5 object-cover"
+              className="mx-auto object-cover"
               height={300}
               src="/testbag.jpg"
               width={300}
@@ -105,18 +83,18 @@ export default async function Home() {
         </Card>
       </section>
       <ProductMarquee />
-      <section className="grid grid-cols-2 gap-4 md:grid-cols-3 px-2 mb-8">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-3 px-2 mb-8">
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="text-2xl font-bold">Pouches</CardTitle>
-            <CardDescription className="">
+            <CardTitle className="md:text-2xl text-base font-bold">Pouches</CardTitle>
+            <CardDescription className="md:text-base text-sm ">
               Pouches for your everyday needs.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Image
               alt="Designer Cotton Bag"
-              className="w-full h-3/5 object-cover"
+              className="mx-auto object-cover"
               height={300}
               src="/testbag.jpg"
               width={300}
@@ -128,15 +106,15 @@ export default async function Home() {
         </Card>
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="text-2xl font-bold">File Folders</CardTitle>
-            <CardDescription className="">
+            <CardTitle className="md:text-2xl text-base font-bold">File Folders</CardTitle>
+            <CardDescription className="md:text-base text-sm ">
               Keep your documents safe and organized.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Image
               alt="Designer Cotton Bag"
-              className="w-full h-3/5 object-cover"
+              className="mx-auto object-cover"
               height={300}
               src="/testbag.jpg"
               width={300}
@@ -146,19 +124,19 @@ export default async function Home() {
             </Button>
           </CardContent>
         </Card>
-        <Card className="transform transition-all hover:scale-105 hidden md:block">
+        <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="text-2xl font-bold">
+            <CardTitle className="md:text-2xl text-base font-bold">
               Promotional Items
             </CardTitle>
-            <CardDescription className="">
+            <CardDescription className="md:text-base text-sm ">
               Boost your brand visibility with custom promotional items.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Image
               alt="Designer Cotton Bag"
-              className="w-full h-3/5 object-cover"
+              className="mx-auto object-cover"
               height={300}
               src="/testbag.jpg"
               width={300}
