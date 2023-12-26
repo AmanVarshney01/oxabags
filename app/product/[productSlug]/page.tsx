@@ -1,21 +1,16 @@
-import { urlForImage } from "@/sanity/lib/image";
-import { getProductBySlug } from "@/sanity/lib/sanity.query";
-import Image from "next/image";
+"use client";
 
-export default async function ProductPage() {
-  const product = await getProductBySlug("10-ruppe-ke-thele");
-  // console.log(product);
+import React, { Suspense } from "react";
+import ProductDetailCard from "@/components/ProductDetailCard";
+import { usePathname } from "next/navigation";
+
+const ProductPage = () => {
+  const pathname = usePathname();
   return (
-    <div>
-      <h1>{product.name}</h1>
-      <p>{product.price}</p>
-      <p>{product.size}</p>
-
-      {/* <Image src={urlForImage(product.images[0])} width={100} height={100} alt="hahah" /> */}
-
-      {product.images.map((image: any, index: number) => (
-        <Image key={index} src={urlForImage(image)} width={100} height={100} alt={product.name} />
-      ))}
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProductDetailCard slug={pathname?.split("/product/")[1] ?? ''} />
+    </Suspense>
   );
 }
+
+export default ProductPage;
