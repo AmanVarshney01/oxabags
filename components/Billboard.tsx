@@ -30,7 +30,7 @@ export default function Billboard() {
         <CarouselContent>
           <CarouselItem>
             {/* <Image src="/banner-1.webp" alt="" width={1500} height={200} /> */}
-            <section className="p-4 flex flex-col gap-8  my-8">
+            {/* <section className="p-4 flex flex-col gap-8  my-8">
               <h1 className="text-center text-4xl font-bold mb-8">
                 CUSTOM LOGO
               </h1>
@@ -84,9 +84,16 @@ export default function Billboard() {
                 <ArrowRightIcon className="text-gray-500" />
                 <Button className="bg-pink-500 text-white">Shipment</Button>
               </div>
-            </section>
+            </section> */}
+            <Image
+              className="w-full rounded-lg"
+              src="/customize.jpg"
+              alt=""
+              width={800}
+              height={200}
+            />
           </CarouselItem>
-          <CarouselItem>
+          {/* <CarouselItem>
             <section className="flex flex-col items-center justify-center text-center my-8 p-4 rounded-md">
               <div>
                 <h2 className="text-4xl font-bold mb-2">We Are Eco-Friendly</h2>
@@ -99,8 +106,8 @@ export default function Billboard() {
                 </p>
               </div>
             </section>
-          </CarouselItem>
-          <CarouselItem>
+          </CarouselItem> */}
+          {/* <CarouselItem>
             <section className="flex flex-col items-center justify-center text-center my-8 p-4 rounded-md">
               <div>
                 <h2 className="text-4xl font-bold mb-2">
@@ -115,6 +122,15 @@ export default function Billboard() {
                 </p>
               </div>
             </section>
+          </CarouselItem> */}
+          <CarouselItem>
+            <Image
+            className="w-full rounded-lg"
+              src="/Eco-Friendly.jpg"
+              alt=""
+              width={800}
+              height={200}
+            />
           </CarouselItem>
         </CarouselContent>
         <CarouselPrevious />

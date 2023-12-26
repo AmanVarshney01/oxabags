@@ -8,7 +8,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
@@ -27,8 +26,8 @@ export default function Navbar({ categories }: any) {
           <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[300px] gap-3 p-4 grid-cols-2 ">
-              {categories.map((category: any) => (
-                <li key={category._id}>
+              {categories.map((category: any, index: number) => (
+                <li key={index}>
                   <Link
                     href={`/category/${category.name
                       .toLowerCase()

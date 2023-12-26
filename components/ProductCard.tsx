@@ -18,10 +18,10 @@ export default function ProductCard({ item }: { item: any }) {
       <div className="relative">
         <Image
           src={urlForImage(item.images)}
-          width={250}
-          height={250}
+          width={200}
+          height={200}
           alt={item.name}
-          className="rounded-md"
+          className="rounded-md aspect-square"
         />
         <Button variant="secondary" className="absolute shadow bottom-5 right-5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
           Quick Add

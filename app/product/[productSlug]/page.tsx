@@ -1,4 +1,5 @@
 import ProductDetailCard from "@/components/ProductDetailCard";
+import ProductMarquee from "@/components/ProductMarquee";
 import { client } from "@/sanity/lib/client";
 
 export async function generateStaticParams() {
@@ -21,6 +22,7 @@ const ProductPage = ({ params }: any) => {
   return (
     <div>
       <ProductDetailCard slug={params.productSlug} />
+      <ProductMarquee />
     </div>
   );
 };

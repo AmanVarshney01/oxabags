@@ -23,8 +23,8 @@ export default async function MenuSheet({ categories }: any) {
           <Link href="/">
             <Button className="text-lg" variant="link">Home</Button>
           </Link>
-          {categories.map((category: any) => (
-            <li key={category._id}>
+          {categories.map((category: any, index: number) => (
+            <li key={index}>
               <Link
                 href={`/category/${category.name
                   .toLowerCase()

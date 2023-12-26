@@ -20,7 +20,6 @@ export async function getProductBySlug(slug: string) {
 export async function getFeaturedProducts() {
   return client.fetch(
     groq`*[ _type == "product" && featured == true ] {
-      _id,
       name,
       price,
       images[0],
@@ -35,7 +34,6 @@ export async function getFeaturedProducts() {
 export async function getCategories() {
   return client.fetch(
     groq`*[_type == "category"]{
-        _id,
         name
     }`
   );
