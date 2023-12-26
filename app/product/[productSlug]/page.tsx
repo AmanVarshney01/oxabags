@@ -1,16 +1,28 @@
-"use client";
-
-import React, { Suspense } from "react";
 import ProductDetailCard from "@/components/ProductDetailCard";
-import { usePathname } from "next/navigation";
+import { client } from "@/sanity/lib/client";
 
-const ProductPage = () => {
-  const pathname = usePathname();
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <ProductDetailCard slug={pathname?.split("/product/")[1] ?? ''} />
-    </Suspense>
-  );
+export async function generateStaticParams() {
+  const query = `*[_type == "product"] {
+  slug {
+    current
+  }
+ }`;
+
+  const productSlugs = await client.fetch(query);
+
+  return productSlugs.map((productSlug: any) => {
+    return {
+      productSlug: productSlug.slug.current,
+    };
+  });
 }
+
+const ProductPage = ({ params }: any) => {
+  return (
+    <div>
+      <ProductDetailCard slug={params.productSlug} />
+    </div>
+  );
+};
 
 export default ProductPage;
