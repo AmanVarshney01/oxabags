@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function Billboard() {
   return (
-    <div className="flex-1 md:p-6 p-2">
+    <div className="flex-1 p-2 md:p-6">
       <Carousel
         opts={{
           loop: true,

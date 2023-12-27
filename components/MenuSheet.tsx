@@ -21,7 +21,9 @@ export default async function MenuSheet({ categories }: any) {
         </SheetHeader>
         <ul className=" flex flex-col space-y-6 py-8">
           <Link href="/">
-            <Button className="text-lg" variant="link">Home</Button>
+            <Button className="text-lg" variant="link">
+              Home
+            </Button>
           </Link>
           {categories.map((category: any, index: number) => (
             <li key={index}>
@@ -30,15 +32,21 @@ export default async function MenuSheet({ categories }: any) {
                   .toLowerCase()
                   .replace(" ", "-")}`}
               >
-                <Button className="text-lg" variant="link">{category.name}</Button>
+                <Button className="text-lg" variant="link">
+                  {category.name}
+                </Button>
               </Link>
             </li>
           ))}
           <Link href="/about">
-            <Button className="text-lg" variant="link">About</Button>
+            <Button className="text-lg" variant="link">
+              About
+            </Button>
           </Link>
           <Link href="/contact">
-            <Button className="text-lg" variant="link">Contact</Button>
+            <Button className="text-lg" variant="link">
+              Contact
+            </Button>
           </Link>
         </ul>
       </SheetContent>

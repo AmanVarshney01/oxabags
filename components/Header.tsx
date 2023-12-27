@@ -7,10 +7,10 @@ import Link from "next/link";
 export default async function Header() {
   const categories = await getCategories();
   return (
-    <header className="flex flex-row gap-6 items-center p-4">
+    <header className="flex flex-row items-center gap-6 p-4">
       <MenuSheet categories={categories} />
       <Link href="/">
-        <h1 className="text-2xl font-bold mx-auto md:mx-0">Amanasia</h1>
+        <h1 className="mx-auto text-2xl font-bold md:mx-0">Amanasia</h1>
       </Link>
       <Navbar categories={categories} />
       <CartSheet />

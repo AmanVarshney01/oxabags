@@ -10,17 +10,17 @@ import {
 } from "@/components/ui/card";
 import ProductMarquee from "@/components/ProductMarquee";
 
-export default async function Home() {
+export default function Home() {
   return (
     <main className="flex-1 px-2">
       <Billboard />
-      <section className="grid grid-cols-1 gap-4 md:grid-cols-3 px-2">
+      <section className="grid grid-cols-1 gap-4 px-2 md:grid-cols-3">
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="md:text-2xl text-base font-bold">
+            <CardTitle className="text-base font-bold md:text-2xl">
               Eco-Friendly Cotton Bags
             </CardTitle>
-            <CardDescription className="md:text-base text-sm">
+            <CardDescription className="text-sm md:text-base">
               Ethically sourced and made from 100% organic cotton.
             </CardDescription>
           </CardHeader>
@@ -32,17 +32,17 @@ export default async function Home() {
               src="/testbag.jpg"
               width={300}
             />
-            <Button className="w-full mt-4" size="sm" variant="outline">
+            <Button className="mt-4 w-full" size="sm" variant="outline">
               See More
             </Button>
           </CardContent>
         </Card>
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="md:text-2xl text-base font-bold">
+            <CardTitle className="text-base font-bold md:text-2xl">
               Large Cotton Totes
             </CardTitle>
-            <CardDescription className="md:text-base text-sm ">
+            <CardDescription className="text-sm md:text-base ">
               Perfect for grocery shopping, ditch the plastic and go green.
             </CardDescription>
           </CardHeader>
@@ -54,17 +54,17 @@ export default async function Home() {
               src="/testbag.jpg"
               width={300}
             />
-            <Button className="w-full mt-4" size="sm" variant="outline">
+            <Button className="mt-4 w-full" size="sm" variant="outline">
               See More
             </Button>
           </CardContent>
         </Card>
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="md:text-2xl text-base font-bold">
+            <CardTitle className="text-base font-bold md:text-2xl">
               Designer Canvas Bags
             </CardTitle>
-            <CardDescription className="md:text-base text-sm ">
+            <CardDescription className="text-sm md:text-base ">
               Trendy designs printed on high quality canvas.
             </CardDescription>
           </CardHeader>
@@ -76,18 +76,20 @@ export default async function Home() {
               src="/testbag.jpg"
               width={300}
             />
-            <Button className="w-full mt-4" size="sm" variant="outline">
+            <Button className="mt-4 w-full" size="sm" variant="outline">
               See More
             </Button>
           </CardContent>
         </Card>
       </section>
       <ProductMarquee />
-      <section className="grid grid-cols-1 gap-4 md:grid-cols-3 px-2 mb-8">
+      <section className="mb-8 grid grid-cols-1 gap-4 px-2 md:grid-cols-3">
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="md:text-2xl text-base font-bold">Pouches</CardTitle>
-            <CardDescription className="md:text-base text-sm ">
+            <CardTitle className="text-base font-bold md:text-2xl">
+              Pouches
+            </CardTitle>
+            <CardDescription className="text-sm md:text-base ">
               Pouches for your everyday needs.
             </CardDescription>
           </CardHeader>
@@ -99,15 +101,17 @@ export default async function Home() {
               src="/testbag.jpg"
               width={300}
             />
-            <Button className="w-full mt-4" size="sm" variant="outline">
+            <Button className="mt-4 w-full" size="sm" variant="outline">
               See More
             </Button>
           </CardContent>
         </Card>
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="md:text-2xl text-base font-bold">File Folders</CardTitle>
-            <CardDescription className="md:text-base text-sm ">
+            <CardTitle className="text-base font-bold md:text-2xl">
+              File Folders
+            </CardTitle>
+            <CardDescription className="text-sm md:text-base ">
               Keep your documents safe and organized.
             </CardDescription>
           </CardHeader>
@@ -119,17 +123,17 @@ export default async function Home() {
               src="/testbag.jpg"
               width={300}
             />
-            <Button className="w-full mt-4" size="sm" variant="outline">
+            <Button className="mt-4 w-full" size="sm" variant="outline">
               See More
             </Button>
           </CardContent>
         </Card>
         <Card className="transform transition-all hover:scale-105">
           <CardHeader className="pb-4">
-            <CardTitle className="md:text-2xl text-base font-bold">
+            <CardTitle className="text-base font-bold md:text-2xl">
               Promotional Items
             </CardTitle>
-            <CardDescription className="md:text-base text-sm ">
+            <CardDescription className="text-sm md:text-base ">
               Boost your brand visibility with custom promotional items.
             </CardDescription>
           </CardHeader>
@@ -141,7 +145,7 @@ export default async function Home() {
               src="/testbag.jpg"
               width={300}
             />
-            <Button className="w-full mt-4" size="sm" variant="outline">
+            <Button className="mt-4 w-full" size="sm" variant="outline">
               See More
             </Button>
           </CardContent>

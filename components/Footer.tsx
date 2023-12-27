@@ -3,11 +3,11 @@ import { Button } from "./ui/button";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#a38b70] text-white py-10 px-5">
+    <footer className="bg-[#a38b70] px-5 py-10 text-white">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
-            <h2 className="font-bold text-lg mb-3">Quick Links</h2>
+            <h2 className="mb-3 text-lg font-bold">Quick Links</h2>
             <ul className="space-y-2">
               <li>
                 <a href="/about" className="text-sm hover:underline">
@@ -32,22 +32,22 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h2 className="font-bold text-lg mb-3">Contact Us</h2>
+            <h2 className="mb-3 text-lg font-bold">Contact Us</h2>
             {/* <a
               href="mailto:info@amanasia.com"
               className="text-sm hover:underline block mb-3"
             >
               info@amanasia.com
             </a> */}
-            <div className="flex gap-2 text-sm hover:underline mb-3">
+            <div className="mb-3 flex gap-2 text-sm hover:underline">
               <MailIcon size={16} />
               <p>info@amanasia.com</p>
             </div>
-            <div className="flex gap-2 text-sm hover:underline mb-3">
+            <div className="mb-3 flex gap-2 text-sm hover:underline">
               <PhoneCallIcon size={16} />
               <p>9868151526</p>
             </div>
-            <div className="flex gap-2 text-sm hover:underline mb-3">
+            <div className="mb-3 flex gap-2 text-sm hover:underline">
               <PhoneCallIcon size={16} />
               <p>9811365888</p>
             </div>
@@ -73,14 +73,13 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h2 className="font-bold text-lg mb-3">Request a Callback</h2>
+            <h2 className="mb-3 text-lg font-bold">Request a Callback</h2>
             <form>
               <input
                 type="number"
                 placeholder="Enter your phone number"
-                className="w-full px-3 py-2 rounded-lg border-2 border-white focus:outline-none focus:border-blue-500 transition-colors duration-200"
+                className="w-full rounded-lg border-2 border-white px-3 py-2 text-black transition-colors duration-200 focus:border-blue-500 focus:outline-none"
               />
-              {/* <button type="submit" className="mt-3 w-full px-3 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200">Submit</button> */}
               <Button type="submit" className="mt-3 w-full" variant="secondary">
                 Submit
               </Button>
@@ -88,7 +87,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <p className="text-center text-sm mt-10">
+      <p className="mt-10 text-center text-sm">
         © {new Date().getFullYear()} Amanasia
       </p>
     </footer>

@@ -7,7 +7,7 @@ export default function ProductCard({ item }: { item: any }) {
   return (
     <Link
       href={`/product/${item.slug.current}`}
-      className="group aspect-square flex-none border p-2 rounded-lg cursor-pointer"
+      className="group aspect-square flex-none cursor-pointer rounded-lg"
     >
       <div className="relative">
         <Image
@@ -15,18 +15,18 @@ export default function ProductCard({ item }: { item: any }) {
           width={200}
           height={200}
           alt={item.name}
-          className="rounded-md aspect-square"
+          className="aspect-square rounded-md"
         />
         <Button
           variant="secondary"
-          className="absolute shadow bottom-5 right-5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+          className="absolute bottom-5 right-5 opacity-0 shadow transition-opacity duration-200 group-hover:opacity-100"
         >
           Quick Add
         </Button>
       </div>
-      <div className="pt-4 w-full">
-        <h2 className="md:text-lg text-base font-medium">{item.name}</h2>
-        <p className="opacity-90 text-sm">{item.category.name}</p>
+      <div className="w-full pt-4">
+        <h2 className="text-base font-medium md:text-lg">{item.name}</h2>
+        <p className="text-sm opacity-90">{item.category.name}</p>
         <p className="mt-3 font-medium">₹ {item.price}</p>
       </div>
     </Link>
