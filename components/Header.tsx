@@ -9,8 +9,8 @@ export default async function Header() {
   return (
     <header className="flex flex-row items-center gap-6 p-4">
       <MenuSheet categories={categories} />
-      <Link href="/">
-        <h1 className="mx-auto text-2xl font-bold md:mx-0">Amanasia</h1>
+      <Link className="mx-auto md:mx-0" href="/">
+        <h1 className="text-2xl font-bold">Amanasia</h1>
       </Link>
       <Navbar categories={categories} />
       <CartSheet />

@@ -27,11 +27,15 @@ export default function Billboard() {
         <CarouselContent>
           <CarouselItem>
             <Image
+
               className="w-full rounded-lg"
               src="/customize.jpg"
               alt=""
-              width={800}
-              height={200}
+              width={1920}
+              height={960}
+              priority
+              // placeholder="blur"
+              // blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP88vF1PQAJAgNRE3UdwgAAAABJRU5ErkJggg=="
             />
           </CarouselItem>
           <CarouselItem>
@@ -39,8 +43,10 @@ export default function Billboard() {
               className="w-full rounded-lg"
               src="/Eco-Friendly.jpg"
               alt=""
-              width={800}
-              height={200}
+              width={1920}
+              height={960}
+              priority
+              // placeholder="blur"
             />
           </CarouselItem>
         </CarouselContent>

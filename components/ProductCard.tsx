@@ -15,6 +15,7 @@ export default function ProductCard({ item }: { item: any }) {
           width={200}
           height={200}
           alt={item.name}
+          loading="lazy"
           className="aspect-square rounded-md"
         />
         <Button

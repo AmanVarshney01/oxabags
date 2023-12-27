@@ -26,6 +26,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <Image
+              loading="lazy"
               alt="Cotton Bag"
               className="mx-auto object-cover"
               height={300}
@@ -48,6 +49,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <Image
+              loading="lazy"
               alt="Large Cotton Tote"
               className="mx-auto object-cover"
               height={300}
@@ -70,6 +72,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <Image
+              loading="lazy"
               alt="Designer Cotton Bag"
               className="mx-auto object-cover"
               height={300}
@@ -95,6 +98,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <Image
+              loading="lazy"
               alt="Designer Cotton Bag"
               className="mx-auto object-cover"
               height={300}
@@ -117,6 +121,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <Image
+              loading="lazy"
               alt="Designer Cotton Bag"
               className="mx-auto object-cover"
               height={300}
@@ -139,6 +144,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <Image
+              loading="lazy"
               alt="Designer Cotton Bag"
               className="mx-auto object-cover"
               height={300}
