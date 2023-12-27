@@ -1,10 +1,9 @@
 import { groq } from "next-sanity";
 import { client } from "./client";
 
-export async function getProductBySlug(slug: string) {
+export async function getProductBySlug(slug: string = '') {
   return client.fetch(
-    groq`*[_type == "product" && slug.current == "${slug}"][0]{
-        _id,
+    groq`*[_type == "product" && slug.current == $slug][0]{
         name,
         images,
         color,
@@ -16,7 +15,8 @@ export async function getProductBySlug(slug: string) {
         weightcarrycapacity,
         fabric,
         category->{name},
-    }`
+    }`,
+    { slug }
   );
 }
 

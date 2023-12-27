@@ -1,19 +1,13 @@
-"use client";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { urlForImage } from "@/sanity/lib/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function ProductCard({ item }: { item: any }) {
-  const router = useRouter();
-  const handleClick = () => {
-    router.push(`/product/${item.slug.current}`);
-  };
   return (
-    <div
-      onClick={handleClick}
+    <Link
+      href={`/product/${item.slug.current}`}
       className="group aspect-square flex-none border p-2 rounded-lg cursor-pointer"
-      key={item._id}
     >
       <div className="relative">
         <Image
@@ -35,6 +29,6 @@ export default function ProductCard({ item }: { item: any }) {
         <p className="opacity-90 text-sm">{item.category.name}</p>
         <p className="mt-3 font-medium">₹ {item.price}</p>
       </div>
-    </div>
+    </Link>
   );
 }

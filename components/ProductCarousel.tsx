@@ -11,7 +11,7 @@ import Image from "next/image";
 
 export default function ProductCarousel({ product }: any) {
   return (
-    <div className="p-4 md:w-1/2 flex-1">
+    <div className="md:p-4 p-2 md:w-1/2 flex-1">
       <Carousel
         opts={{
           align: "start",
