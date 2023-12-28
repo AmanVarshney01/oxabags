@@ -43,7 +43,7 @@ export default function CartSheet() {
       toast({
         title: "Thanks for your order!",
         description: "We have received your order and will contact you soon.",
-        className: "border border-green-600",
+        className: "border border-green-600 text-pretty",
       });
     });
     setPhoneNumber("");

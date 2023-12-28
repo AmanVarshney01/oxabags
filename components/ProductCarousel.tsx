@@ -35,6 +35,7 @@ export default function ProductCarousel({ product }: any) {
                 height={1000}
                 alt={product.name}
                 className="rounded-lg"
+                priority
               />
             </CarouselItem>
           ))}

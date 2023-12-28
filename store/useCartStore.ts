@@ -12,7 +12,6 @@ type Product = {
       url: string;
     };
   };
-  quantity?: number;
 };
 
 interface State {
@@ -42,16 +41,14 @@ export const useCartStore = create(
         );
         if (cartItem) {
           const updatedCart = cart.map((item) =>
-            item.slug.current === product.slug.current
-              ? { ...item, quantity: (item.quantity as number) + 1 }
-              : item,
+            item.slug.current === product.slug.current ? item : item,
           );
           set((state) => ({
             cart: updatedCart,
             totalItems: state.totalItems + 1,
           }));
         } else {
-          const updatedCart = [...cart, { ...product, quantity: 1 }];
+          const updatedCart = [...cart, product];
 
           set((state) => ({
             cart: updatedCart,

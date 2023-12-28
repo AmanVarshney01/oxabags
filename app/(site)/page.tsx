@@ -7,7 +7,7 @@ export default function Home() {
     <main className="flex-1 px-2">
       <Billboard />
       <ProductMarquee />
-      <section className="grid grid-cols-1 gap-4 md:grid-cols-3 sm:grid-cols-2 my-8">
+      <section className="my-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         <HomeCategoryCard
           title="Eco-Friendly Cotton Bags"
           description="thically sourced and made from 100% organic cotton."
@@ -28,9 +28,6 @@ export default function Home() {
           image="/testbag.jpg"
           link="/category/canvas-bags"
         />
-      {/* </section>
-      
-      <section className="mb-8 grid grid-cols-1 gap-4 px-2 md:grid-cols-3 sm:grid-cols-2"> */}
         <HomeCategoryCard
           title="Pouches"
           description="Pouches for your everyday needs."
