@@ -98,5 +98,28 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         },
       ],
     },
+    {
+      name: "order",
+      type: "document",
+      title: "Cart Submits",
+      fields: [
+        {
+          name: "products",
+          title: "Products",
+          type: "array",
+          of: [{ type: "string" }],
+        },
+        {
+          name: "phonenumber",
+          title: "Phone Number",
+          type: "string",
+        },
+        {
+          name: "date",
+          title: "Date",
+          type: "string",
+        }
+      ],
+    },
   ],
 };
