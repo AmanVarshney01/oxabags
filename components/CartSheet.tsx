@@ -82,10 +82,10 @@ export default function CartSheet() {
                 className="rounded-lg"
               />
               <div className="flex flex-col gap-2">
-                <div className="line-clamp-2 text-sm leading-tight">
+                <div className="line-clamp-2 text-sm md:text-base leading-tight">
                   {product.name}
                 </div>
-                <div className="text-sm text-red-500">₹ {product.price}</div>
+                <div className="text-sm md:text-base text-red-500">₹ {product.price}</div>
               </div>
               <Button
                 className="absolute bottom-2 right-2 h-8 w-8"
