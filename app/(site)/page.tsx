@@ -46,10 +46,10 @@ export default function Home() {
         />
 
         <HomeCategoryCard
-          title="Promotional Items"
-          description=" Boost your brand visibility with custom promotional items."
+          title="Jute Bags"
+          description="Eco-friendly bags made from jute."
           image="/testbag.jpg"
-          link="/category/all"
+          link="/category/jute-bags"
         />
       </section>
     </main>
