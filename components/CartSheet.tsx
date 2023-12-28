@@ -29,7 +29,6 @@ export default function CartSheet() {
     })
       .then(() => alert("Success!"))
       .catch((error) => alert(error));
-
   };
   return (
     <Sheet>
@@ -75,11 +74,15 @@ export default function CartSheet() {
           </div>
         ))}
         <SheetFooter>
-          <form method="post" name="cart"  onSubmit={handleSubmit} data-netlify="true">
-          <input type="hidden" name="form-name" value="cart" />
-            <SheetClose asChild>
-              <Button type="submit">Submit</Button>
-            </SheetClose>
+          <form
+            method="POST"
+            name="cart"
+            onSubmit={handleSubmit}
+            data-netlify="true"
+            data-netlify-honeypot="bot-field" 
+          >
+            <input type="hidden" name="form-name" value="cart" />
+            <Button type="submit">Submit</Button>
           </form>
         </SheetFooter>
       </SheetContent>
