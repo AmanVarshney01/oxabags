@@ -7,9 +7,9 @@ export default async function ProductDetailCard({ slug }: { slug: string }) {
   const product = await getProductBySlug(slug);
 
   return (
-    <div className="flex w-full flex-col p-4 md:flex-row">
+    <div className="flex w-full flex-col md:flex-row">
       <ProductCarousel product={product} />
-      <div className=" flex w-full flex-col space-y-4 px-2 py-4 md:w-1/2 md:px-12">
+      <div className=" flex w-full flex-col space-y-4 p-4 md:w-1/2 md:px-12">
         <h1 className="pb-2 text-2xl font-bold">{product.name}</h1>
         <h2 className="pb-1 text-xl font-medium text-red-500">
           Price: ₹ {product.price}

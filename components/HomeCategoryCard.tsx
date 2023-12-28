@@ -22,8 +22,8 @@ export default function HomeCategoryCard({
 }) {
   return (
     <Card className="flex transform flex-col justify-between transition-all hover:scale-105">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-base font-bold md:text-2xl">
+      <CardHeader className="">
+        <CardTitle className="text-xl font-bold md:text-2xl">
           {title}
         </CardTitle>
         <CardDescription className="text-sm md:text-base">
@@ -34,14 +34,14 @@ export default function HomeCategoryCard({
         <Image
           loading="lazy"
           alt="Cotton Bag"
-          className="mx-auto object-cover"
+          className="mx-auto object-cover rounded-lg"
           height={300}
           src={image}
           width={300}
         />
         <div className="pt-4">
           <Link href={link}>
-            <Button className=" w-full" size="sm" variant="outline">
+            <Button className=" w-full" size={"sm"} variant="outline">
               See More
             </Button>
           </Link>

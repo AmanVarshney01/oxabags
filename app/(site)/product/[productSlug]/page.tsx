@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 
 const ProductPage = ({ params }: any) => {
   return (
-    <div>
+    <div className="px-2">
       <ProductDetailCard slug={params.productSlug} />
       <ProductMarquee />
     </div>

@@ -7,10 +7,12 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+import Customize from "../public/customize.jpg";
+import EcoFriendly from "../public/Eco-Friendly.jpg";
 
 export default function Billboard() {
   return (
-    <div className="flex-1 p-2 md:p-6">
+    <div className="flex-1 md:p-2">
       <Carousel
         opts={{
           loop: true,
@@ -27,26 +29,20 @@ export default function Billboard() {
         <CarouselContent>
           <CarouselItem>
             <Image
-
               className="w-full rounded-lg"
-              src="/customize.jpg"
-              alt=""
-              width={1920}
-              height={960}
+              src={Customize}
+              alt="Customize your with your own design and preference."
+              // width={1920}
+              // height={960}
               priority
-              // placeholder="blur"
-              // blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP88vF1PQAJAgNRE3UdwgAAAABJRU5ErkJggg=="
             />
           </CarouselItem>
           <CarouselItem>
             <Image
               className="w-full rounded-lg"
-              src="/Eco-Friendly.jpg"
+              src={EcoFriendly}
               alt=""
-              width={1920}
-              height={960}
               priority
-              // placeholder="blur"
             />
           </CarouselItem>
         </CarouselContent>

@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "@/components/theme-provider";
+// import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,18 +23,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
+        {/* <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        >
+        > */}
           <main className="mx-auto max-w-7xl">
             <Header />
             {children}
             <Footer />
           </main>
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );

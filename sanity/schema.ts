@@ -59,7 +59,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "slug",
           options: {
             source: "name",
-          },  
+          },
         },
         {
           name: "featured",
@@ -70,9 +70,11 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           name: "category",
           title: "Product Category",
           type: "reference",
-          to:   [{
-            type: "category",
-          }]
+          to: [
+            {
+              type: "category",
+            },
+          ],
         },
       ],
     },
@@ -85,6 +87,14 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           name: "name",
           title: "Name of Category",
           type: "string",
+        },
+        {
+          name: "slug",
+          title: "Slug",
+          type: "slug",
+          options: {
+            source: "name",
+          },
         },
       ],
     },

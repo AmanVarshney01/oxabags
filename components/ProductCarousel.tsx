@@ -12,7 +12,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 export default function ProductCarousel({ product }: any) {
   return (
-    <div className="flex-1 p-2 md:w-1/2 md:p-4">
+    <div className="flex-1 md:w-1/2 md:p-4">
       <Carousel
         opts={{
           align: "start",
@@ -34,12 +34,13 @@ export default function ProductCarousel({ product }: any) {
                 width={1000}
                 height={1000}
                 alt={product.name}
+                className="rounded-lg"
               />
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="left-0" />
+        <CarouselNext className="right-0" />
       </Carousel>
     </div>
   );

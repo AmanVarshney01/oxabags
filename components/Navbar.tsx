@@ -29,9 +29,7 @@ export default function Navbar({ categories }: any) {
               {categories.map((category: any, index: number) => (
                 <li key={index}>
                   <Link
-                    href={`/category/${category.name
-                      .toLowerCase()
-                      .replace(" ", "-")}`}
+                    href={`/category/${category.slug.current}`}
                     legacyBehavior
                     passHref
                   >

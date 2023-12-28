@@ -1,5 +1,6 @@
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -19,35 +20,39 @@ export default async function MenuSheet({ categories }: any) {
         <SheetHeader>
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
-        <ul className=" flex flex-col space-y-6 py-8">
-          <Link href="/">
-            <Button className="text-lg" variant="link">
-              Home
-            </Button>
-          </Link>
+        <ul className=" my-8 flex flex-col space-y-3">
+          <SheetClose asChild>
+            <Link href="/">
+              <Button className="text-lg" variant="link">
+                Home
+              </Button>
+            </Link>
+          </SheetClose>
           {categories.map((category: any, index: number) => (
             <li key={index}>
-              <Link
-                href={`/category/${category.name
-                  .toLowerCase()
-                  .replace(" ", "-")}`}
-              >
-                <Button className="text-lg" variant="link">
-                  {category.name}
-                </Button>
-              </Link>
+              <SheetClose asChild>
+                <Link href={`/category/${category.slug.current}`}>
+                  <Button className="text-lg" variant="link">
+                    {category.name}
+                  </Button>
+                </Link>
+              </SheetClose>
             </li>
           ))}
-          <Link href="/about">
-            <Button className="text-lg" variant="link">
-              About
-            </Button>
-          </Link>
-          <Link href="/contact">
-            <Button className="text-lg" variant="link">
-              Contact
-            </Button>
-          </Link>
+          <SheetClose asChild>
+            <Link href="/about">
+              <Button className="text-lg" variant="link">
+                About
+              </Button>
+            </Link>
+          </SheetClose>
+          <SheetClose asChild>
+            <Link href="/contact">
+              <Button className="text-lg" variant="link">
+                Contact
+              </Button>
+            </Link>
+          </SheetClose>
         </ul>
       </SheetContent>
     </Sheet>
