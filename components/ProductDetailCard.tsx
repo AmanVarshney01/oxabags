@@ -1,11 +1,9 @@
 import { getProductBySlug } from "@/sanity/lib/sanity.query";
 import ProductCarousel from "./ProductCarousel";
-import { Button } from "./ui/button";
-import { PlusIcon } from "lucide-react";
+import AddToCartButton from "./AddToCartButton";
 
 export default async function ProductDetailCard({ slug }: { slug: string }) {
   const product = await getProductBySlug(slug);
-
   return (
     <div className="flex w-full flex-col md:flex-row">
       <ProductCarousel product={product} />
@@ -32,13 +30,7 @@ export default async function ProductDetailCard({ slug }: { slug: string }) {
         </div>
         <p className=" ">{product.description}</p>
         <div className="pt-4">
-          <Button
-            variant={"outline"}
-            className="relative w-full rounded-full text-blue-600 border border-blue-600 shadow hover:opacity-90"
-          >
-            <PlusIcon className="absolute left-0 ml-4 h-6 w-6" />
-            <span className="">Add to Cart</span>
-          </Button>
+          <AddToCartButton product={product} />
         </div>
       </div>
     </div>

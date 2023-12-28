@@ -13,7 +13,6 @@ export async function generateStaticParams() {
 
 export default async function CategoryPage({ params }: any) {
   const products = await getProductsByCategory(params.categorySlug);
-  console.log(products);
   return (
     <>
       {products && products.length > 0 ? (
