@@ -1,14 +1,12 @@
 "use client";
 import { useToast } from "@/components/ui/use-toast";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetFooter,
   SheetHeader,
-  SheetClose,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -18,13 +16,17 @@ import { DeleteIcon, ShoppingCartIcon } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
 import { urlForImage } from "@/sanity/lib/image";
 import { client } from "@/sanity/lib/client";
-import { set } from "sanity";
 
 export default function CartSheet() {
   const { toast } = useToast();
   const { cart, removeFromCart }: any = useCartStore();
   const [phoneNumber, setPhoneNumber] = useState<string>();
   const [open, setOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -50,11 +52,16 @@ export default function CartSheet() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger className="ml-0 md:ml-auto">
-        <div className="relative">
-          <ShoppingCartIcon size={22} />
-        </div>
+        {isClient && (
+          <div className="relative">
+            <ShoppingCartIcon size={22} />
+            {cart.length > 0 && (
+              <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-red-500"></div>
+            )}
+          </div>
+        )}
       </SheetTrigger>
-      <SheetContent className=" flex flex-col">
+      <SheetContent className=" flex flex-col p-2 md:p-6">
         <SheetHeader>
           <SheetTitle>Cart</SheetTitle>
         </SheetHeader>
@@ -75,23 +82,25 @@ export default function CartSheet() {
                 className="rounded-lg"
               />
               <div className="flex flex-col gap-2">
-                <div className=" ">{product.name}</div>
-                <div className="text-red-500">₹ {product.price}</div>
+                <div className="line-clamp-2 text-sm leading-tight">
+                  {product.name}
+                </div>
+                <div className="text-sm text-red-500">₹ {product.price}</div>
               </div>
               <Button
-                className="absolute bottom-2 right-2"
+                className="absolute bottom-2 right-2 h-8 w-8"
                 variant={"destructive"}
                 size={"icon"}
                 onClick={() => removeFromCart(product)}
               >
-                <DeleteIcon size={22} />
+                <DeleteIcon size={18} />
               </Button>
             </div>
           ))}
         </div>
         <SheetFooter>
-          <form className=" ">
-            <label htmlFor="phone" className="text-lg font-bold">
+          <form className="">
+            <label htmlFor="phone" className="text-base font-bold md:text-lg">
               Request a Callback
             </label>
             <input
