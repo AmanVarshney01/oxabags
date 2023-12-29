@@ -14,7 +14,7 @@ export async function generateStaticParams() {
 export default async function CategoryPage({ params }: any) {
   const products = await getProductsByCategory(params.categorySlug);
   return (
-    <>
+    <section className="">
       {products && products.length > 0 ? (
         <div>
           <h2 className="px-8 py-8 text-2xl font-medium">
@@ -31,6 +31,6 @@ export default async function CategoryPage({ params }: any) {
       ) : (
         <p className="p-4 text-2xl">Sorry No Products found</p>
       )}
-    </>
+    </section>
   );
 }

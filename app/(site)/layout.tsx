@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <main className="mx-auto max-w-7xl">
+        <main className="mx-auto max-w-7xl min-h-svh">
           <Header />
           {children}
           <Footer />

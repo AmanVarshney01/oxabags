@@ -25,7 +25,7 @@ export default function Navbar({ categories }: any) {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[300px] grid-cols-2 gap-3 p-4 ">
+            <ul className="grid w-[280px] grid-cols-2 gap-3  p-4">
               {categories.map((category: any, index: number) => (
                 <li key={index}>
                   <Link
@@ -52,13 +52,13 @@ export default function Navbar({ categories }: any) {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <Link href="/contact" passHref legacyBehavior>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Contact
             </NavigationMenuLink>
           </Link>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
       </NavigationMenuList>
       {/* <NavigationMenuViewport /> */}
     </NavigationMenu>

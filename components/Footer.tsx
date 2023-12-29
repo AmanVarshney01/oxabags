@@ -14,11 +14,11 @@ export default function Footer() {
                   About
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="/contact" className="text-sm hover:underline">
                   Contact
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href="/terms" className="text-sm hover:underline">
                   Terms of Service
