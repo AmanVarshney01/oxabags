@@ -8,13 +8,15 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Amanasia",
-  description: "",
-  icons: {
-    icon: "/favicon.ico",
+  title: {
+    template: '%s | Amanasia',
+    default: 'Amanasia',
   },
+  description:
+    "Manufacturer, Wholesaler & Exporter of Jute bags, Cotton Bag for Corporate Events & Exhibitions",
+  keywords:
+    "Jute bags, Cotton Bag, Canvas Bags, File Folders, Denim Bags, Pouches",
 };
-
 export default function RootLayout({
   children,
 }: {
@@ -23,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <main className="mx-auto max-w-7xl min-h-svh">
+        <main className="mx-auto min-h-svh max-w-7xl">
           <Header />
           {children}
           <Footer />

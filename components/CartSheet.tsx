@@ -51,14 +51,15 @@ export default function CartSheet() {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger className="ml-0 md:ml-auto">
+      <SheetTrigger asChild className="ml-0 md:ml-auto">
         {isClient && (
-          <div className="relative">
+          <Button variant={"outline"} className="relative">
             <ShoppingCartIcon size={22} />
             {cart.length > 0 && (
               <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-red-500"></div>
             )}
-          </div>
+            <span className="sr-only">Cart</span>
+          </Button>
         )}
       </SheetTrigger>
       <SheetContent className=" flex flex-col p-2 md:p-6">
@@ -82,7 +83,7 @@ export default function CartSheet() {
                 className="rounded-lg"
               />
               <div className="flex flex-col gap-2">
-                <div className="line-clamp-2 text-sm md:text-base leading-tight">
+                <div className="line-clamp-2 font-medium text-sm md:text-base leading-tight">
                   {product.name}
                 </div>
                 <div className="text-sm md:text-base text-red-500">₹ {product.price}</div>

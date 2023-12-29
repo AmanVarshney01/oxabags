@@ -13,8 +13,11 @@ import { MenuIcon } from "lucide-react";
 export default async function MenuSheet({ categories }: any) {
   return (
     <Sheet>
-      <SheetTrigger className="block md:hidden">
-        <MenuIcon size={22} />
+      <SheetTrigger asChild className="block md:hidden">
+          <Button variant={"outline"} className="relative">
+            <MenuIcon size={22} />
+            <span className="sr-only">Menu</span>
+          </Button>
       </SheetTrigger>
       <SheetContent side={"left"}>
         <SheetHeader>
