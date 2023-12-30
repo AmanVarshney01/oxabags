@@ -22,9 +22,9 @@ export default function HomeCategoryCard({
   link: string;
 }) {
   return (
-    <Card className="flex transform flex-col justify-between transition-all hover:scale-105">
-      <Link href={link}>
-        <CardHeader className="">
+    <Link href={link}>
+      <Card className="flex flex-col h-full justify-between">
+        <CardHeader className="p-4">
           <CardTitle className="text-xl font-bold md:text-2xl">
             {title}
           </CardTitle>
@@ -32,26 +32,17 @@ export default function HomeCategoryCard({
             {description}
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          {/* <AspectRatio ratio={1/1}> */}
-            <Image
-              loading="lazy"
-              alt="Cotton Bag"
-              className="mx-auto rounded-lg object-cover"
-              height={300}
-              src={image}
-              width={300}
-            />
-          {/* </AspectRatio> */}
-          {/* <div className="pt-4">
-          <Link href={link}>
-            <Button className=" w-full" size={"sm"} variant="outline">
-              
-            </Button>
-          </Link>
-        </div> */}
+        <CardContent className="p-4">
+          <Image
+            loading="lazy"
+            alt="Cotton Bag"
+            className="mx-auto rounded-lg object-cover"
+            height={300}
+            src={image}
+            width={300}
+          />
         </CardContent>
-      </Link>
-    </Card>
+      </Card>
+    </Link>
   );
 }

@@ -3,7 +3,7 @@ import ContactForm from "./ContactForm";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#635147] dark:bg-[#a38b70]/50 md:px-5 md:py-10 py-5 text-white">
+    <footer className=" md:px-5 md:py-10 py-5 border-t">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>

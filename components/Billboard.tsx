@@ -7,8 +7,8 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import Customize from "../public/customize.jpg";
-import EcoFriendly from "../public/Eco-Friendly.jpg";
+import Customize from "../public/customize.webp";
+import EcoFriendly from "../public/Eco-Friendly.webp";
 
 export default function Billboard() {
   return (

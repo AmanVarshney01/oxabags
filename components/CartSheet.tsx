@@ -108,14 +108,14 @@ export default function CartSheet() {
               name="phone"
               pattern="[0-9]{10}"
               placeholder="Enter your phone number"
-              className="mt-3 w-full rounded-lg border-2 border-white px-3 py-2 text-black transition-colors duration-200 focus:border-blue-500 focus:outline-none dark:text-white"
+              className="mt-3 w-full rounded-lg border-2 px-3 py-2 text-black transition-colors duration-200 focus:border-blue-500 focus:outline-none dark:text-white"
               required
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
             <Button
               className="mt-3 w-full border shadow"
-              variant="secondary"
+              variant="default"
               type="submit"
               onClick={handleSubmit}
             >
