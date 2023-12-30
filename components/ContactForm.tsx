@@ -18,7 +18,7 @@ export default function ContactForm() {
         name="phone"
         pattern="[0-9]{10}"
         placeholder="Enter your phone number"
-        className="mt-3 w-full rounded-lg border-2 px-3 py-2 text-black dark:text-white transition-colors duration-200 focus:border-blue-500 focus:outline-none"
+        className="mt-3 w-full rounded-lg border-2 px-3 py-2 transition-colors duration-200 focus:border-blue-500 focus:outline-none"
         required
       />
       <Button type="submit" className="mt-3 w-full" variant="default">
