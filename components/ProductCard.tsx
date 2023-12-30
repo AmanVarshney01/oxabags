@@ -15,7 +15,7 @@ export default function ProductCard({ product }: { product: any }) {
           height={200}
           alt={product.name}
           loading="lazy"
-          className="aspect-square rounded-md"
+          className="aspect-square rounded-md object-cover"
         />
       </div>
       <div className="w-full pt-4">

@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About"
+}
+
 export default function About() {
   const companyName = "Aman Enterprises";
   const ownerName = "Kuldeep Gupta";

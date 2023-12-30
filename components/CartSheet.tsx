@@ -52,15 +52,13 @@ export default function CartSheet() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild className="ml-0 md:ml-auto">
-        {isClient && (
           <Button variant={"outline"} className="relative">
             <ShoppingCartIcon size={22} />
-            {cart.length > 0 && (
+            {isClient && cart.length > 0 && (
               <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-red-500"></div>
             )}
             <span className="sr-only">Cart</span>
           </Button>
-        )}
       </SheetTrigger>
       <SheetContent className=" flex flex-col p-2 md:p-6">
         <SheetHeader>
@@ -70,10 +68,10 @@ export default function CartSheet() {
           {cart.length > 0 ? "" : "Empty"}
         </SheetDescription>
         <div className="overflow-y-auto">
-          {cart.map((product: any) => (
+          {cart.map((product: any, index: number) => (
             <div
-              key={product.slug}
-              className="relative mb-2 flex gap-4 rounded-lg border bg-white/50 p-2 text-lg"
+              key={index}
+              className="relative mb-2 flex gap-4 rounded-lg border p-2 text-lg"
             >
               <Image
                 src={urlForImage(product.images[0])}

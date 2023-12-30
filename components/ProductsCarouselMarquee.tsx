@@ -14,15 +14,15 @@ export default function ProductCarouselMarquee({ products }: any) {
       <CarouselContent>
         {products.map((product: any, index: number) => (
           <CarouselItem
-            className="basis-1/2 sm:basis-1/3 md:basis-1/5 lg:basis-1/6"
+            className="basis-1/2 pl-2 md:pl-4 sm:basis-1/3 md:basis-1/5 lg:basis-1/6"
             key={index}
           >
             <ProductCard product={product} />
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-2 opacity-70 md:-left-6" />
-      <CarouselNext className="right-2 opacity-70 md:-right-6" />
+      <CarouselPrevious className="left-0"/>
+      <CarouselNext className="right-0"/>
     </Carousel>
   );
 }

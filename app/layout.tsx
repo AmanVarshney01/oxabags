@@ -4,13 +4,14 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Amanasia',
-    default: 'Amanasia',
+    template: "%s | Amanasia",
+    default: "Amanasia",
   },
   description:
     "Manufacturer, Wholesaler & Exporter of Jute bags, Cotton Bag for Corporate Events & Exhibitions",
@@ -25,11 +26,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <main className="mx-auto min-h-svh max-w-7xl">
-          <Header />
-          {children}
-          <Footer />
-        </main>
+        <ThemeProvider
+          attribute="class"
+          // defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className="mx-auto min-h-svh max-w-7xl">
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </ThemeProvider>
         <Toaster />
       </body>
     </html>

@@ -1,11 +1,11 @@
 import ProductCard from "@/components/ProductCard";
 import { getProductsByCategory } from "@/sanity/lib/sanity.query";
 import { getCategories } from "@/sanity/lib/sanity.query";
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata, ResolvingMetadata } from "next";
 
 type Props = {
-  params: { categorySlug: string }
-}
+  params: { categorySlug: string };
+};
 
 export async function generateStaticParams() {
   const categorySlugs = await getCategories();
@@ -24,7 +24,10 @@ export async function generateMetadata(
   const title = params.categorySlug;
 
   return {
-    title: title,
+    title: title
+      .split("-")
+      .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" "),
   };
 }
 
