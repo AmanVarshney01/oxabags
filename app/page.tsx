@@ -7,7 +7,7 @@ export default function Home() {
     <main className="flex-1 px-2">
       <Billboard />
       <ProductMarquee />
-      <section className="my-8 grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3">
+      <section className=" my-8 grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-4">
         <HomeCategoryCard
           title="Eco-Friendly Cotton Bags"
           description="Ethically sourced and made from 100% organic cotton."
@@ -24,7 +24,7 @@ export default function Home() {
 
         <HomeCategoryCard
           title="Designer Canvas Bags"
-            description="Trendy and stylish designs printed on high quality canvas."
+          description="Trendy and stylish designs printed on high quality canvas."
           image="/testbag.jpg"
           link="/category/canvas-bags"
         />

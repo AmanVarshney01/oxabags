@@ -9,7 +9,7 @@ export default function ProductCard({ product }: { product: any }) {
       href={`/product/${product.slug.current}`}
       className="group aspect-square cursor-pointer rounded-lg"
     >
-      <Card>
+      <Card className="flex flex-col h-full justify-between">
         <CardHeader className="p-2 flex items-center justify-center">
           <div className="relative">
             <Image
@@ -24,7 +24,7 @@ export default function ProductCard({ product }: { product: any }) {
         </CardHeader>
         <CardContent className="p-2">
           <div className="w-full">
-            <CardTitle className="text-base font-medium md:text-lg">{product.name}</CardTitle>
+            <CardTitle className="text-sm sm:text-base font-medium md:text-lg">{product.name}</CardTitle>
             <CardDescription className="text-sm opacity-90">{product.category.name}</CardDescription>
           </div>
         </CardContent>
