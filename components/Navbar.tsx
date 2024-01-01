@@ -10,8 +10,9 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { Category } from "@/lib/types";
 
-export default function Navbar({ categories }: any) {
+export default function Navbar({ categories }: { categories: Category[] }) {
   return (
     <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
@@ -26,7 +27,7 @@ export default function Navbar({ categories }: any) {
           <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[280px] grid-cols-2 gap-3  p-4">
-              {categories.map((category: any, index: number) => (
+              {categories.map((category: Category, index: number) => (
                 <li key={index}>
                   <Link
                     href={`/category/${category.slug.current}`}
@@ -42,7 +43,6 @@ export default function Navbar({ categories }: any) {
                 </li>
               ))}
             </ul>
-            <NavigationMenuIndicator />
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
@@ -52,15 +52,7 @@ export default function Navbar({ categories }: any) {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        {/* <NavigationMenuItem>
-          <Link href="/contact" passHref legacyBehavior>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Contact
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem> */}
       </NavigationMenuList>
-      {/* <NavigationMenuViewport /> */}
     </NavigationMenu>
   );
 }

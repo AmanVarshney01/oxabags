@@ -9,8 +9,9 @@ import {
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
+import { Product } from "@/lib/types";
 
-export default function ProductCarousel({ product }: any) {
+export default function ProductCarousel({ product }: { product: Product }) {
   return (
     <div className="flex-1 md:w-1/2 md:p-4">
       <Carousel

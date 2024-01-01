@@ -6,13 +6,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
+import { Product } from "@/lib/types";
 import ProductCard from "./ProductCard";
 
-export default function ProductCarouselMarquee({ products }: any) {
+export default function ProductCarouselMarquee({ products }: { products: Product[] }) {
   return (
     <Carousel>
       <CarouselContent>
-        {products.map((product: any, index: number) => (
+        {products.map((product: Product, index: number) => (
           <CarouselItem
             className="basis-1/2 pl-2 md:pl-4 sm:basis-1/3 md:basis-1/5 lg:basis-1/6"
             key={index}

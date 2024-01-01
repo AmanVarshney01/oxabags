@@ -2,8 +2,9 @@ import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle , CardDescription} from "./ui/card";
+import { Product } from "@/lib/types";
 
-export default function ProductCard({ product }: { product: any }) {
+export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/product/${product.slug.current}`}

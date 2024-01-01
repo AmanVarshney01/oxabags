@@ -38,7 +38,7 @@ export async function generateMetadata(
   };
 }
 
-const ProductPage = ({ params }: any) => {
+const ProductPage = ({ params }: Props) => {
   return (
     <div className="px-2">
       <ProductDetailCard slug={params.productSlug} />

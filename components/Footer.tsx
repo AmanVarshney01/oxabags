@@ -3,7 +3,7 @@ import ContactForm from "./ContactForm";
 
 export default function Footer() {
   return (
-    <footer className=" md:px-5 md:py-10 py-5 border-t">
+    <footer className=" border-t py-5 md:px-5 md:py-10">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
@@ -14,11 +14,6 @@ export default function Footer() {
                   About
                 </a>
               </li>
-              {/* <li>
-                <a href="/contact" className="text-sm hover:underline">
-                  Contact
-                </a>
-              </li> */}
               <li>
                 <a href="/terms" className="text-sm hover:underline">
                   Terms of Service
@@ -33,12 +28,6 @@ export default function Footer() {
           </div>
           <div>
             <h2 className="mb-3 text-lg font-bold">Contact Us</h2>
-            {/* <a
-              href="mailto:info@amanasia.com"
-              className="text-sm hover:underline block mb-3"
-            >
-              info@amanasia.com
-            </a> */}
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <MailIcon size={16} />
               <p>info@amanasia.com</p>

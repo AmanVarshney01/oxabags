@@ -14,15 +14,15 @@ type Product = {
   };
 };
 
-interface State {
+type State = {
   cart: Product[];
   totalItems: number;
-}
+};
 
-interface Actions {
+type Actions = {
   addToCart: (Item: Product) => void;
   removeFromCart: (Item: Product) => void;
-}
+};
 
 const INITIAL_STATE = {
   cart: [],

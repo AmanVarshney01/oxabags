@@ -31,7 +31,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function CategoryPage({ params }: any) {
+export default async function CategoryPage({ params }: Props) {
   const products = await getProductsByCategory(params.categorySlug);
   return (
     <section className="">
