@@ -16,6 +16,7 @@ import { DeleteIcon, ShoppingCartIcon } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
 import { urlForImage } from "@/sanity/lib/image";
 import { client } from "@/sanity/lib/client";
+import { Card, CardContent, CardHeader, CardFooter } from "./ui/card";
 
 export default function CartSheet() {
   const { toast } = useToast();
@@ -52,13 +53,13 @@ export default function CartSheet() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild className="ml-0 md:ml-auto">
-          <Button variant={"outline"} className="relative">
-            <ShoppingCartIcon size={22} />
-            {isClient && cart.length > 0 && (
-              <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-red-500"></div>
-            )}
-            <span className="sr-only">Cart</span>
-          </Button>
+        <Button variant={"outline"} className="relative">
+          <ShoppingCartIcon size={22} />
+          {isClient && cart.length > 0 && (
+            <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-red-500"></div>
+          )}
+          <span className="sr-only">Cart</span>
+        </Button>
       </SheetTrigger>
       <SheetContent className=" flex flex-col p-2 md:p-6">
         <SheetHeader>
@@ -69,32 +70,42 @@ export default function CartSheet() {
         </SheetDescription>
         <div className="overflow-y-auto">
           {cart.map((product: any, index: number) => (
-            <div
+            <Card
               key={index}
-              className="relative mb-2 flex gap-4 rounded-lg border p-2 text-lg"
+              className="mb-2 flex w-full flex-row justify-between p-2"
             >
-              <Image
-                src={urlForImage(product.images[0])}
-                width={100}
-                height={100}
-                alt={product.name}
-                className="rounded-lg"
-              />
-              <div className="flex flex-col gap-2">
-                <div className="line-clamp-2 font-medium text-sm md:text-base leading-tight">
-                  {product.name}
+              <CardHeader className="p-0">
+                <Image
+                  src={urlForImage(product.images[0])}
+                  width={100}
+                  height={100}
+                  alt={product.name}
+                  className="rounded-lg"
+                />
+              </CardHeader>
+              <CardContent className="h-full w-full items-start justify-start p-0 pl-4">
+                <div className="flex gap-4 text-lg">
+                  <div className="flex flex-col gap-2">
+                    <div className="line-clamp-2 text-sm font-medium leading-tight sm:text-base md:text-lg">
+                      {product.name}
+                    </div>
+                    <div className=" text-xs text-red-500 sm:text-sm md:text-base">
+                      ₹ {product.price}
+                    </div>
+                  </div>
                 </div>
-                <div className="text-sm md:text-base text-red-500">₹ {product.price}</div>
-              </div>
-              <Button
-                className="absolute bottom-2 right-2 h-8 w-8"
-                variant={"destructive"}
-                size={"icon"}
-                onClick={() => removeFromCart(product)}
-              >
-                <DeleteIcon size={18} />
-              </Button>
-            </div>
+              </CardContent>
+              <CardFooter className="items-end p-0">
+                <Button
+                  className=" h-8 w-8"
+                  variant={"destructive"}
+                  size={"icon"}
+                  onClick={() => removeFromCart(product)}
+                >
+                  <DeleteIcon size={18} />
+                </Button>
+              </CardFooter>
+            </Card>
           ))}
         </div>
         <SheetFooter>
