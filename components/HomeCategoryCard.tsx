@@ -25,7 +25,7 @@ export default function HomeCategoryCard({
     <Link href={link}>
       <Card className="flex flex-col h-full justify-between">
         <CardHeader className="p-4">
-          <CardTitle className="text-lg font-bold md:text-xl">
+          <CardTitle className="text-lg font-medium md:text-xl">
             {title}
           </CardTitle>
           <CardDescription className="text-sm md:text-base">

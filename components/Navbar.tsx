@@ -26,7 +26,7 @@ export default function Navbar({ categories }: { categories: Category[] }) {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[280px] grid-cols-2 gap-3  p-4">
+            <ul className="grid w-max grid-cols-2 gap-2 p-2">
               {categories.map((category: Category, index: number) => (
                 <li key={index}>
                   <Link
