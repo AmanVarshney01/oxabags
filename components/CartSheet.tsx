@@ -1,6 +1,7 @@
 "use client";
 import { useToast } from "@/components/ui/use-toast";
 import { useState, useEffect } from "react";
+import CartProductCard from "./CartProductCard";
 import {
   Sheet,
   SheetContent,
@@ -10,17 +11,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Image from "next/image";
 import { Button } from "./ui/button";
-import { DeleteIcon, ShoppingCartIcon } from "lucide-react";
+import { ShoppingCartIcon } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
-import { urlForImage } from "@/sanity/lib/image";
 import { client } from "@/sanity/lib/client";
-import { Card, CardContent, CardHeader, CardFooter } from "./ui/card";
+import PayNowButton from "./PayNowButton";
 
 export default function CartSheet() {
   const { toast } = useToast();
-  const { cart, removeFromCart }: any = useCartStore();
+  const { cart, removeFromCart, addToCart, deleteFromCart }: any =
+    useCartStore();
   const [phoneNumber, setPhoneNumber] = useState<string>();
   const [open, setOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -29,26 +29,26 @@ export default function CartSheet() {
     setIsClient(true);
   }, []);
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    setOpen(false);
-    const slugs = cart.map((product: any) => product.slug.current);
-    const doc = {
-      _type: "order",
-      products: slugs,
-      phonenumber: phoneNumber,
-      date: new Date().toLocaleDateString("en-GB"),
-    };
+  // const handleSubmit = (e: any) => {
+  //   e.preventDefault();
+  //   setOpen(false);
+  //   const slugs = cart.map((product: any) => product.slug.current);
+  //   const doc = {
+  //     _type: "order",
+  //     products: slugs,
+  //     phonenumber: phoneNumber,
+  //     date: new Date().toLocaleDateString("en-GB"),
+  //   };
 
-    client.create(doc).then((res) => {
-      toast({
-        title: "Thanks for your order!",
-        description: "We have received your order and will contact you soon.",
-        className: "border border-green-600 text-pretty",
-      });
-    });
-    setPhoneNumber("");
-  };
+  //   client.create(doc).then((res) => {
+  //     toast({
+  //       title: "Thanks for your order!",
+  //       description: "We have received your order and will contact you soon.",
+  //       className: "border border-green-600 text-pretty",
+  //     });
+  //   });
+  //   setPhoneNumber("");
+  // };
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -70,46 +70,18 @@ export default function CartSheet() {
         </SheetDescription>
         <div className="overflow-y-auto">
           {cart.map((product: any, index: number) => (
-            <Card
+            <CartProductCard
               key={index}
-              className="mb-2 flex w-full flex-row justify-between p-2"
-            >
-              <CardHeader className="p-0">
-                <Image
-                  src={urlForImage(product.images[0])}
-                  width={100}
-                  height={100}
-                  alt={product.name}
-                  className="rounded-lg"
-                />
-              </CardHeader>
-              <CardContent className="h-full w-full items-start justify-start p-0 pl-4">
-                <div className="flex gap-4 text-lg">
-                  <div className="flex flex-col gap-2">
-                    <div className="line-clamp-2 text-sm font-medium leading-tight sm:text-base md:text-lg">
-                      {product.name}
-                    </div>
-                    <div className=" text-xs text-red-500 sm:text-sm md:text-base">
-                      ₹ {product.price}
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-              <CardFooter className="items-end p-0">
-                <Button
-                  className=" h-8 w-8"
-                  variant={"destructive"}
-                  size={"icon"}
-                  onClick={() => removeFromCart(product)}
-                >
-                  <DeleteIcon size={18} />
-                </Button>
-              </CardFooter>
-            </Card>
+              product={product}
+              removeFromCart={removeFromCart}
+              addToCart={addToCart}
+              deleteFromCart={deleteFromCart}
+            />
           ))}
         </div>
         <SheetFooter>
-          <form className="">
+          <PayNowButton />
+          {/* <form className="">
             <label htmlFor="phone" className="text-base font-bold md:text-lg">
               Request a Callback
             </label>
@@ -132,7 +104,7 @@ export default function CartSheet() {
             >
               Submit
             </Button>
-          </form>
+          </form> */}
         </SheetFooter>
       </SheetContent>
     </Sheet>
