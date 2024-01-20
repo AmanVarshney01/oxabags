@@ -1,66 +1,19 @@
-import { useCartStore } from "@/store/useCartStore";
+// import { useCartStore } from "@/store/useCartStore";
 import { Button } from "./ui/button";
 
 export default function PayNowButton() {
-  const { cart } = useCartStore();
-  let totalAmount = 0;
-  cart.forEach((item: any) => {
-    totalAmount += item.price * item.quantity;
-  });
-  // async function handlePayment() {
-  //   const data = await fetch("/api/razorpay?amount=" + totalAmount);
-  //   const { order } = await data?.json();
-  //   const options = {
-  //     key: process.env.RAZORPAY_KEY,
-  //     amount: order.amount,
-  //     currency: order.currency,
-  //     name: "Your Store Name",
-  //     description: "Order Payment",
-  //     order_id: order.id,
-  //     handler: async function (response: any) {
-  //       const data = await fetch("/api/paymentverify", {
-  //         method: "POST",
-  //         body: JSON.stringify({
-  //           razorpayPaymentId: response.razorpay_payment_id,
-  //           razorpayOrderId: response.razorpay_order_id,
-  //           razorpaySignature: response.razorpay_signature,
-  //           email: "amanyoyoyo@gmail.com",
-  //         }),
-  //       });
+  // const { cart } = useCartStore();
+  // let totalAmount = 0;
+  // cart.forEach((item: any) => {
+  //   totalAmount += item.price * item.quantity;
+  // });
 
-  //       // const res = await data.json();
-  //       // if (res?.error === false) {
-  //       //   router.push("/");
-  //       // }
-  //     },
-  //     prefill: {
-  //       name: "Customer Name",
-  //       email: "customer@example.com",
-  //       contact: "9999999999",
-  //     },
-  //     theme: {
-  //       color: "#121212",
-  //     },
-  //     notes: {
-  //       cart_items: JSON.stringify(
-  //         cart.map((item: any) => ({
-  //           name: item.name,
-  //           quantity: item.quantity,
-  //           price: item.price,
-  //         })),
-  //       ),
-  //     },
-  //   };
-  //   const paymentObject = new (window as any).Razorpay(options);
-  //   paymentObject.open();
-  // }
-
-  const createAndSendInvoice = async () => {
+  const handleSubmit = async () => {
     try {
       await fetch("/api/razorpay", {
         method: "POST",
         body: JSON.stringify({
-          amount: totalAmount,
+          // amount: totalAmount,
         }),
       });
     } catch (error) {
@@ -71,10 +24,7 @@ export default function PayNowButton() {
 
   return (
     <div>
-      <Button
-        className=" "
-        onClick={() => createAndSendInvoice()}
-      >
+      <Button className=" " onClick={() => handleSubmit()}>
         Buy Now
       </Button>
     </div>
