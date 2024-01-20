@@ -7,7 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
 import Image from "next/image";
-import whatsapp from "../public/WhatsAppButtonWhiteSmall.svg";
+import whatsapp from "../public/WhatsAppButtonGreenSmall.svg";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -49,9 +49,9 @@ export default function RootLayout({
               {children}
               <Footer />
             </main>
-            <Link href={"https://wa.me/9868151526"}>
+            <Link href={"https://wa.me/9868151526"} target="_blank" rel="noopener noreferrer" >
               <Image
-                className="fixed bottom-4 left-4"
+                className="fixed bottom-2 left-2 rounded-lg border border-black/20"
                 width={140}
                 // height={50}
                 src={whatsapp}

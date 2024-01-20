@@ -1,5 +1,6 @@
 import { MailIcon, PhoneCallIcon } from "lucide-react";
 import ContactForm from "./ContactForm";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -10,19 +11,19 @@ export default function Footer() {
             <h2 className="mb-3 text-lg font-bold">Quick Links</h2>
             <ul className="space-y-2">
               <li>
-                <a href="/about" className="text-sm hover:underline">
+                <Link href="/about" className="text-sm hover:underline">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/terms" className="text-sm hover:underline">
+                <Link href="/terms" className="text-sm hover:underline">
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/privacy" className="text-sm hover:underline">
+                <Link href="/privacy" className="text-sm hover:underline">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -41,24 +42,24 @@ export default function Footer() {
               <p>9811365888</p>
             </div>
             <div className="flex space-x-4">
-              <a
+              <Link
                 href="https://www.facebook.com/amanasia"
                 className="text-sm hover:underline"
               >
                 Facebook
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.twitter.com/amanasia"
                 className="text-sm hover:underline"
               >
                 Twitter
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.instagram.com/amanasia"
                 className="text-sm hover:underline"
               >
                 Instagram
-              </a>
+              </Link>
             </div>
           </div>
           <ContactForm />
