@@ -30,7 +30,7 @@ export default function CartproductCard({ product, addToCart, removeFromCart, de
                   <div className="flex w-min flex-row gap-1 rounded-lg border p-1">
                     <Button
                       className=" h-7 w-7"
-                      variant={"destructive"}
+                      variant={"ghost"}
                       size={"icon"}
                       onClick={() => removeFromCart(product)}
                     >
@@ -41,7 +41,7 @@ export default function CartproductCard({ product, addToCart, removeFromCart, de
                     </span>
                     <Button
                       className=" h-7 w-7"
-                      variant={"default"}
+                      variant={"ghost"}
                       size={"icon"}
                       onClick={() => addToCart(product)}
                     >

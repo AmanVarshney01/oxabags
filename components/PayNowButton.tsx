@@ -57,7 +57,12 @@ export default function PayNowButton() {
 
   const createAndSendInvoice = async () => {
     try {
-      await fetch("/api/razorpay");
+      await fetch("/api/razorpay", {
+        method: "POST",
+        body: JSON.stringify({
+          amount: totalAmount,
+        }),
+      });
     } catch (error) {
       console.error("An error occurred:", error);
       // Handle the error here
@@ -67,24 +72,10 @@ export default function PayNowButton() {
   return (
     <div>
       <Button
-        className=" h-8 w-8"
-        variant={"default"}
-        size={"icon"}
+        className=" "
         onClick={() => createAndSendInvoice()}
       >
-        Pay Now
-      </Button>
-    </div>
-  );
-  return (
-    <div>
-      <Button
-        className=" h-8 w-8"
-        variant={"default"}
-        size={"icon"}
-        onClick={() => createAndSendInvoice()}
-      >
-        Pay Now
+        Buy Now
       </Button>
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 import { useToast } from "@/components/ui/use-toast";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import CartProductCard from "./CartProductCard";
 import {
   Sheet,
@@ -21,7 +21,7 @@ export default function CartSheet() {
   const { toast } = useToast();
   const { cart, removeFromCart, addToCart, deleteFromCart }: any =
     useCartStore();
-  const [phoneNumber, setPhoneNumber] = useState<string>();
+  // const [phoneNumber, setPhoneNumber] = useState<string>();
   const [open, setOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -56,7 +56,9 @@ export default function CartSheet() {
         <Button variant={"outline"} className="relative">
           <ShoppingCartIcon size={22} />
           {isClient && cart.length > 0 && (
-            <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-red-500"></div>
+            <div
+              className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-red-500"
+            ></div>
           )}
           <span className="sr-only">Cart</span>
         </Button>
