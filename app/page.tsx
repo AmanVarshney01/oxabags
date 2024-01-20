@@ -1,6 +1,9 @@
 import Billboard from "@/components/Billboard";
 import ProductMarquee from "@/components/ProductMarquee";
 import HomeCategoryCard from "@/components/HomeCategoryCard";
+import Image from "next/image";
+import whatsapp from "../public/WhatsAppButtonGreenSmall.svg";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -51,6 +54,20 @@ export default function Home() {
           />
         </div>
       </section>
+      <Link
+        href={"https://wa.me/9868151526"}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image
+          priority
+          className="fixed bottom-2 left-2 rounded-lg border border-black/20"
+          width={140}
+          // height={50}
+          src={whatsapp}
+          alt="whatsapp"
+        />
+      </Link>
     </main>
   );
 }

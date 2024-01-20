@@ -14,22 +14,28 @@ export async function POST(request: Request) {
   const lineItems = body.products.map((product: Product) => {
     return {
       name: product.name,
-      description: product.name + " description",
       amount: product.price * 100,
       currency: "INR",
       quantity: product.quantity,
     };
   });
 
-  instance.invoices.create({
+  const invoice = instance.invoices.create({
     type: "invoice",
     customer: {
-      name: body.formData.name,
-      email: body.formData.email,
-      contact: body.formData.phoneNumber,
+      name: body.name,
+      email: body.email,
+      contact: body.phoneNumber,
+      shipping_address: {
+        line1: body.addressLine,
+        city: body.city,
+        state: body.state,
+        country: "India",
+        zipcode: body.zipcode,
+      },
     },
     line_items: lineItems,
   });
 
-  return NextResponse.json({ message: "success" });
+  return NextResponse.json({ message: "success", invoice });
 }

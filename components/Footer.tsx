@@ -1,6 +1,8 @@
 import { MailIcon, PhoneCallIcon } from "lucide-react";
 import ContactForm from "./ContactForm";
 import Link from "next/link";
+import Image from "next/image";
+import whatsapp from "../public/WhatsAppButtonGreenSmall.svg";
 
 export default function Footer() {
   return (
@@ -41,7 +43,23 @@ export default function Footer() {
               <PhoneCallIcon size={16} />
               <p>9811365888</p>
             </div>
-            <div className="flex space-x-4">
+            <div>
+              <Link
+                href={"https://wa.me/9868151526"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  priority
+                  className="rounded-lg border border-black/20"
+                  width={140}
+                  // height={50}
+                  src={whatsapp}
+                  alt="whatsapp"
+                />
+              </Link>
+            </div>
+            <div className="flex space-x-4 mt-2">
               <Link
                 href="https://www.facebook.com/amanasia"
                 className="text-sm hover:underline"
