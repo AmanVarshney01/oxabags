@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/store/useCartStore";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import {
@@ -31,7 +30,14 @@ const formSchema = z.object({
 
 export default function CartPage() {
   const router = useRouter();
-  const { cart, removeFromCart, addToCart, deleteFromCart } = useCartStore();
+  const {
+    cart,
+    removeFromCart,
+    addToCart,
+    deleteFromCart,
+    totalAmount,
+    totalItems,
+  } = useCartStore();
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -70,35 +76,48 @@ export default function CartPage() {
     });
 
     if (response.ok) {
-      //   const data = await response.json();
-      //   console.log(data.invoice);
       router.push(
         `/cart/success?name=${values.name}&email=${values.email}&phoneNumber=${values.phoneNumber}`,
       );
     } else {
       console.error("An error occurred:", response.statusText);
     }
-
-    // console.log(response);
   };
   return (
     <section className="p-2">
       <div className="py-2">
         <h1 className="p-2 text-2xl font-bold">Cart</h1>
         {isClient && cart.length > 0 ? (
-          <div className=" grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
-            {cart.map((product: any, index: number) => (
-              <CartProductCard
-                key={index}
-                product={product}
-                removeFromCart={removeFromCart}
-                addToCart={addToCart}
-                deleteFromCart={deleteFromCart}
-              />
-            ))}
+          <div>
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
+              {cart.map((product: any, index: number) => (
+                <CartProductCard
+                  key={index}
+                  product={product}
+                  removeFromCart={removeFromCart}
+                  addToCart={addToCart}
+                  deleteFromCart={deleteFromCart}
+                />
+              ))}
+            </div>
+            <div className="mt-4 flex flex-col gap-2 border-t p-2">
+              <h2 className=" text-xl font-medium pb-2">Order Summary</h2>
+              <div className=" flex flex-row justify-between">
+                <h3>SubTotal</h3>
+                <span>₹{totalAmount}</span>
+              </div>
+              <div className="flex flex-row justify-between">
+                <h3>Shipping</h3>
+                <span>Free</span>
+              </div>
+              <div className="flex flex-row justify-between border-t pt-1">
+                <h3 className="text-lg font-medium">Total Amount</h3>
+                <span className="text-lg font-medium">₹{totalAmount}</span>
+              </div>
+            </div>
           </div>
         ) : (
-          <span>Empty Cart</span>
+          <span className="p-2 ">Empty Cart</span>
         )}
       </div>
       <div className="py-2">
@@ -216,47 +235,6 @@ export default function CartPage() {
                 </FormItem>
               )}
             />
-
-            {/* <label htmlFor="name" className="mb-2">
-            Name:
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            className="mb-4 rounded-md border border-gray-300 p-2"
-          />
-
-          <label htmlFor="email" className="mb-2">
-            Email:
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="mb-4 rounded-md border border-gray-300 p-2"
-          />
-
-          <label htmlFor="phoneNumber" className="mb-2">
-            Phone Number:
-          </label>
-          <input
-            type="tel"
-            id="phoneNumber"
-            name="phoneNumber"
-            className="mb-4 rounded-md border border-gray-300 p-2"
-          />
-
-          <label htmlFor="address" className="mb-2">
-            Address:
-          </label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            className="mb-4 rounded-md border border-gray-300 p-2"
-          /> */}
-
             <Button type="submit" className="rounded-md px-4 py-2 text-white">
               Send Invoice
             </Button>

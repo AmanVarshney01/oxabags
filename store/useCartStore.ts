@@ -18,6 +18,7 @@ type Product = {
 type State = {
   cart: Product[];
   totalItems: number;
+  totalAmount: number; // Added totalAmount property
 };
 
 type Actions = {
@@ -29,6 +30,7 @@ type Actions = {
 const INITIAL_STATE = {
   cart: [],
   totalItems: 0,
+  totalAmount: 0,
 };
 
 export const useCartStore = create(
@@ -36,6 +38,7 @@ export const useCartStore = create(
     (set, get) => ({
       cart: INITIAL_STATE.cart,
       totalItems: INITIAL_STATE.totalItems,
+      totalAmount: INITIAL_STATE.totalAmount,
       addToCart: (product: Product) => {
         const cart = get().cart;
         const cartItem = cart.find(
@@ -50,6 +53,7 @@ export const useCartStore = create(
           set((state) => ({
             cart: updatedCart,
             totalItems: state.totalItems + 1,
+            totalAmount: state.totalAmount + product.price,
           }));
         } else {
           const updatedCart = [...cart, { ...product, quantity: 1 }];
@@ -57,6 +61,7 @@ export const useCartStore = create(
           set((state) => ({
             cart: updatedCart,
             totalItems: state.totalItems + 1,
+            totalAmount: state.totalAmount + product.price,
           }));
         }
       },
@@ -70,10 +75,11 @@ export const useCartStore = create(
             item.slug.current === product.slug.current
               ? { ...item, quantity: item.quantity - 1 }
               : item,
-          ).filter((item) => item.quantity > 0); // Remove product when quantity is zero
+          ).filter((item) => item.quantity > 0);
           set((state) => ({
             cart: updatedCart,
             totalItems: state.totalItems - 1,
+            totalAmount: state.totalAmount - product.price,
           }));
         }
       },
@@ -85,6 +91,7 @@ export const useCartStore = create(
         set((state) => ({
           cart: updatedCart,
           totalItems: state.totalItems - product.quantity,
+          totalAmount: state.totalAmount - (product.price * product.quantity),
         }));
       },
     }),

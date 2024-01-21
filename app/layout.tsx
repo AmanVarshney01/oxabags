@@ -18,8 +18,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Amanasia",
-    default: "Amanasia",
+    template: "%s | oxabags",
+    default: "oxabags",
   },
   description:
     "Manufacturer, Wholesaler & Exporter of Jute bags, Cotton Bag for Corporate Events & Exhibitions",

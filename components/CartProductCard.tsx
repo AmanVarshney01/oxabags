@@ -13,8 +13,6 @@ export default function CartproductCard({
 }: any) {
   return (
     <Card className="mb-2 flex flex-row p-1">
-      {/* <CardHeader className="p-0">
-              </CardHeader> */}
       <CardContent className="flex w-full flex-row p-0">
         <Link href={`/product/${product.slug.current}`}>
           <Image
@@ -22,18 +20,17 @@ export default function CartproductCard({
             width={100}
             height={100}
             alt={product.name}
+            loading="lazy"
             className="rounded-lg"
           />
         </Link>
 
         <div className="flex flex-col justify-between pl-4">
           <div>
-            <div className="line-clamp-2 text-sm font-medium leading-tight sm:text-base">
+            <div className="line-clamp-2 text-base font-medium leading-tight">
               {product.name}
             </div>
-            <div className=" text-xs opacity-95 sm:text-sm">
-              ₹{product.price}
-            </div>
+            <div className="text-sm opacity-95 text-primary">₹{product.price}</div>
           </div>
           <div className="flex w-min flex-row gap-1 rounded-lg border p-1">
             <Button
@@ -57,7 +54,7 @@ export default function CartproductCard({
         </div>
         <div className=" ml-auto mt-auto">
           <Button
-            className=" h-7 w-7"
+            className="h-7 w-7"
             variant={"destructive"}
             size={"icon"}
             onClick={() => deleteFromCart(product)}
@@ -66,24 +63,6 @@ export default function CartproductCard({
           </Button>
         </div>
       </CardContent>
-      {/* <CardFooter className="items-end p-0 flex flex-col">
-                <Button
-                  className=" h-8 w-8"
-                  variant={"destructive"}
-                  size={"icon"}
-                  onClick={() => removeFromCart(product)}
-                >
-                  <MinusIcon size={18} />
-                </Button>
-                <Button
-                  className=" h-8 w-8"
-                  variant={"default"}
-                  size={"icon"}
-                  onClick={() => addToCart(product)}
-                >
-                  <PlusIcon size={18} />
-                </Button>
-              </CardFooter> */}
     </Card>
   );
 }

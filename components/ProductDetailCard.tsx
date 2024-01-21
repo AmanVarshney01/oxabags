@@ -14,21 +14,22 @@ export default async function ProductDetailCard({ slug }: { slug: string }) {
         </h2>
         <div className="flex flex-row space-x-8">
           <div className=" space-y-4">
-            <p className=" font-medium">Color:</p>
-            <p className=" font-medium">Size:</p>
-            <p className=" font-medium">Weight:</p>
-            <p className=" font-medium">Weight Carry Capacity:</p>
-            <p className=" font-medium">Fabric:</p>
+            <h3 className=" font-medium">Size:</h3>
+            <h3 className=" font-medium">Fabric:</h3>
+            <h3 className=" font-medium">Color:</h3>
+            <h3 className=" font-medium">Weight:</h3>
           </div>
           <div className=" space-y-4">
-            <p className="">{product.color}</p>
             <p className="">{product.size} </p>
-            <p className="">{product.weight}</p>
-            <p className="">{product.weightCarryCapacity}</p>
             <p className="">{product.fabric}</p>
+            <p className="">{product.color}</p>
+            <p className="">{product.weight}</p>
           </div>
         </div>
-        <p className=" ">{product.description}</p>
+        <div>
+          <h3 className=" font-medium pb-2">Features:</h3>
+          <p className=" ">{product.description}</p>
+        </div>
         <div className="pt-4">
           <AddToCartButton product={product} />
         </div>

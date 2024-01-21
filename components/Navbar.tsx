@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
@@ -48,7 +47,7 @@ export default function Navbar({ categories }: { categories: Category[] }) {
         <NavigationMenuItem>
           <Link href="/about" passHref legacyBehavior>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              About
+              About Us
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

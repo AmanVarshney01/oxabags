@@ -14,7 +14,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link href="/about" className="text-sm hover:underline">
-                  About
+                  About Us
                 </Link>
               </li>
               <li>
@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
       </div>
       <p className="mt-10 text-center text-sm">
-        © {new Date().getFullYear()} Amanasia
+        © {new Date().getFullYear()} oxabags
       </p>
     </footer>
   );
