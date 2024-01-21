@@ -5,9 +5,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
+import { cn } from "@/lib/utils"
 
 
-const inter = Inter({ subsets: ["latin"] });
+const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const viewport: Viewport = {
   themeColor: [
@@ -32,22 +33,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-      <html lang="en" suppressHydrationWarning>
-        <body className={inter.className}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <main className="mx-auto min-h-svh max-w-7xl">
-              <Header />
-              {children}
-              <Footer />
-            </main>
-            <Toaster />
-          </ThemeProvider>
-        </body>
-      </html>
+    <html lang="en">
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable,
+        )}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className="mx-auto min-h-svh max-w-7xl">
+            <Header />
+            {children}
+            <Footer />
+          </main>
+          <Toaster />
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

@@ -37,5 +37,5 @@ export async function POST(request: Request) {
     line_items: lineItems,
   });
 
-  return NextResponse.json({ message: "success", invoice });
+  return NextResponse.json({ message: "success" });
 }

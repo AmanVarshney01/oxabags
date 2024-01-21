@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { Product } from "@/store/useCartStore";
 import {
   Form,
   FormControl,
@@ -36,7 +37,6 @@ export default function CartPage() {
     addToCart,
     deleteFromCart,
     totalAmount,
-    totalItems,
   } = useCartStore();
   const [isClient, setIsClient] = useState(false);
 
@@ -90,7 +90,7 @@ export default function CartPage() {
         {isClient && cart.length > 0 ? (
           <div>
             <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
-              {cart.map((product: any, index: number) => (
+              {cart.map((product: Product, index: number) => (
                 <CartProductCard
                   key={index}
                   product={product}

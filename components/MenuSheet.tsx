@@ -9,15 +9,20 @@ import {
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { MenuIcon } from "lucide-react";
+import { Category } from "@/lib/types";
 
-export default async function MenuSheet({ categories }: any) {
+export default async function MenuSheet({
+  categories,
+}: {
+  categories: Category[];
+}) {
   return (
     <Sheet>
       <SheetTrigger asChild className="block md:hidden">
-          <Button variant={"outline"} className="relative">
-            <MenuIcon size={22} />
-            <span className="sr-only">Menu</span>
-          </Button>
+        <Button variant={"outline"} className="relative">
+          <MenuIcon size={22} />
+          <span className="sr-only">Menu</span>
+        </Button>
       </SheetTrigger>
       <SheetContent side={"left"}>
         <SheetHeader>
@@ -31,7 +36,7 @@ export default async function MenuSheet({ categories }: any) {
               </Button>
             </Link>
           </SheetClose>
-          {categories.map((category: any, index: number) => (
+          {categories.map((category: Category, index: number) => (
             <li key={index}>
               <SheetClose asChild>
                 <Link href={`/category/${category.slug.current}`}>
@@ -49,13 +54,6 @@ export default async function MenuSheet({ categories }: any) {
               </Button>
             </Link>
           </SheetClose>
-          {/* <SheetClose asChild>
-            <Link href="/contact">
-              <Button className="text-lg" variant="link">
-                Contact
-              </Button>
-            </Link>
-          </SheetClose> */}
         </ul>
       </SheetContent>
     </Sheet>

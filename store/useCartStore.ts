@@ -1,30 +1,26 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type Product = {
+export type Product = {
   name: string;
   slug: {
     current: string;
   };
   price: number;
-  image: {
-    asset: {
-      url: string;
-    };
-  };
-  quantity: number; // Added quantity property
+  images: any,
+  quantity: number;
 };
 
-type State = {
+export type State = {
   cart: Product[];
   totalItems: number;
-  totalAmount: number; // Added totalAmount property
+  totalAmount: number;
 };
 
-type Actions = {
+export type Actions = {
   addToCart: (Item: Product) => void;
   removeFromCart: (Item: Product) => void;
-  deleteFromCart: (Item: Product) => void; // Added deleteFromCart function
+  deleteFromCart: (Item: Product) => void;
 };
 
 const INITIAL_STATE = {
@@ -42,7 +38,7 @@ export const useCartStore = create(
       addToCart: (product: Product) => {
         const cart = get().cart;
         const cartItem = cart.find(
-          (item: any) => item.slug.current === product.slug.current,
+          (item: Product) => item.slug.current === product.slug.current,
         );
         if (cartItem) {
           const updatedCart = cart.map((item) =>
@@ -68,7 +64,7 @@ export const useCartStore = create(
       removeFromCart: (product: Product) => {
         const cart = get().cart;
         const cartItem = cart.find(
-          (item: any) => item.slug.current === product.slug.current,
+          (item: Product) => item.slug.current === product.slug.current,
         );
         if (cartItem) {
           const updatedCart = cart.map((item) =>

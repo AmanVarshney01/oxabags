@@ -1,10 +1,16 @@
 import ProductDetailCard from "@/components/ProductDetailCard";
 import ProductMarquee from "@/components/ProductMarquee";
 import { client } from "@/sanity/lib/client";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata} from "next";
 
 type Props = {
   params: { productSlug: string };
+};
+
+type ProductSlug = {
+  slug: {
+    current: string;
+  };
 };
 
 export async function generateStaticParams() {
@@ -16,18 +22,14 @@ export async function generateStaticParams() {
 
   const productSlugs = await client.fetch(query);
 
-  return productSlugs.map((productSlug: any) => {
+  return productSlugs.map((productSlug: ProductSlug) => {
     return {
       productSlug: productSlug.slug.current,
     };
   });
 }
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  // read route params
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = params.productSlug;
 
   return {

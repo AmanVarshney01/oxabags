@@ -14,9 +14,10 @@ import { Button } from "./ui/button";
 import { ShoppingCartIcon } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
 import Link from "next/link";
+import { Product, Actions, State } from "@/store/useCartStore";
 
 export default function CartSheet() {
-  const { cart, removeFromCart, addToCart, deleteFromCart }: any =
+  const { cart, removeFromCart, addToCart, deleteFromCart }: Actions & State =
     useCartStore();
   const [open, setOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -44,7 +45,7 @@ export default function CartSheet() {
           {cart.length > 0 ? "" : "Empty"}
         </SheetDescription>
         <div className="overflow-y-auto">
-          {cart.map((product: any, index: number) => (
+          {cart.map((product: Product, index: number) => (
             <CartProductCard
               key={index}
               product={product}

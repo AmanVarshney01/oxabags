@@ -26,7 +26,7 @@ export default function ProductCard({ product }: { product: Product }) {
           />
         </CardHeader>
         <CardContent className="p-1">
-          <CardTitle className="line-clamp-2 text-pretty text-sm font-medium max-w-[200px]">
+          <CardTitle className="line-clamp-2 text-pretty text-sm sm:text-base font-medium max-w-[200px]">
             {product.name}
           </CardTitle>
           <CardDescription className="text-sm opacity-90">

@@ -2,14 +2,21 @@ import ProductCard from "@/components/ProductCard";
 import { getProductsByCategory } from "@/sanity/lib/sanity.query";
 import { getCategories } from "@/sanity/lib/sanity.query";
 import { Metadata, ResolvingMetadata } from "next";
+import { Product } from "@/lib/types";
 
 type Props = {
   params: { categorySlug: string };
 };
 
+type CategorySlug = {
+  slug: {
+    current: string;
+  };
+};
+
 export async function generateStaticParams() {
   const categorySlugs = await getCategories();
-  return categorySlugs.map((categorySlug: any) => {
+  return categorySlugs.map((categorySlug: CategorySlug) => {
     return {
       categorySlug: categorySlug.slug.current,
     };
@@ -41,7 +48,7 @@ export default async function CategoryPage({ params }: Props) {
             {products[0].category.name}
           </h2>
           <section className="grid grid-cols-2 justify-items-center gap-4 px-2 pb-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-            {products.map((product: any, index: number) => (
+            {products.map((product: Product, index: number) => (
               <ProductCard key={index} product={product} />
             ))}
           </section>

@@ -10,7 +10,7 @@ export default function SuccessPage() {
   const email = searchParams.get("email");
   const phoneNumber = searchParams.get("phoneNumber");
   return (
-    <div className="flex flex-col items-center justify-center gap-8 px-2 py-24">
+    <div className="flex flex-col items-center justify-center gap-8 px-2 py-16 md:py-24">
       <div className="rounded-full bg-green-400 p-8">
         <Check size={100} />
       </div>

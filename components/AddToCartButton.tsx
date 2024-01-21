@@ -6,11 +6,12 @@ import { useState, useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "./ui/toast";
 import Link from "next/link";
+import { Actions, Product } from "@/store/useCartStore";
 
-export default function AddToCartButton({ product }: { product: any }) {
+export default function AddToCartButton({ product }: { product: Product }) {
   const { toast } = useToast();
 
-  const { addToCart }: any = useCartStore();
+  const { addToCart }: Actions = useCartStore();
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -35,14 +36,13 @@ export default function AddToCartButton({ product }: { product: any }) {
       {isClient && (
         <Button
           onClick={() => clickedAddToCart()}
-          variant={"outline"}
-          className={`relative w-full rounded-full border border-blue-600 text-blue-600 shadow transition duration-150 ease-in-out hover:opacity-90 active:scale-95`}
+          variant={"default"}
+          className={`relative w-full rounded-full border shadow transition duration-100 active:scale-95`}
         >
           <div className="absolute left-0 ml-4">
             <PlusIcon className="h-6 w-6" />
           </div>
           <span className="">
-            {/* {isProductInCart ? "Already in Cart" : "Add to Cart"} */}
             Add to Cart
           </span>
         </Button>

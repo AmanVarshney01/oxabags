@@ -4,13 +4,14 @@ import { urlForImage } from "@/sanity/lib/image";
 import { PlusIcon, MinusIcon, DeleteIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Actions, Product } from "@/store/useCartStore";
 
 export default function CartproductCard({
   product,
   addToCart,
   removeFromCart,
   deleteFromCart,
-}: any) {
+}: Actions & { product:  Product}) {
   return (
     <Card className="mb-2 flex flex-row p-1">
       <CardContent className="flex w-full flex-row p-0">
@@ -26,10 +27,10 @@ export default function CartproductCard({
         </Link>
         <div className="flex flex-col justify-between pl-4">
           <div>
-            <div className="line-clamp-2 text-sm font-medium mb-1 leading-tight">
+            <div className="line-clamp-2 text-sm font-medium leading-tight">
               {product.name}
             </div>
-            <div className="text-sm opacity-95 text-primary">₹{product.price}</div>
+            <div className="text-sm opacity-95 text-primary mt-1">₹{product.price}</div>
           </div>
           <div className="flex w-min flex-row gap-1 rounded-lg border p-1">
             <Button
