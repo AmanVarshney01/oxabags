@@ -6,9 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
-// import { Button } from "@/components/ui/button";
 import Link from "next/link";
-// import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export default function HomeCategoryCard({
   title,
@@ -23,20 +21,20 @@ export default function HomeCategoryCard({
 }) {
   return (
     <Link href={link}>
-      <Card className="flex flex-col h-full justify-between">
-        <CardHeader className="p-4">
-          <CardTitle className="text-lg font-medium md:text-xl">
+      <Card className="flex h-full flex-row sm:flex-col justify-between ">
+        <CardHeader className="p-4 w-full">
+          <CardTitle className="text-base font-medium md:text-lg">
             {title}
           </CardTitle>
-          <CardDescription className="text-sm md:text-base">
+          <CardDescription className="text-sm md:text-base text-pretty ">
             {description}
           </CardDescription>
         </CardHeader>
-        <CardContent className="p-4">
+        <CardContent className="p-4 w-full flex justify-center items-center">
           <Image
             loading="lazy"
             alt="Cotton Bag"
-            className="mx-auto rounded-lg object-cover"
+            className="mx-auto rounded-lg"
             height={300}
             src={image}
             width={300}

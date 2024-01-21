@@ -13,21 +13,21 @@ export default function Home() {
       <section className="py-4">
         <div className=" grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 md:gap-4">
           <HomeCategoryCard
-            title="Eco-Friendly Cotton Bags"
+            title="Cotton Bags"
             description="Ethically sourced and made from 100% organic cotton."
             image="/testbag.jpg"
             link="/category/cotton-bags"
           />
 
           <HomeCategoryCard
-            title="Large Cotton Totes"
+            title="Cotton Totes"
             description="Perfect for grocery shopping, ditch the plastic and go green."
             image="/testbag.jpg"
             link="/category/cotton-bags"
           />
 
           <HomeCategoryCard
-            title="Designer Canvas Bags"
+            title="Canvas Bags"
             description="Trendy and stylish designs printed on high quality canvas."
             image="/testbag.jpg"
             link="/category/canvas-bags"

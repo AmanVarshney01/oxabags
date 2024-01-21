@@ -34,17 +34,24 @@ export async function generateMetadata(
 export default async function CategoryPage({ params }: Props) {
   const products = await getProductsByCategory(params.categorySlug);
   return (
-    <section className="">
+    <section className="px-2 pb-8">
       {products && products.length > 0 ? (
         <div>
-          <h2 className="px-8 py-8 text-2xl font-medium">
+          <h2 className="p-4 text-xl font-medium md:p-8">
             {products[0].category.name}
           </h2>
-          <section className="grid grid-cols-2 justify-items-center gap-4 px-2 pb-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          <section className="grid grid-cols-2 justify-items-center gap-4 px-2 pb-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {products.map((product: any, index: number) => (
-              <div key={index}>
-                <ProductCard product={product} />
-              </div>
+              <ProductCard key={index} product={product} />
+            ))}
+            {products.map((product: any, index: number) => (
+              <ProductCard key={index} product={product} />
+            ))}
+            {products.map((product: any, index: number) => (
+              <ProductCard key={index} product={product} />
+            ))}
+            {products.map((product: any, index: number) => (
+              <ProductCard key={index} product={product} />
             ))}
           </section>
         </div>
