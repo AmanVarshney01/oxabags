@@ -17,7 +17,7 @@ export default function SuccessPage() {
       <h1 className=" text-center text-4xl md:text-6xl">
         Thank you for your order
       </h1>
-      <div className="flex flex-col items-center justify-center gap-2 border-2 border-dashed border-green-400 p-4">
+      <div className="flex flex-col items-center justify-center gap-2 border rounded-lg border-dashed border-green-400 p-4">
         <p className="text-center text-lg">
           The order details and a link to the payment has been sent to your{" "}
           <span className="underline">{email}</span> and{" "}

@@ -101,7 +101,7 @@ export default function CartPage() {
               ))}
             </div>
             <div className="mt-4 flex flex-col gap-2 border-t p-2">
-              <h2 className=" text-xl font-medium pb-2">Order Summary</h2>
+              <h2 className=" pb-2 text-xl font-medium">Order Summary</h2>
               <div className=" flex flex-row justify-between">
                 <h3>SubTotal</h3>
                 <span>₹{totalAmount}</span>

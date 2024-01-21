@@ -26,39 +26,39 @@ export default function CartproductCard({
         </Link>
         <div className="flex flex-col justify-between pl-4">
           <div>
-            <div className="line-clamp-2 text-base font-medium leading-tight">
+            <div className="line-clamp-2 text-sm font-medium mb-1 leading-tight">
               {product.name}
             </div>
             <div className="text-sm opacity-95 text-primary">₹{product.price}</div>
           </div>
           <div className="flex w-min flex-row gap-1 rounded-lg border p-1">
             <Button
-              className=" h-7 w-7"
+              className=" h-5 w-5"
               variant={"ghost"}
               size={"icon"}
               onClick={() => removeFromCart(product)}
             >
-              <MinusIcon size={18} />
+              <MinusIcon size={15} />
             </Button>
-            <span className="min-w-8 px-1 text-center">{product.quantity}</span>
+            <span className="min-w-5 px-1 text-sm text-center">{product.quantity}</span>
             <Button
-              className=" h-7 w-7"
+              className=" h-5 w-5"
               variant={"ghost"}
               size={"icon"}
               onClick={() => addToCart(product)}
             >
-              <PlusIcon size={18} />
+              <PlusIcon size={15} />
             </Button>
           </div>
         </div>
         <div className=" ml-auto mt-auto">
           <Button
-            className="h-7 w-7"
+            className="h-5 w-5"
             variant={"destructive"}
             size={"icon"}
             onClick={() => deleteFromCart(product)}
           >
-            <DeleteIcon size={18} />
+            <DeleteIcon size={15} />
           </Button>
         </div>
       </CardContent>

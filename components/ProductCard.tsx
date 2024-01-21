@@ -34,7 +34,7 @@ export default function ProductCard({ product }: { product: Product }) {
           </CardDescription>
         </CardContent>
         <CardFooter className="w-full p-1">
-          <p className="font-medium text-red-500">₹ {product.price}</p>
+          <p className="font-medium text-primary">₹ {product.price}</p>
         </CardFooter>
       </Card>
     </Link>

@@ -1,4 +1,5 @@
 import { Button } from "./ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function ContactForm() {
   return (
@@ -12,16 +13,16 @@ export default function ContactForm() {
       <label htmlFor="phone" className="text-lg font-bold">
         Request a Callback
       </label>
-      <input
+      <Input
         type="tel"
         id="phone"
         name="phone"
         pattern="[0-9]{10}"
         placeholder="Enter your phone number"
-        className="mt-3 w-full rounded-lg border-2 px-3 py-2 transition-colors duration-200 focus:border-blue-500 focus:outline-none"
+        className="mt-3 w-full rounded-lg border-2 px-3 py-2"
         required
       />
-      <Button type="submit" className="mt-3 w-full" variant="default">
+      <Button type="submit" className="mt-3 w-full" variant="outline">
         Submit
       </Button>
     </form>

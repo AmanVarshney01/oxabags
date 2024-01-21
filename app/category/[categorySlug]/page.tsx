@@ -44,15 +44,6 @@ export default async function CategoryPage({ params }: Props) {
             {products.map((product: any, index: number) => (
               <ProductCard key={index} product={product} />
             ))}
-            {products.map((product: any, index: number) => (
-              <ProductCard key={index} product={product} />
-            ))}
-            {products.map((product: any, index: number) => (
-              <ProductCard key={index} product={product} />
-            ))}
-            {products.map((product: any, index: number) => (
-              <ProductCard key={index} product={product} />
-            ))}
           </section>
         </div>
       ) : (
