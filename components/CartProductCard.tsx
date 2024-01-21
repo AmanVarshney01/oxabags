@@ -14,7 +14,7 @@ export default function CartproductCard({
   return (
     <Card className="mb-2 flex flex-row p-1">
       <CardContent className="flex w-full flex-row p-0">
-        <Link href={`/product/${product.slug.current}`}>
+        <Link className=" shrink-0" href={`/product/${product.slug.current}`}>
           <Image
             src={urlForImage(product.images[0])}
             width={100}
@@ -24,7 +24,6 @@ export default function CartproductCard({
             className="rounded-lg"
           />
         </Link>
-
         <div className="flex flex-col justify-between pl-4">
           <div>
             <div className="line-clamp-2 text-base font-medium leading-tight">

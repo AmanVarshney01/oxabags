@@ -4,6 +4,7 @@ import { client } from "./client";
 export async function getProductBySlug(slug: string = "") {
   return client.fetch(
     groq`*[_type == "product" && slug.current == $slug][0]{
+        _id,
         name,
         images,
         color,
@@ -12,7 +13,9 @@ export async function getProductBySlug(slug: string = "") {
         price,
         slug,
         description,
+        features,
         fabric,
+        showOnHomePage,
         category->{name},
     }`,
     { slug },
@@ -34,7 +37,7 @@ export async function getProductsByCategory(categorySlug: string = "") {
 
 export async function getFeaturedProducts() {
   return client.fetch(
-    groq`*[ _type == "product" && featured == true ] {
+    groq`*[ _type == "product" && showOnHomePage == true ] {
       name,
       price,
       images[0],

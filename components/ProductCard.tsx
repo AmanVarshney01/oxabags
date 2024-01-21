@@ -10,8 +10,8 @@ export default function ProductCard({ product }: { product: Product }) {
       href={`/product/${product.slug.current}`}
       className="group aspect-square cursor-pointer rounded-lg"
     >
-      <Card className="flex flex-col h-full justify-between">
-        <CardHeader className=" p-1 md:p-2 flex items-center justify-center">
+      <Card className=" h-full flex flex-col justify-around">
+        <CardHeader className=" p-1 flex items-center justify-center">
           <div className="relative">
             <Image
               src={urlForImage(product.images)}
@@ -23,13 +23,13 @@ export default function ProductCard({ product }: { product: Product }) {
             />
           </div>
         </CardHeader>
-        <CardContent className="p-1 md:p-2">
+        <CardContent className="p-1">
           <div className="w-full">
-            <CardTitle className="text-sm sm:text-base font-medium md:text-lg">{product.name}</CardTitle>
+            <CardTitle className="text-sm  font-medium line-clamp-2">{product.name}</CardTitle>
             <CardDescription className="text-sm opacity-90">{product.category.name}</CardDescription>
           </div>
         </CardContent>
-        <CardFooter className="p-1 md:p-2">
+        <CardFooter className="p-1">
           <p className="font-medium text-red-500">₹ {product.price}</p>
         </CardFooter>
       </Card>

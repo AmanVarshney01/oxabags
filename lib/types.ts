@@ -1,9 +1,3 @@
-type Image = {
-  asset: {
-    url: string;
-  };
-};
-
 export type Product = {
   _id: string;
   name: string;
@@ -11,8 +5,14 @@ export type Product = {
     current: string;
   };
   images: any;
+  size: string;
+  fabric: string;
+  color: string;
+  weight: string;
   price: number;
   description: string;
+  features: string;
+  showOnHomepage: boolean;
   category: {
     name: string;
   };

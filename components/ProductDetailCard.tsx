@@ -1,9 +1,10 @@
 import { getProductBySlug } from "@/sanity/lib/sanity.query";
 import ProductCarousel from "./ProductCarousel";
 import AddToCartButton from "./AddToCartButton";
+import { Product } from "@/lib/types";
 
 export default async function ProductDetailCard({ slug }: { slug: string }) {
-  const product = await getProductBySlug(slug);
+  const product: Product = await getProductBySlug(slug);
   return (
     <div className="flex w-full flex-col md:flex-row">
       <ProductCarousel product={product} />
@@ -18,17 +19,19 @@ export default async function ProductDetailCard({ slug }: { slug: string }) {
             <h3 className=" font-medium">Fabric:</h3>
             <h3 className=" font-medium">Color:</h3>
             <h3 className=" font-medium">Weight:</h3>
+            <h3 className=" pb-2 font-medium">Features:</h3>
           </div>
           <div className=" space-y-4">
             <p className="">{product.size} </p>
             <p className="">{product.fabric}</p>
             <p className="">{product.color}</p>
             <p className="">{product.weight}</p>
+            <p className=" ">{product.features}</p>
           </div>
         </div>
         <div>
-          <h3 className=" font-medium pb-2">Features:</h3>
-          <p className=" ">{product.description}</p>
+          {/* <h3 className="font-medium pb-1">Description:</h3> */}
+          <p className="">{product.description}</p>
         </div>
         <div className="pt-4">
           <AddToCartButton product={product} />

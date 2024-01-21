@@ -44,6 +44,11 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "number",
         },
         {
+          name: "features",
+          title: "Features",
+          type: "string",
+        },
+        {
           name: "description",
           title: "Description",
           type: "text",
@@ -57,8 +62,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           },
         },
         {
-          name: "featured",
-          title: "Featured",
+          name: "showOnHomePage",
+          title: "Show on Home Page",
           type: "boolean",
         },
         {
@@ -92,29 +97,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           },
         },
       ],
-    },
-    {
-      name: "order",
-      type: "document",
-      title: "Cart Submits",
-      fields: [
-        {
-          name: "products",
-          title: "Products",
-          type: "array",
-          of: [{ type: "string" }],
-        },
-        {
-          name: "phonenumber",
-          title: "Phone Number",
-          type: "string",
-        },
-        {
-          name: "date",
-          title: "Date",
-          type: "string",
-        }
-      ],
-    },
+    }
   ],
 };
