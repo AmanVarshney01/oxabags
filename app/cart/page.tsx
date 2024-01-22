@@ -1,23 +1,10 @@
 "use client";
-import CartProductCard from "@/components/CartProductCard";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/store/useCartStore";
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Product } from "@/store/useCartStore";
 import { RotateCwIcon } from "lucide-react";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import {
   Form,
   FormControl,
@@ -29,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import * as z from "zod";
+import CartOrderTable from "@/components/CartOrderTable";
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
@@ -45,13 +33,6 @@ export default function CartPage() {
   const router = useRouter();
   const { cart, removeFromCart, addToCart, deleteFromCart, totalAmount } =
     useCartStore();
-  const [isClient, setIsClient] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -66,14 +47,13 @@ export default function CartPage() {
     },
   });
 
-  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
-    setIsLoading(true);
-
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const cartProducts = cart.map((item) => ({
       name: item.name,
       price: item.price,
       quantity: item.quantity,
     }));
+
     const response = await fetch("/api/razorpay", {
       method: "POST",
       headers: {
@@ -93,76 +73,17 @@ export default function CartPage() {
       console.error("An error occurred:", response.statusText);
     }
 
-    setIsLoading(false);
+    form.reset();
   };
 
   return (
     <section className="p-2">
-      <div className="py-2">
-        <h1 className="p-2 text-2xl font-bold text-left">Cart</h1>
-        {isClient && cart.length > 0 ? (
-          <div>
-            <div className="grid grid-cols-1 gap-2 py-2 md:grid-cols-2 lg:grid-cols-4">
-              {cart.map((product: Product, index: number) => (
-                <CartProductCard
-                  key={index}
-                  product={product}
-                  removeFromCart={removeFromCart}
-                  addToCart={addToCart}
-                  deleteFromCart={deleteFromCart}
-                />
-              ))}
-            </div>
-            <div className="mt-4 flex flex-col gap-2 p-2">
-              <h2 className=" pb-2 text-xl font-medium">Order Summary</h2>
-              <Table>
-                {/* <TableCaption>Order Summary</TableCaption> */}
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>DESCRIPTION</TableHead>
-                    <TableHead className="text-right">UNIT PRICE</TableHead>
-                    <TableHead className="text-right">QTY</TableHead>
-                    <TableHead className="text-right">Amount</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {cart.map((product: Product, index: number) => (
-                    <TableRow key={index}>
-                      <TableCell>{product.name}</TableCell>
-                      <TableCell align="right">₹{product.price}</TableCell>
-                      <TableCell align="right">{product.quantity}</TableCell>
-                      <TableCell align="right">
-                        ₹{product.price * product.quantity}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                  <TableRow>
-                    <TableCell colSpan={3}>Subtotal</TableCell>
-                    <TableCell align="right">₹{totalAmount}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell colSpan={3}>Shipping Cost</TableCell>
-                    <TableCell align="right">₹0</TableCell>
-                  </TableRow>
-                </TableBody>
-                <TableFooter>
-                  <TableRow className="text-primary">
-                    <TableCell colSpan={3}>Total</TableCell>
-                    <TableCell align="right">₹{totalAmount}</TableCell>
-                  </TableRow>
-                </TableFooter>
-              </Table>
-            </div>
-          </div>
-        ) : (
-          <span className="p-2 ">Empty Cart</span>
-        )}
-      </div>
+      <CartOrderTable />
       <div className="py-2">
         <h1 className="p-2 text-2xl font-bold">Checkout</h1>
         <Form {...form}>
           <form
-            onSubmit={form.handleSubmit(handleSubmit)}
+            onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-8 p-2"
           >
             <FormField
@@ -276,15 +197,15 @@ export default function CartPage() {
             <Button
               type="submit"
               className="rounded-md px-4 py-2 text-white"
-              disabled={isLoading}
+              disabled={form.formState.isSubmitting}
             >
-              {isLoading ? (
+              {form.formState.isSubmitting ? (
                 <div className=" flex flex-row gap-2">
-                  <span>Sending</span>
+                  <span>Loading</span>
                   <RotateCwIcon className="animate-spin" />
                 </div>
               ) : (
-                "Send Invoice"
+                "Buy Now"
               )}
             </Button>
           </form>

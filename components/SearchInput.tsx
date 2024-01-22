@@ -4,7 +4,13 @@ import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { SearchIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getProductSlugByID } from "@/sanity/lib/sanity.query";
@@ -12,7 +18,9 @@ import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
-  id: z.coerce.number(),
+  id: z.coerce.number({
+    invalid_type_error: "Invalid ID",
+  }),
 });
 
 export default function SearchInput() {
@@ -24,8 +32,8 @@ export default function SearchInput() {
   const router = useRouter();
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    const id: number = Number(values.id);
     try {
-      const id: number = Number(values.id);
       const productSlug = await getProductSlugByID(id);
       router.push(`/product/${productSlug.slug.current}`);
     } catch (error) {
@@ -34,8 +42,8 @@ export default function SearchInput() {
         title: "Invalid Product ID",
       });
     }
+    form.reset();
   }
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -43,20 +51,26 @@ export default function SearchInput() {
           control={form.control}
           name="id"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="relative">
               <FormControl>
                 <div className="relative flex flex-row">
-                  <Input placeholder="Search by ID" {...field} />
+                  <Input
+                    placeholder="Search by ID"
+                    {...field}
+                    disabled={form.formState.isSubmitting}
+                  />
                   <Button
+                    disabled={form.formState.isSubmitting}
                     size={"icon"}
                     type="submit"
                     variant={"outline"}
-                    className="absolute right-1 scale-75 border-0 p-0"
+                    className="absolute right-1 scale-75 border-0 p-0 "
                   >
                     <SearchIcon size={15} />
                   </Button>
                 </div>
               </FormControl>
+              <FormMessage className="absolute -bottom-6" />
             </FormItem>
           )}
         />
