@@ -5,10 +5,7 @@ import { Product } from "@/lib/types";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableHead,
-  TableHeader,
   TableRow,
 } from "@/components/ui/table";
 
@@ -24,6 +21,10 @@ export default async function ProductDetailCard({ slug }: { slug: string }) {
         </h2>
         <Table>
           <TableBody>
+            <TableRow>
+              <TableCell>Product ID:</TableCell>
+              <TableCell>{product.id}</TableCell>
+            </TableRow>
             <TableRow>
               <TableCell>Size:</TableCell>
               <TableCell>{product.size}</TableCell>

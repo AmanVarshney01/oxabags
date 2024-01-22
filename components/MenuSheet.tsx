@@ -10,6 +10,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { MenuIcon } from "lucide-react";
 import { Category } from "@/lib/types";
+import SearchInput from "./SearchInput";
 
 export default async function MenuSheet({
   categories,
@@ -29,31 +30,38 @@ export default async function MenuSheet({
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
         <ul className=" my-8 flex flex-col space-y-3">
-          <SheetClose asChild>
-            <Link href="/">
-              <Button className="text-lg" variant="link">
-                Home
-              </Button>
-            </Link>
-          </SheetClose>
+          <li>
+            <SheetClose asChild>
+              <Link href="/">
+                <Button className="text-lg" variant="ghost">
+                  Home
+                </Button>
+              </Link>
+            </SheetClose>
+          </li>
           {categories.map((category: Category, index: number) => (
             <li key={index}>
               <SheetClose asChild>
                 <Link href={`/category/${category.slug.current}`}>
-                  <Button className="text-lg" variant="link">
+                  <Button className="text-lg" variant="ghost">
                     {category.name}
                   </Button>
                 </Link>
               </SheetClose>
             </li>
           ))}
-          <SheetClose asChild>
-            <Link href="/about">
-              <Button className="text-lg" variant="link">
-                About
-              </Button>
-            </Link>
-          </SheetClose>
+          <li>
+            <SheetClose asChild>
+              <Link href="/about">
+                <Button className="text-lg" variant="ghost">
+                  About
+                </Button>
+              </Link>
+            </SheetClose>
+          </li>
+          <li>
+            <SearchInput />
+          </li>
         </ul>
       </SheetContent>
     </Sheet>

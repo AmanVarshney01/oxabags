@@ -8,6 +8,13 @@ export const schema: { types: SchemaTypeDefinition[] } = {
       type: "document",
       fields: [
         {
+          name: "id",
+          title: "ID",
+          type: "number",
+          validation: (Rule) =>
+            Rule.required().integer().positive().greaterThan(100),
+        },
+        {
           name: "name",
           title: "Name",
           type: "string",
@@ -97,6 +104,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           },
         },
       ],
-    }
+    },
   ],
 };

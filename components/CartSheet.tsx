@@ -28,7 +28,7 @@ export default function CartSheet() {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild className="ml-0 md:ml-auto">
+      <SheetTrigger asChild>
         <Button variant={"outline"} className="relative">
           <ShoppingCartIcon size={22} />
           {isClient && cart.length > 0 && (

@@ -1,7 +1,7 @@
 import ProductCard from "@/components/ProductCard";
 import { getProductsByCategory } from "@/sanity/lib/sanity.query";
 import { getCategories } from "@/sanity/lib/sanity.query";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { Product } from "@/lib/types";
 
 type Props = {
@@ -23,11 +23,7 @@ export async function generateStaticParams() {
   });
 }
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  // read route params
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = params.categorySlug;
 
   return {

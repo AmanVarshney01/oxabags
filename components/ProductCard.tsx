@@ -13,7 +13,7 @@ import { Product } from "@/lib/types";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <Link href={`/product/${product.slug.current}`}>
+    <Link href={`/product/${product.slug.current}`} className="w-max">
       <Card className="flex h-full flex-col justify-around">
         <CardHeader className="flex items-center justify-center p-1">
           <Image
