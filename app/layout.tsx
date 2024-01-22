@@ -5,8 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
-import { cn } from "@/lib/utils"
-
+import { cn } from "@/lib/utils";
 
 const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -44,7 +43,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
+          // disableTransitionOnChange
         >
           <main className="mx-auto min-h-svh max-w-7xl">
             <Header />

@@ -18,6 +18,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/contact" className="text-sm hover:underline">
+                  Contact Us
+                </Link>
+              </li>
+              {/* <li>
+                <Link href="/bank" className="text-sm hover:underline">
+                  Bank Details
+                </Link>
+              </li> */}
+              <li>
                 <Link href="/terms" className="text-sm hover:underline">
                   Terms of Service
                 </Link>

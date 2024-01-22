@@ -9,6 +9,16 @@ import { useForm } from "react-hook-form";
 import { Product } from "@/store/useCartStore";
 import { RotateCwIcon } from "lucide-react";
 import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
   Form,
   FormControl,
   FormDescription,
@@ -19,6 +29,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import * as z from "zod";
+
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   email: z.string().email(),
@@ -35,7 +46,7 @@ export default function CartPage() {
   const { cart, removeFromCart, addToCart, deleteFromCart, totalAmount } =
     useCartStore();
   const [isClient, setIsClient] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Add isLoading state
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -88,10 +99,10 @@ export default function CartPage() {
   return (
     <section className="p-2">
       <div className="py-2">
-        <h1 className="p-2 text-2xl font-bold">Cart</h1>
+        <h1 className="p-2 text-2xl font-bold text-left">Cart</h1>
         {isClient && cart.length > 0 ? (
           <div>
-            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-2 py-2 md:grid-cols-2 lg:grid-cols-4">
               {cart.map((product: Product, index: number) => (
                 <CartProductCard
                   key={index}
@@ -102,20 +113,45 @@ export default function CartPage() {
                 />
               ))}
             </div>
-            <div className="mt-4 flex flex-col gap-2 border-t p-2">
+            <div className="mt-4 flex flex-col gap-2 p-2">
               <h2 className=" pb-2 text-xl font-medium">Order Summary</h2>
-              <div className=" flex flex-row justify-between">
-                <h3>SubTotal</h3>
-                <span>₹{totalAmount}</span>
-              </div>
-              <div className="flex flex-row justify-between">
-                <h3>Shipping</h3>
-                <span>Free</span>
-              </div>
-              <div className="flex flex-row justify-between border-t pt-1">
-                <h3 className="text-lg font-medium">Total Amount</h3>
-                <span className="text-lg font-medium">₹{totalAmount}</span>
-              </div>
+              <Table>
+                {/* <TableCaption>Order Summary</TableCaption> */}
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>DESCRIPTION</TableHead>
+                    <TableHead className="text-right">UNIT PRICE</TableHead>
+                    <TableHead className="text-right">QTY</TableHead>
+                    <TableHead className="text-right">Amount</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {cart.map((product: Product, index: number) => (
+                    <TableRow key={index}>
+                      <TableCell>{product.name}</TableCell>
+                      <TableCell align="right">₹{product.price}</TableCell>
+                      <TableCell align="right">{product.quantity}</TableCell>
+                      <TableCell align="right">
+                        ₹{product.price * product.quantity}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                  <TableRow>
+                    <TableCell colSpan={3}>Subtotal</TableCell>
+                    <TableCell align="right">₹{totalAmount}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell colSpan={3}>Shipping Cost</TableCell>
+                    <TableCell align="right">₹0</TableCell>
+                  </TableRow>
+                </TableBody>
+                <TableFooter>
+                  <TableRow className="text-primary">
+                    <TableCell colSpan={3}>Total</TableCell>
+                    <TableCell align="right">₹{totalAmount}</TableCell>
+                  </TableRow>
+                </TableFooter>
+              </Table>
             </div>
           </div>
         ) : (
