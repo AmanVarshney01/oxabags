@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     };
   });
 
-  const invoice = instance.invoices.create({
+  instance.invoices.create({
     type: "invoice",
     customer: {
       name: body.name,

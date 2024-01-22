@@ -12,7 +12,7 @@ import EcoFriendly from "../public/Eco-Friendly.webp";
 
 export default function Billboard() {
   return (
-    <div className="flex-1 py-4">
+    <div className="flex-1 py-2">
       <Carousel
         opts={{
           loop: true,

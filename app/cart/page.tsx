@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Product } from "@/store/useCartStore";
+import { RotateCwIcon } from "lucide-react";
 import {
   Form,
   FormControl,
@@ -31,14 +32,10 @@ const formSchema = z.object({
 
 export default function CartPage() {
   const router = useRouter();
-  const {
-    cart,
-    removeFromCart,
-    addToCart,
-    deleteFromCart,
-    totalAmount,
-  } = useCartStore();
+  const { cart, removeFromCart, addToCart, deleteFromCart, totalAmount } =
+    useCartStore();
   const [isClient, setIsClient] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Add isLoading state
 
   useEffect(() => {
     setIsClient(true);
@@ -59,6 +56,8 @@ export default function CartPage() {
   });
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsLoading(true);
+
     const cartProducts = cart.map((item) => ({
       name: item.name,
       price: item.price,
@@ -82,7 +81,10 @@ export default function CartPage() {
     } else {
       console.error("An error occurred:", response.statusText);
     }
+
+    setIsLoading(false);
   };
+
   return (
     <section className="p-2">
       <div className="py-2">
@@ -235,8 +237,19 @@ export default function CartPage() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="rounded-md px-4 py-2 text-white">
-              Send Invoice
+            <Button
+              type="submit"
+              className="rounded-md px-4 py-2 text-white"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <div className=" flex flex-row gap-2">
+                  <span>Sending</span>
+                  <RotateCwIcon className="animate-spin" />
+                </div>
+              ) : (
+                "Send Invoice"
+              )}
             </Button>
           </form>
         </Form>

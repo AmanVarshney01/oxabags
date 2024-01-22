@@ -8,8 +8,8 @@ export default async function ProductDetailCard({ slug }: { slug: string }) {
   return (
     <div className="flex w-full flex-col md:flex-row">
       <ProductCarousel product={product} />
-      <div className=" flex w-full flex-col space-y-4 p-4 md:w-1/2 md:px-12">
-        <h1 className="pb-2 text-2xl font-bold">{product.name}</h1>
+      <div className=" flex w-full flex-col space-y-4 p-2 py-4 md:w-1/2 md:px-4 lg:px-12">
+        <h1 className="pb-2 text-xl md:text-2xl font-bold">{product.name}</h1>
         <h2 className="pb-1 text-xl font-medium text-red-500">
           Price: ₹ {product.price}
         </h2>
@@ -66,12 +66,20 @@ export default async function ProductDetailCard({ slug }: { slug: string }) {
                   {product.features}
                 </td>
               </tr>
+              <tr className="m-0 p-0 even:bg-muted">
+                <td className=" px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
+                  Description:
+                </td>
+                <td className=" px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
+                {product.description}
+                </td>
+              </tr>
             </tbody>
           </table>
-          <div className="pt-4 px-4">
+          {/* <div className="pt-4 px-4">
             <h3 className="pb-1">Description:</h3>
             <p className="">{product.description}</p>
-          </div>
+          </div> */}
         </div>
         {/* <div className="flex flex-row space-x-8">
           <div className=" space-y-4">
