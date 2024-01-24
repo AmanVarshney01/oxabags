@@ -20,8 +20,8 @@ export default async function MenuSheet({
   return (
     <Sheet>
       <SheetTrigger asChild className="block md:hidden">
-        <Button variant={"outline"} className="relative">
-          <MenuIcon size={22} />
+        <Button variant={"outline"} className="relative" size={"icon"}>
+          <MenuIcon size={15} />
           <span className="sr-only">Menu</span>
         </Button>
       </SheetTrigger>
@@ -29,51 +29,41 @@ export default async function MenuSheet({
         <SheetHeader>
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
-        <ul className=" my-8 flex flex-col space-y-3">
-          <li>
-            <SheetClose asChild>
-              <Link href="/">
-                <Button className="text-lg" variant="ghost">
-                  Home
-                </Button>
-              </Link>
-            </SheetClose>
-          </li>
+        <div className=" my-8 flex flex-col space-y-3">
+          <SheetClose asChild>
+            <Link href="/">
+              <Button className="text-lg" variant="ghost">
+                Home
+              </Button>
+            </Link>
+          </SheetClose>
           {categories.map((category: Category, index: number) => (
-            <li key={index}>
-              <SheetClose asChild>
-                <Link href={`/category/${category.slug.current}`}>
-                  <Button className="text-lg" variant="ghost">
-                    {category.name}
-                  </Button>
-                </Link>
-              </SheetClose>
-            </li>
+            <SheetClose asChild key={index}>
+              <Link href={`/category/${category.slug.current}`}>
+                <Button className="text-lg" variant="ghost">
+                  {category.name}
+                </Button>
+              </Link>
+            </SheetClose>
           ))}
-          <li>
-            <SheetClose asChild>
-              <Link href="/about">
-                <Button className="text-lg" variant="ghost">
-                  About Us
-                </Button>
-              </Link>
-            </SheetClose>
-          </li>
-          <li>
-            <SheetClose asChild>
-              <Link href="/contact">
-                <Button className="text-lg" variant="ghost">
-                  Contact Us
-                </Button>
-              </Link>
-            </SheetClose>
-          </li>
-          <li>
-            {/* <SheetClose> */}
-              <SearchInput />
-            {/* </SheetClose> */}
-          </li>
-        </ul>
+          <SheetClose asChild>
+            <Link href="/about">
+              <Button className="text-lg" variant="ghost">
+                About Us
+              </Button>
+            </Link>
+          </SheetClose>
+
+          <SheetClose asChild>
+            <Link href="/contact">
+              <Button className="text-lg" variant="ghost">
+                Contact Us
+              </Button>
+            </Link>
+          </SheetClose>
+
+          <SearchInput />
+        </div>
       </SheetContent>
     </Sheet>
   );

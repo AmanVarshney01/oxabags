@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Actions, Product } from "@/store/useCartStore";
 
-export default function CartproductCard({
+export default function CartProductCard({
   product,
   addToCart,
   removeFromCart,

@@ -1,17 +1,18 @@
 "use client";
 import { Button } from "./ui/button";
 import { PlusIcon } from "lucide-react";
-import { useCartStore } from "@/store/useCartStore";
+import { State, useCartStore } from "@/store/useCartStore";
 import { useState, useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "./ui/toast";
 import Link from "next/link";
 import { Actions, Product } from "@/store/useCartStore";
+import { useRouter } from "next/navigation";
 
 export default function AddToCartButton({ product }: { product: Product }) {
   const { toast } = useToast();
 
-  const { addToCart }: Actions = useCartStore();
+  const { addToCart, cart }: Actions & State = useCartStore();
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -31,21 +32,34 @@ export default function AddToCartButton({ product }: { product: Product }) {
     });
   };
 
-  return (
+  
+  const router = useRouter();
+  const clickedBuyNow = () => {
+    if (product.quantity === undefined) {
+      addToCart(product);
+    }
+    router.push("/cart");
+  };
+  return (  
     <>
       {isClient && (
-        <Button
-          onClick={() => clickedAddToCart()}
-          variant={"default"}
-          className={`relative w-full rounded-full border shadow transition duration-100 active:scale-95`}
-        >
-          <div className="absolute left-0 ml-4">
-            <PlusIcon className="h-6 w-6" />
-          </div>
-          <span className="">
+        <>
+          <Button
+            onClick={() => clickedAddToCart()}
+            variant={"secondary"}
+            className={`relative w-full rounded-full border shadow transition duration-100 active:scale-95`}
+          >
+            <PlusIcon className="absolute left-0 ml-4 h-6 w-6" />
             Add to Cart
-          </span>
-        </Button>
+          </Button>
+          <Button
+            onClick={() => clickedBuyNow()}
+            variant={"default"}
+            className={`relative mt-2 w-full rounded-full border shadow transition duration-100 active:scale-95`}
+          >
+            Buy Now
+          </Button>
+        </>
       )}
     </>
   );

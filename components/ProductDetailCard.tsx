@@ -14,12 +14,12 @@ export default async function ProductDetailCard({ slug }: { slug: string }) {
   return (
     <section className="flex w-full flex-col md:flex-row">
       <ProductCarousel product={product} />
-      <div className=" flex w-full flex-col space-y-4 py-4 md:w-1/2 px-2 md:px-4 lg:px-12">
+      <div className=" flex w-full flex-col space-y-2 py-2 md:w-1/2 px-2 md:px-4 lg:px-12">
         <h1 className="pb-2 text-xl font-bold md:text-2xl">{product.name}</h1>
         <h2 className="pb-1 text-xl font-medium text-red-500">
           Price: ₹ {product.price}
         </h2>
-        <Table>
+        <Table >
           <TableBody>
             <TableRow>
               <TableCell>Product ID:</TableCell>
@@ -51,7 +51,7 @@ export default async function ProductDetailCard({ slug }: { slug: string }) {
             </TableRow>
           </TableBody>
         </Table>
-        <div className="pt-4">
+        <div className="pt-2">
           <AddToCartButton product={product} />
         </div>
       </div>

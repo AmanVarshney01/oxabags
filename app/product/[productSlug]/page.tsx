@@ -1,7 +1,7 @@
 import ProductDetailCard from "@/components/ProductDetailCard";
 import ProductMarquee from "@/components/ProductMarquee";
 import { client } from "@/sanity/lib/client";
-import { Metadata} from "next";
+import { Metadata } from "next";
 
 type Props = {
   params: { productSlug: string };

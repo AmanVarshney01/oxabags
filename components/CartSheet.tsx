@@ -29,15 +29,15 @@ export default function CartSheet() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant={"outline"} className="relative">
-          <ShoppingCartIcon size={22} />
+        <Button variant={"outline"} className="relative" size="icon">
+          <ShoppingCartIcon size={15} />
           {isClient && cart.length > 0 && (
             <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-red-500"></div>
           )}
           <span className="sr-only">Cart</span>
         </Button>
       </SheetTrigger>
-      <SheetContent className=" flex flex-col p-2 md:p-6">
+      <SheetContent className=" flex flex-col">
         <SheetHeader>
           <SheetTitle>Cart</SheetTitle>
         </SheetHeader>
@@ -61,6 +61,8 @@ export default function CartSheet() {
               variant="default"
               onClick={() => setOpen(false)}
               className="w-full"
+              disabled={cart.length === 0}
+              
             >
               Proceed to Checkout
             </Button>
