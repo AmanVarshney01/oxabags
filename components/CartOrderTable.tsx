@@ -60,7 +60,7 @@ export default function CartOrderTable() {
                 </TableRow>
                 <TableRow>
                   <TableCell colSpan={3}>Shipping Cost</TableCell>
-                  <TableCell align="right">₹0</TableCell>
+                  <TableCell align="right">FREE</TableCell>
                 </TableRow>
               </TableBody>
               <TableFooter>

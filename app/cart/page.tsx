@@ -4,7 +4,7 @@ import { useCartStore } from "@/store/useCartStore";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { RotateCwIcon } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import {
   Form,
   FormControl,
@@ -19,7 +19,11 @@ import * as z from "zod";
 import CartOrderTable from "@/components/CartOrderTable";
 
 const formSchema = z.object({
-  name: z.string().min(2).max(50),
+  name: z.string().min(2, {
+    message: "Name must contain at least 2 characters(s)"
+  }).max(50, {
+    message: "Name is too long"
+  }),
   email: z.string().email(),
   phoneNumber: z.string().regex(/^\d{10}$/),
   addressLine: z.string(),
@@ -31,8 +35,7 @@ const formSchema = z.object({
 
 export default function CartPage() {
   const router = useRouter();
-  const { cart, removeFromCart, addToCart, deleteFromCart, totalAmount } =
-    useCartStore();
+  const { cart, totalItems } = useCartStore();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -72,6 +75,8 @@ export default function CartPage() {
     } else {
       console.error("An error occurred:", response.statusText);
     }
+
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
 
     form.reset();
   };
@@ -197,12 +202,12 @@ export default function CartPage() {
             <Button
               type="submit"
               className="rounded-md px-4 py-2 text-white"
-              disabled={form.formState.isSubmitting}
+              disabled={form.formState.isSubmitting || totalItems == 0 }
             >
               {form.formState.isSubmitting ? (
                 <div className=" flex flex-row gap-2">
                   <span>Loading</span>
-                  <RotateCwIcon className="animate-spin" />
+                  <Loader2 className="animate-spin" />
                 </div>
               ) : (
                 "Buy Now"
