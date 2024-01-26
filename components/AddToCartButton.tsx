@@ -46,7 +46,7 @@ export default function AddToCartButton({ product }: { product: Product }) {
       <Button
         onClick={handleAddToCart}
         variant="secondary"
-        className="relative w-full rounded-full border shadow transition duration-100 active:scale-95"
+        className="relative w-full rounded-full border transition duration-100 active:scale-95"
       >
         <PlusIcon className="absolute left-0 ml-4 h-6 w-6" />
         Add to Cart
@@ -54,7 +54,7 @@ export default function AddToCartButton({ product }: { product: Product }) {
       <Button
         onClick={handleBuyNow}
         variant="default"
-        className="relative mt-2 w-full rounded-full border shadow transition duration-100 active:scale-95"
+        className="relative mt-2 w-full rounded-full border transition duration-100 active:scale-95"
       >
         Buy Now
       </Button>

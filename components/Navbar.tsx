@@ -9,6 +9,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+
 import { Category } from "@/lib/types";
 
 export default function Navbar({ categories }: { categories: Category[] }) {
@@ -17,7 +18,9 @@ export default function Navbar({ categories }: { categories: Category[] }) {
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href="/" passHref legacyBehavior>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink
+              className={navigationMenuTriggerStyle()}
+            >
               Home
             </NavigationMenuLink>
           </Link>
@@ -46,14 +49,18 @@ export default function Navbar({ categories }: { categories: Category[] }) {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/about" passHref legacyBehavior>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink
+              className={navigationMenuTriggerStyle()}
+            >
               About Us
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/contact" passHref legacyBehavior>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink
+              className={navigationMenuTriggerStyle()}
+            >
               Contact Us
             </NavigationMenuLink>
           </Link>

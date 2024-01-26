@@ -4,6 +4,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  // CarouselNext,
+  // CarouselPrevious
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
@@ -46,6 +48,8 @@ export default function Billboard() {
             />
           </CarouselItem>
         </CarouselContent>
+        {/* <CarouselPrevious className="left-0" />
+        <CarouselNext className="right-0" /> */}
       </Carousel>
     </div>
   );

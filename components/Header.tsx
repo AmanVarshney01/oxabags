@@ -8,7 +8,7 @@ import SearchInput from "./SearchInput";
 export default async function Header() {
   const categories = await getCategories();
   return (
-    <header className="fixed top-0 z-10 w-full bg-background  px-2 py-4 md:px-10 mx-auto max-w-7xl">
+    <header className="sticky top-0 z-10 mx-auto w-full max-w-7xl border-b border-border/40 bg-background/95 px-2 py-4 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-10">
       <nav className=" flex flex-row items-center  gap-6">
         <MenuSheet categories={categories} />
         <Link className="mx-auto md:mx-0" href="/">
