@@ -11,7 +11,6 @@ import CartProductCard from "@/components/CartProductCard";
 import { useCartStore } from "@/store/useCartStore";
 import { Product } from "@/store/useCartStore";
 
-
 export default function CartOrderTable() {
   const { cart, removeFromCart, addToCart, deleteFromCart, totalAmount } =
     useCartStore();
@@ -34,7 +33,6 @@ export default function CartOrderTable() {
           <div className="mt-4 flex flex-col gap-2">
             <h2 className=" p-2 text-xl font-medium">Order Summary</h2>
             <Table>
-              {/* <TableCaption>Order Summary</TableCaption> */}
               <TableHeader>
                 <TableRow>
                   <TableHead>DESCRIPTION</TableHead>

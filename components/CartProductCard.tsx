@@ -21,7 +21,7 @@ export default function CartProductCard({
             width={100}
             height={100}
             alt={product.name}
-            loading="lazy"
+            priority
             className="rounded-lg"
           />
         </Link>

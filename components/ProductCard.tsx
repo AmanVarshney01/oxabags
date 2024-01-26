@@ -25,7 +25,7 @@ export default function ProductCard({ product }: { product: Product }) {
             className="aspect-square rounded-md object-cover"
           />
         </CardHeader>
-        <CardContent className="p-1">
+        <CardContent className="p-2 pt-0">
           <CardTitle className="line-clamp-2 text-pretty text-sm sm:text-base font-medium max-w-[200px]">
             {product.name}
           </CardTitle>
@@ -33,7 +33,7 @@ export default function ProductCard({ product }: { product: Product }) {
             {product.category.name}
           </CardDescription>
         </CardContent>
-        <CardFooter className="w-full p-1">
+        <CardFooter className="w-full p-2 pt-0">
           <p className="font-medium text-primary">₹ {product.price}</p>
         </CardFooter>
       </Card>

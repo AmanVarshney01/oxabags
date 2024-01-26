@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export type Product = {
+  id: number;
   name: string;
   slug: {
     current: string;

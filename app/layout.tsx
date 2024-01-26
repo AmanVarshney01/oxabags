@@ -45,7 +45,7 @@ export default function RootLayout({
           enableSystem
           // disableTransitionOnChange
         >
-          <main className="mx-auto min-h-svh max-w-7xl">
+          <main className="mx-auto min-h-svh max-w-7xl pt-20">
             <Header />
             {children}
             <Footer />
