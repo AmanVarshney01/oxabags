@@ -2,7 +2,7 @@ import HomeCategoryCard from "@/components/HomeCategoryCard";
 
 export default function CategoryCardSection() {
   return (
-    <section className="py-2">
+    <section className=" py-4">
       <div className=" grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 md:gap-4">
         <HomeCategoryCard
           title="Cotton Bags"

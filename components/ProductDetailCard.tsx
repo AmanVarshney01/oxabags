@@ -8,7 +8,7 @@ export default async function ProductDetailCard({ slug }: { slug: string }) {
   const product: Product = await getProductBySlug(slug);
 
   return (
-    <section className="flex w-full flex-col md:flex-row">
+    <section className="flex w-full flex-col md:flex-row py-4">
       <ProductCarousel product={product} />
       <div className=" flex w-full flex-col space-y-2 px-2 py-2 md:w-1/2 md:px-4 lg:px-12">
         <h1 className="pb-2 text-xl font-bold md:text-2xl">{product.name}</h1>
@@ -18,7 +18,7 @@ export default async function ProductDetailCard({ slug }: { slug: string }) {
         <Table>
           <TableBody>
             <TableRow>
-              <TableCell>Product Code:</TableCell>
+              <TableCell className=" text-nowrap">Product Code:</TableCell>
               <TableCell>{product.id}</TableCell>
             </TableRow>
             <TableRow>
