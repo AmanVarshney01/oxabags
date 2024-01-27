@@ -37,8 +37,8 @@ export default function CartSheet() {
           <span className="sr-only">Cart</span>
         </Button>
       </SheetTrigger>
-      <SheetContent className=" flex flex-col">
-        <SheetHeader>
+      <SheetContent className=" flex flex-col p-2">
+        <SheetHeader className="p-2">
           <SheetTitle>Cart</SheetTitle>
         </SheetHeader>
         <SheetDescription className=" text-gray-500">

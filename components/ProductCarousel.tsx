@@ -13,7 +13,7 @@ import { Product } from "@/lib/types";
 
 export default function ProductCarousel({ product }: { product: Product }) {
   return (
-    <div className="flex-1 md:w-1/2 p-2">
+    <div className="flex-1 md:w-1/2">
       <Carousel
         opts={{
           align: "start",

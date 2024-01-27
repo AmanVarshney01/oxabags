@@ -25,8 +25,8 @@ export default async function MenuSheet({
           <span className="sr-only">Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side={"left"}>
-        <SheetHeader>
+      <SheetContent side={"left"} className="p-2">
+        <SheetHeader className="p-2">
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
         <div className=" my-8 flex flex-col space-y-3">

@@ -15,7 +15,7 @@ export default function CartProductCard({
   return (
     <Card className="mb-2 flex flex-row p-1">
       <CardContent className="flex w-full flex-row p-0">
-        <Link className=" shrink-0" href={`/product/${product.slug.current}`}>
+        <Link className="min-w-fit" href={`/product/${product.slug.current}`}>
           <Image
             src={urlForImage(product.images[0])}
             width={100}
@@ -25,7 +25,7 @@ export default function CartProductCard({
             className="rounded-lg"
           />
         </Link>
-        <div className="flex flex-col justify-between pl-4">
+        <div className="flex flex-col justify-between pl-2 md:pl-4">
           <div>
             <div className="line-clamp-2 text-sm font-medium leading-tight">
               {product.name}
@@ -52,7 +52,7 @@ export default function CartProductCard({
             </Button>
           </div>
         </div>
-        <div className=" ml-auto mt-auto">
+        <div className=" ml-auto mt-auto pl-2">
           <Button
             className="h-5 w-5"
             variant={"destructive"}
