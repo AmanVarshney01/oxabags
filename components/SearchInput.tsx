@@ -18,7 +18,7 @@ import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
-  id: z.coerce.number({
+  productCode: z.coerce.number({
     invalid_type_error: "Invalid ID",
   }),
 });
@@ -32,7 +32,7 @@ export default function SearchInput() {
   const router = useRouter();
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const id: number = Number(values.id);
+    const id: number = Number(values.productCode);
     try {
       const productSlug = await getProductSlugByID(id);
       router.push(`/product/${productSlug.slug.current}`);
@@ -49,13 +49,13 @@ export default function SearchInput() {
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
-          name="id"
+          name="productCode"
           render={({ field }) => (
             <FormItem className="relative">
               <FormControl>
                 <div className="relative flex flex-row">
                   <Input
-                    placeholder="Search by ID"
+                    placeholder="Search by Code"
                     {...field}
                     disabled={form.formState.isSubmitting}
                   />
