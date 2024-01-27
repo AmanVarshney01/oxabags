@@ -39,7 +39,7 @@ export default function SearchInput() {
     } catch (error) {
       toast({
         variant: "destructive",
-        title: "Invalid Product ID",
+        title: "Invalid Product Code",
       });
     }
     form.reset();

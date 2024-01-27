@@ -29,7 +29,7 @@ export default function Footer() {
               </li> */}
               <li>
                 <Link href="/terms" className="text-sm hover:underline">
-                  Terms of Service
+                  Terms of Conditions
                 </Link>
               </li>
               <li>
@@ -37,6 +37,18 @@ export default function Footer() {
                   Privacy Policy
                 </Link>
               </li>
+              <li>
+                <Link href="/privacy" className="text-sm hover:underline">
+                  Return and Refund Policy
+                </Link>
+              </li>
+              
+              <li>
+                <Link href="/privacy" className="text-sm hover:underline">
+                  Shipping Policy
+                </Link>
+              </li>
+
             </ul>
           </div>
           <div>
