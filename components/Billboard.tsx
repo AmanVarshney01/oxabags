@@ -4,13 +4,12 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  // CarouselNext,
-  // CarouselPrevious
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Customize from "../public/customize.webp";
 import EcoFriendly from "../public/Eco-Friendly.webp";
+import { AspectRatio } from "./ui/aspect-ratio";
 
 export default function Billboard() {
   return (
@@ -30,26 +29,29 @@ export default function Billboard() {
       >
         <CarouselContent>
           <CarouselItem>
-            <Image
-              className="w-full rounded-lg"
-              src={EcoFriendly}
-              alt=""
-              priority
-            />
+            <AspectRatio ratio={2 / 1}>
+              <Image
+                className="w-full rounded-lg"
+                src={EcoFriendly}
+                alt=""
+                priority
+                width={1920}
+                height={960}
+              />
+            </AspectRatio>
           </CarouselItem>
           <CarouselItem>
-            <Image
-              className="w-full rounded-lg"
-              src={Customize}
-              alt="Customize your with your own design and preference."
-              // width={1920}
-              // height={960}
-              priority
-            />
+            <AspectRatio ratio={2 / 1}>
+              <Image
+                className="w-full rounded-lg"
+                src={Customize}
+                alt="Customize your with your own design and preference."
+                width={1920}
+                height={960}
+              />
+            </AspectRatio>
           </CarouselItem>
         </CarouselContent>
-        {/* <CarouselPrevious className="left-0" />
-        <CarouselNext className="right-0" /> */}
       </Carousel>
     </div>
   );

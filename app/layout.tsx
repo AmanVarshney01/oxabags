@@ -17,6 +17,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.oxabags.com/"),
   title: {
     template: "%s | oxabags",
     default: "oxabags",
@@ -25,12 +26,20 @@ export const metadata: Metadata = {
     "Manufacturer, Wholesaler & Exporter of Jute bags, Cotton Bag for Corporate Events & Exhibitions",
   keywords:
     "Jute bags, Cotton Bag, Canvas Bags, File Folders, Denim Bags, Pouches",
+  alternates: {
+    canonical: "/",
+  },
+  category: "Shopping",
+  openGraph: {
+    title: "oxabags",
+  }
 };
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en">
       <body

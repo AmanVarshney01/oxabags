@@ -31,6 +31,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       .split("-")
       .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" "),
+    alternates: {
+      canonical: `/category/${params.categorySlug}`,
+    },
   };
 }
 
@@ -43,7 +46,7 @@ export default async function CategoryPage({ params }: Props) {
           <h2 className="p-4 text-3xl font-medium ">
             {products[0].category.name}
           </h2>
-          <section className="grid grid-cols-2 justify-items-center gap-2 md:gap-4 px-2 pb-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          <section className="grid grid-cols-2 justify-items-center gap-2 px-2 pb-8 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:grid-cols-6">
             {products.map((product: Product, index: number) => (
               <ProductCard key={index} product={product} />
             ))}

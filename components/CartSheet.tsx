@@ -32,7 +32,7 @@ export default function CartSheet() {
         <Button variant={"outline"} className="relative" size="icon">
           <ShoppingCartIcon size={15} />
           {isClient && cart.length > 0 && (
-            <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-red-500"></div>
+            <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-primary"></div>
           )}
           <span className="sr-only">Cart</span>
         </Button>

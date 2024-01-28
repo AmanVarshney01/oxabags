@@ -8,7 +8,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-export default function HomeCategoryCard({
+export default function CategoryCard({
   title,
   description,
   image,
@@ -21,24 +21,24 @@ export default function HomeCategoryCard({
 }) {
   return (
     <Link href={link}>
-      <Card className="flex h-full flex-row sm:flex-col justify-between ">
-        <CardHeader className="p-4 w-full">
+      <Card className="flex h-full flex-row justify-between sm:flex-col ">
+        <CardHeader className="w-full p-4">
           <CardTitle className="text-base font-medium md:text-lg">
             {title}
           </CardTitle>
-          <CardDescription className="text-sm md:text-base text-pretty ">
+          <CardDescription className="text-pretty text-sm md:text-base ">
             {description}
           </CardDescription>
         </CardHeader>
-        <CardContent className="p-4 w-full flex justify-center items-center">
-          <Image
-            loading="lazy"
-            alt="Cotton Bag"
-            className="mx-auto rounded-lg"
-            height={300}
-            src={image}
-            width={300}
-          />
+        <CardContent className="flex w-full items-center justify-center p-4">
+            <Image
+              loading="lazy"
+              alt="Cotton Bag"
+              className="mx-auto rounded-lg"
+              height={300}
+              width={300}
+              src={image}
+            />
         </CardContent>
       </Card>
     </Link>

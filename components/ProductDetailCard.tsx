@@ -4,15 +4,14 @@ import AddToCartButton from "./AddToCartButton";
 import { Product } from "@/lib/types";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
-export default async function ProductDetailCard({ slug }: { slug: string }) {
-  const product: Product = await getProductBySlug(slug);
+export default async function ProductDetailCard({ product }: { product: Product }) {
 
   return (
     <section className="flex w-full flex-col md:flex-row py-4">
       <ProductCarousel product={product} />
       <div className=" flex w-full flex-col space-y-2 px-0 py-2 md:w-1/2 md:px-4 lg:px-12">
         <h1 className="p-2 text-xl font-bold md:text-2xl">{product.name}</h1>
-        <h2 className="p-2 text-xl font-medium text-red-500">
+        <h2 className="p-2 text-xl font-medium text-primary">
           Price: ₹ {product.price}
         </h2>
         <Table>

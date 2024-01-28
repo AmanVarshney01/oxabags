@@ -10,6 +10,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 import { Product } from "@/lib/types";
+import { AspectRatio } from "./ui/aspect-ratio";
 
 export default function ProductCarousel({ product }: { product: Product }) {
   return (
@@ -30,14 +31,16 @@ export default function ProductCarousel({ product }: { product: Product }) {
         <CarouselContent>
           {product.images.map((image: any, index: number) => (
             <CarouselItem key={index}>
-              <Image
-                src={urlForImage(image)}
-                width={1000}
-                height={1000}
-                alt={product.name}
-                className="rounded-lg"
-                priority
-              />
+              <AspectRatio ratio={1 / 1}>
+                <Image
+                  src={urlForImage(image)}
+                  width={1000}
+                  height={1000}
+                  alt={product.name}
+                  className="rounded-lg"
+                  priority
+                />
+              </AspectRatio>
             </CarouselItem>
           ))}
         </CarouselContent>
