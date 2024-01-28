@@ -53,7 +53,7 @@ const ProductPage = async ({ params }: Props) => {
     "@context": "https://www.oxabags.com/",
     "@type": "Product",
     name: product.name,
-    image: urlForImage(product.images),
+    image: urlForImage(product.images[0]),
     description: product.features,
     brand: {
       "@type": "Brand",
