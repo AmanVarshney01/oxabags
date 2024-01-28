@@ -46,7 +46,7 @@ export default async function MenuSheet({
               </Link>
             </SheetClose>
           ))}
-          <SheetClose asChild>
+          {/* <SheetClose asChild>
             <Link href="/about">
               <Button className="text-lg" variant="ghost">
                 About Us
@@ -60,7 +60,7 @@ export default async function MenuSheet({
                 Contact Us
               </Button>
             </Link>
-          </SheetClose>
+          </SheetClose> */}
 
           <SearchInput />
         </div>

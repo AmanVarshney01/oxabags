@@ -10,6 +10,12 @@ export default function Footer() {
     <footer className=" pb-5 md:px-5 md:pb-10">
       <section className="flex flex-row justify-around items-center text-center text-pretty py-10 border-y">
         <div className="">
+          {/* <span></span> */}
+          <span className="text-sm md:text-lg font-medium">
+            Made in India
+          </span>
+        </div>
+        <div className="">
           <TruckIcon size={24} />
           <span className="text-sm md:text-lg font-medium">Free Shipping</span>
         </div>
@@ -17,17 +23,11 @@ export default function Footer() {
           <span className="text-sm md:text-lg font-medium">Payments via</span>
           <Image
             loading="lazy"
-            className="rounded-lg"
+            className="p-1 bg-[#02042b]"
             width={90}
             src={razorpay}
             alt="razorpay"
           />
-        </div>
-        <div className="">
-          {/* <span></span> */}
-          <span className="text-sm md:text-lg font-medium">
-            Made in India
-          </span>
         </div>
       </section>
       <section className="container mx-auto pt-10">
@@ -58,12 +58,6 @@ export default function Footer() {
               <li>
                 <Link href="/privacy" className="text-sm hover:underline">
                   Return and Refund Policy
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/privacy" className="text-sm hover:underline">
-                  Shipping Policy
                 </Link>
               </li>
             </ul>

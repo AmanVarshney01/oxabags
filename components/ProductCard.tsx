@@ -29,7 +29,7 @@ export default function ProductCard({ product }: { product: Product }) {
           </AspectRatio>
         </CardHeader>
         <CardContent className="p-2 pt-0">
-          <CardTitle className="line-clamp-2 max-w-[200px] text-pretty text-sm font-medium sm:text-base">
+          <CardTitle className="line-clamp-2 max-w-[200px] text-sm font-medium leading-tight sm:text-base sm:leading-tight">
             {product.name}
           </CardTitle>
           <CardDescription className="text-sm">
