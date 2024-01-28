@@ -5,37 +5,11 @@ import DenimBag from "@/public/categoryImages/denim bags.webp";
 import FileFolder from "@/public/categoryImages/file folder.jpg";
 import JuteBag from "@/public/categoryImages/JUTE BAGS.webp";
 import Pouch from "@/public/categoryImages/pouch.webp";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
-// import Image from "next/image";
-import { BoxesIcon, MailIcon, PhoneCallIcon } from "lucide-react";
 
 export default function CategoryCardSection() {
   return (
     <section className=" py-4">
       <div className=" grid grid-cols-1 justify-end gap-2 sm:grid-cols-2 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
-        <Card className=" col-span-2">
-          <CardHeader>
-            <CardTitle className="flex flex-row items-center gap-2">
-              <BoxesIcon size={24} />
-              Buy in Bulk? Call Us Today!
-            </CardTitle>
-            <CardDescription>
-              Whether you need canvas, cotton, or jute bags in large volumes, we
-              offer competitive pricing, fast delivery, and excellent customer
-              service for bulk orders.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-           
-          </CardContent>
-        </Card>
         <CategoryCard
           title="Cotton Bags"
           description="Ethically sourced and made from 100% organic cotton."
