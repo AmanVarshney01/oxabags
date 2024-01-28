@@ -1,13 +1,36 @@
-import { MailIcon, PhoneCallIcon } from "lucide-react";
+import { MailIcon, PhoneCallIcon, TruckIcon } from "lucide-react";
 import ContactForm from "./ContactForm";
 import Link from "next/link";
 import Image from "next/image";
 import whatsapp from "../public/WhatsAppButtonGreenSmall.svg";
+import razorpay from "../public/razorpay.png";
 
 export default function Footer() {
   return (
-    <footer className=" border-t py-5 md:px-5 md:py-10">
-      <div className="container mx-auto">
+    <footer className=" pb-5 md:px-5 md:pb-10">
+      <section className="flex flex-row justify-around items-center text-center text-pretty py-10 border-y">
+        <div className="">
+          <TruckIcon size={32} />
+          <span className="text-lg font-medium">Free Shipping</span>
+        </div>
+        <div className=" flex flex-col justify-center items-center">
+          <span className="text-lg font-medium">Payments via</span>
+          <Image
+            loading="lazy"
+            className="rounded-lg border border-black/20"
+            width={100}
+            src={razorpay}
+            alt="razorpay"
+          />
+        </div>
+        <div className="">
+          {/* <span></span> */}
+          <span className="text-lg font-medium">
+            Made in India
+          </span>
+        </div>
+      </section>
+      <section className="container mx-auto pt-10">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <h2 className="mb-3 text-lg font-bold">Quick Links</h2>
@@ -22,11 +45,6 @@ export default function Footer() {
                   Contact Us
                 </Link>
               </li>
-              {/* <li>
-                <Link href="/bank" className="text-sm hover:underline">
-                  Bank Details
-                </Link>
-              </li> */}
               <li>
                 <Link href="/terms" className="text-sm hover:underline">
                   Terms of Conditions
@@ -42,13 +60,12 @@ export default function Footer() {
                   Return and Refund Policy
                 </Link>
               </li>
-              
+
               <li>
                 <Link href="/privacy" className="text-sm hover:underline">
                   Shipping Policy
                 </Link>
               </li>
-
             </ul>
           </div>
           <div>
@@ -80,7 +97,7 @@ export default function Footer() {
                 />
               </Link>
             </div>
-            <div className="flex space-x-4 mt-2">
+            <div className="mt-2 flex space-x-4">
               <Link
                 href="https://www.facebook.com/amanasia"
                 className="text-sm hover:underline"
@@ -103,7 +120,7 @@ export default function Footer() {
           </div>
           <ContactForm />
         </div>
-      </div>
+      </section>
       <p className="mt-10 text-center text-sm">
         © {new Date().getFullYear()} oxabags
       </p>

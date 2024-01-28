@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
+import { StaticImageData } from "next/image";
 
 export default function CategoryCard({
   title,
@@ -16,7 +17,7 @@ export default function CategoryCard({
 }: {
   title: string;
   description: string;
-  image: string;
+  image: StaticImageData;
   link: string;
 }) {
   return (
