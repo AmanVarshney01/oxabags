@@ -10,22 +10,22 @@ export default function Footer() {
     <footer className=" pb-5 md:px-5 md:pb-10">
       <section className="flex flex-row justify-around items-center text-center text-pretty py-10 border-y">
         <div className="">
-          <TruckIcon size={32} />
-          <span className="text-lg font-medium">Free Shipping</span>
+          <TruckIcon size={24} />
+          <span className="text-sm md:text-lg font-medium">Free Shipping</span>
         </div>
         <div className=" flex flex-col justify-center items-center">
-          <span className="text-lg font-medium">Payments via</span>
+          <span className="text-sm md:text-lg font-medium">Payments via</span>
           <Image
             loading="lazy"
-            className="rounded-lg border border-black/20"
-            width={100}
+            className="rounded-lg"
+            width={90}
             src={razorpay}
             alt="razorpay"
           />
         </div>
         <div className="">
           {/* <span></span> */}
-          <span className="text-lg font-medium">
+          <span className="text-sm md:text-lg font-medium">
             Made in India
           </span>
         </div>
