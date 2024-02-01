@@ -9,10 +9,12 @@ export default function SuccessPage({
     name: string;
     email: string;
     phoneNumber: string;
-  }
+    short_url: string;
+  };
 }) {
   const email = searchParams.email;
   const phoneNumber = searchParams.phoneNumber;
+  const short_url = searchParams.short_url;
   return (
     <div className="flex flex-col items-center justify-center gap-8 px-2 py-16 md:py-24">
       <div className="rounded-full bg-green-400 p-8">
@@ -27,9 +29,14 @@ export default function SuccessPage({
           <span className="underline">{email}</span> and{" "}
           <span className="underline">{phoneNumber}</span>
         </p>
-        <Link href={"/"}>
-          <Button className="mt-4">Continue Shopping</Button>
-        </Link>
+        <div className="mt-4 flex flex-row gap-2">
+          <a href={short_url} target="_blank" rel="noopener noreferrer">
+            <Button>Open Invoice</Button>
+          </a>
+          <Link href={"/"}>
+            <Button variant={"secondary"}>Continue Shopping</Button>
+          </Link>
+        </div>
       </div>
     </div>
   );

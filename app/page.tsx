@@ -1,5 +1,5 @@
 import Billboard from "@/components/Billboard";
-import ProductMarquee from "@/components/ProductMarquee";
+import ProductMarquee from "@/components/ProductsMarqueeWrapper";
 import Image from "next/image";
 import whatsapp from "../public/WhatsAppButtonGreenSmall.svg";
 import Link from "next/link";

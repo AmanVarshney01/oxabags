@@ -9,12 +9,12 @@ export default function Contact() {
   const ownerName = "Kuldeep Gupta";
   const address =
     "G-211, UPSIDC Industrial Area Phase-1 M. G. Road, Dholana GHAZIABAD -201015, UP";
-  const phoneNumber = "+91-9868151526";
+  const phoneNumber = "9868151526, 9811365888";
   const email = "info@amanasia.com";
 
   return (
-    <section className="px-2 pb-8 md:px-8">
-      <h2 className="py-8 text-2xl font-medium">Contact Us</h2>
+    <section className="px-2 py-4">
+      <h2 className="p-4 text-3xl font-medium ">Contact Us</h2>
       <div className="flex flex-row items-center space-x-8">
         <div className="flex flex-col gap-8 text-base font-medium md:text-lg">
           <div className="flex flex-col gap-1">

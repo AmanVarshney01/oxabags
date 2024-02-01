@@ -9,7 +9,7 @@ import {
 import { Product } from "@/lib/types";
 import ProductCard from "./ProductCard";
 
-export default function ProductCarouselMarquee({ products }: { products: Product[] }) {
+export default function ProductsMarquee({ products }: { products: Product[] }) {
   return (
     <Carousel opts={{
       dragFree: true,

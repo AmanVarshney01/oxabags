@@ -8,22 +8,20 @@ import razorpay from "../public/razorpay.png";
 export default function Footer() {
   return (
     <footer className=" pb-5 md:px-5 md:pb-10">
-      <section className="flex flex-row justify-around items-center text-center text-pretty py-10 border-y">
+      <section className="flex flex-row items-center justify-around text-pretty border-y py-10 text-center">
         <div className="">
           {/* <span></span> */}
-          <span className="text-sm md:text-lg font-medium">
-            Made in India
-          </span>
+          <span className="text-sm font-medium md:text-lg">Made in India</span>
         </div>
         <div className="">
-          <TruckIcon size={24} />
-          <span className="text-sm md:text-lg font-medium">Free Shipping</span>
+          {/* <TruckIcon size={24} /> */}
+          <span className="text-sm font-medium md:text-lg">Free Shipping</span>
         </div>
-        <div className=" flex flex-col justify-center items-center">
-          <span className="text-sm md:text-lg font-medium">Payments via</span>
+        <div className=" flex flex-col items-center justify-center">
+          <span className="text-sm font-medium md:text-lg">Payments via</span>
           <Image
             loading="lazy"
-            className="p-1 bg-[#02042b]"
+            className="bg-[#02042b] p-1"
             width={90}
             src={razorpay}
             alt="razorpay"
@@ -46,17 +44,26 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-sm hover:underline">
-                  Terms of Conditions
+                <Link
+                  href="/terms-of-service"
+                  className="text-sm hover:underline"
+                >
+                  Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-sm hover:underline">
+                <Link
+                  href="/privacy-policy"
+                  className="text-sm hover:underline"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-sm hover:underline">
+                <Link
+                  href="/return-refund-policy"
+                  className="text-sm hover:underline"
+                >
                   Return and Refund Policy
                 </Link>
               </li>

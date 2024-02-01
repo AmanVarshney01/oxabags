@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     };
   });
 
-  instance.invoices.create({
+  const invoice = await instance.invoices.create({
     type: "invoice",
     customer: {
       name: body.name,
@@ -36,6 +36,6 @@ export async function POST(request: Request) {
     },
     line_items: lineItems,
   });
-
-  return NextResponse.json({ message: "success" });
+  console.log(invoice);
+  return NextResponse.json({ invoice });
 }

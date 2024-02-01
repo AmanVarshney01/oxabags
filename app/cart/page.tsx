@@ -19,11 +19,14 @@ import * as z from "zod";
 import CartOrderTable from "@/components/CartOrderTable";
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must contain at least 2 characters(s)"
-  }).max(50, {
-    message: "Name is too long"
-  }),
+  name: z
+    .string()
+    .min(2, {
+      message: "Name must contain at least 2 characters(s)",
+    })
+    .max(50, {
+      message: "Name is too long",
+    }),
   email: z.string().email(),
   phoneNumber: z.string().regex(/^\d{10}$/),
   addressLine: z.string(),
@@ -57,7 +60,7 @@ export default function CartPage() {
       quantity: item.quantity,
     }));
 
-    const response = await fetch("/api/razorpay", {
+    const response: any = await fetch("/api/razorpay", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,17 +69,15 @@ export default function CartPage() {
         ...values,
         products: cartProducts,
       }),
-    });
+    }).then((response) => response.json());
 
-    if (response.ok) {
+    if (response.invoice.status === "issued") {
       router.push(
-        `/cart/success?name=${values.name}&email=${values.email}&phoneNumber=${values.phoneNumber}`,
+        `/cart/success?name=${response.invoice.customer_details.name}&email=${response.invoice.customer_details.email}&phoneNumber=${response.invoice.customer_details.contact}&short_url=${response.invoice.short_url}`,
       );
     } else {
-      console.error("An error occurred:", response.statusText);
+      console.error("An error occurred please try again");
     }
-
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
 
     form.reset();
   };
@@ -202,7 +203,7 @@ export default function CartPage() {
             <Button
               type="submit"
               className="rounded-md px-4 py-2 text-white"
-              disabled={form.formState.isSubmitting || totalItems == 0 }
+              disabled={form.formState.isSubmitting || totalItems == 0}
             >
               {form.formState.isSubmitting ? (
                 <div className=" flex flex-row gap-2">
