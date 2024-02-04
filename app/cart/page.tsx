@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Loader2 } from "lucide-react";
+import { sendInvoice } from "../actions";
 import {
   Form,
   FormControl,
@@ -60,24 +61,10 @@ export default function CartPage() {
       quantity: item.quantity,
     }));
 
-    const response: any = await fetch("/api/razorpay", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...values,
-        products: cartProducts,
-      }),
-    }).then((response) => response.json());
-
-    if (response.invoice.status === "issued") {
-      router.push(
-        `/cart/success?name=${response.invoice.customer_details.name}&email=${response.invoice.customer_details.email}&phoneNumber=${response.invoice.customer_details.contact}&short_url=${response.invoice.short_url}`,
-      );
-    } else {
-      console.error("An error occurred please try again");
-    }
+    await sendInvoice({
+      ...values,
+      products: cartProducts,
+    });
 
     form.reset();
   };
