@@ -62,7 +62,6 @@ export default function CartSheet() {
               onClick={() => setOpen(false)}
               className="w-full"
               disabled={cart.length === 0}
-              
             >
               Proceed to Checkout
             </Button>

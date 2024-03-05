@@ -11,7 +11,7 @@ export default function CartProductCard({
   addToCart,
   removeFromCart,
   deleteFromCart,
-}: Actions & { product:  Product}) {
+}: Actions & { product: Product }) {
   return (
     <Card className="mb-2 flex flex-row p-1">
       <CardContent className="flex w-full flex-row p-0">
@@ -30,7 +30,9 @@ export default function CartProductCard({
             <div className="line-clamp-2 text-sm font-medium leading-tight">
               {product.name}
             </div>
-            <div className="text-sm opacity-95 text-primary mt-1">₹{product.price}</div>
+            <div className="mt-1 text-sm text-primary opacity-95">
+              ₹{product.price}
+            </div>
           </div>
           <div className="flex w-min flex-row gap-1 rounded-lg border p-1">
             <Button
@@ -41,7 +43,9 @@ export default function CartProductCard({
             >
               <MinusIcon size={15} />
             </Button>
-            <span className="min-w-5 px-1 text-sm text-center">{product.quantity}</span>
+            <span className="min-w-5 px-1 text-center text-sm">
+              {product.quantity}
+            </span>
             <Button
               className=" h-5 w-5"
               variant={"ghost"}

@@ -32,14 +32,13 @@ export const metadata: Metadata = {
   category: "Shopping",
   openGraph: {
     title: "oxabags",
-  }
+  },
 };
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-
   return (
     <html lang="en">
       <body
@@ -48,12 +47,7 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          // disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="mx-auto min-h-svh max-w-7xl">
             <Header />
             {children}

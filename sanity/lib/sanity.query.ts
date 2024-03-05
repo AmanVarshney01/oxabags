@@ -22,22 +22,6 @@ export async function getProductBySlug(slug: string) {
   );
 }
 
-// export async function getProductByID(id: number) {
-//   return client.fetch(
-//     groq`*[_type == "product" && id == $id][0]{
-//       id,
-//       name,
-//       price,
-//       images[0],
-//       category->{
-//         name
-//       },
-//       slug,
-//     }`,
-//     { id },
-//   );
-// }
-
 export async function getProductSlugByID(id: number) {
   return client.fetch(
     groq`*[_type == "product" && id == $id][0] {
@@ -46,8 +30,6 @@ export async function getProductSlugByID(id: number) {
     { id },
   );
 }
-
-
 
 export async function getProductsByCategory(categorySlug: string) {
   return client.fetch(

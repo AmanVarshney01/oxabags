@@ -46,22 +46,6 @@ export default async function MenuSheet({
               </Link>
             </SheetClose>
           ))}
-          {/* <SheetClose asChild>
-            <Link href="/about">
-              <Button className="text-lg" variant="ghost">
-                About Us
-              </Button>
-            </Link>
-          </SheetClose>
-
-          <SheetClose asChild>
-            <Link href="/contact">
-              <Button className="text-lg" variant="ghost">
-                Contact Us
-              </Button>
-            </Link>
-          </SheetClose> */}
-
           <SearchInput />
         </div>
       </SheetContent>

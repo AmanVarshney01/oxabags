@@ -56,7 +56,7 @@ const ProductPage = async ({ params }: Props) => {
     brand: {
       "@type": "Brand",
       name: "oxabags",
-    }
+    },
   };
 
   return (

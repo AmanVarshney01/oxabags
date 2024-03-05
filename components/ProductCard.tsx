@@ -18,15 +18,15 @@ export default function ProductCard({ product }: { product: Product }) {
       <Card className="flex h-full flex-col justify-around">
         <CardHeader className="flex items-center justify-center p-1">
           <AspectRatio ratio={1 / 1}>
-              <Image
-                src={urlForImage(product.images)}
-                width={200}
-                height={200}
-                alt={product.name}
-                loading="lazy"
-                className="rounded-md object-cover"
-                placeholder="empty"
-              />
+            <Image
+              src={urlForImage(product.images)}
+              width={200}
+              height={200}
+              alt={product.name}
+              loading="lazy"
+              className="rounded-md object-cover"
+              placeholder="empty"
+            />
           </AspectRatio>
         </CardHeader>
         <CardContent className="p-2 pt-0">

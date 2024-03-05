@@ -1,4 +1,4 @@
-import { MailIcon, PhoneCallIcon, TruckIcon } from "lucide-react";
+import { MailIcon, PhoneCallIcon } from "lucide-react";
 import ContactForm from "./ContactForm";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,11 +10,9 @@ export default function Footer() {
     <footer className=" pb-5 md:px-5 md:pb-10">
       <section className="flex flex-row items-center justify-around text-pretty border-y py-10 text-center">
         <div className="">
-          {/* <span></span> */}
           <span className="text-sm font-medium md:text-lg">Made in India</span>
         </div>
         <div className="">
-          {/* <TruckIcon size={24} /> */}
           <span className="text-sm font-medium md:text-lg">Free Shipping</span>
         </div>
         <div className=" flex flex-col items-center justify-center">
