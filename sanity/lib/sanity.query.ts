@@ -67,3 +67,13 @@ export async function getCategories() {
     }`,
   );
 }
+
+export async function getProductsSlug() {
+  return client.fetch(
+    groq`*[_type == "product"] {
+      slug {
+        current
+      }
+    }`,
+  );
+}

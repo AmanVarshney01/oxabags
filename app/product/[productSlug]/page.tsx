@@ -1,8 +1,7 @@
 import ProductDetailCard from "@/components/ProductDetailCard";
-import ProductMarquee from "@/components/ProductsMarqueeWrapper";
+import ProductsMarqueeWrapper from "@/components/ProductsMarqueeWrapper";
 import { Product } from "@/lib/types";
-import { client } from "@/sanity/lib/client";
-import { getProductBySlug } from "@/sanity/lib/sanity.query";
+import { getProductBySlug, getProductsSlug } from "@/sanity/lib/sanity.query";
 import type { Metadata } from "next";
 import { urlForImage } from "@/sanity/lib/image";
 
@@ -17,14 +16,7 @@ type ProductSlug = {
 };
 
 export async function generateStaticParams() {
-  const query = `*[_type == "product"] {
-    slug {
-      current
-    }
-  }`;
-
-  const productSlugs = await client.fetch(query);
-
+  const productSlugs = await getProductsSlug();
   return productSlugs.map((productSlug: ProductSlug) => {
     return {
       productSlug: productSlug.slug.current,
@@ -62,7 +54,7 @@ const ProductPage = async ({ params }: Props) => {
   return (
     <div className="px-2">
       <ProductDetailCard product={product} />
-      <ProductMarquee />
+      <ProductsMarqueeWrapper />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
