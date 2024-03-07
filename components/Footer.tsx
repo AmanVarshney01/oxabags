@@ -71,15 +71,15 @@ export default function Footer() {
             <h2 className="mb-3 text-lg font-bold">Contact Us</h2>
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <MailIcon size={16} />
-              <a href="mailto:info@amanasia.com">info@amanasia.com</a>
+              <Link href="mailto:info@amanasia.com">info@amanasia.com</Link>
             </div>
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <PhoneCallIcon size={16} />
-              <a href="tel:9868151526">9868151526</a>
+              <Link href="tel:9868151526">9868151526</Link>
             </div>
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <PhoneCallIcon size={16} />
-              <a href="tel:9811365888">9811365888</a>
+              <Link href="tel:9811365888">9811365888</Link>
             </div>
             <div className="w-fit">
               <Link

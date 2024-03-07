@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
+import FloatingBar from "@/components/FloatingBar";
 
 const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -53,6 +54,7 @@ export default function RootLayout({
             {children}
             <Footer />
           </main>
+          <FloatingBar />
           <Toaster />
         </ThemeProvider>
       </body>
