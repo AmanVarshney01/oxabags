@@ -8,8 +8,13 @@ export default function ContactForm() {
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      data-netlify-recaptcha="true"
     >
-      <input type="hidden" name="form-name" value="contact" />
+      <p className="hidden">
+        <label>
+          Do not fill this out if you are human: <input name="bot-field" />
+        </label>
+      </p>{" "}
       <label htmlFor="phone" className="text-lg font-bold">
         Request a Callback
       </label>
@@ -22,6 +27,7 @@ export default function ContactForm() {
         className="mt-3 w-full rounded-lg border-2 px-3 py-2"
         required
       />
+      <div data-netlify-recaptcha="true"></div>
       <Button type="submit" className="mt-3 w-full" variant="outline">
         Submit
       </Button>

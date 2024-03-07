@@ -78,6 +78,8 @@ export default function CartPage() {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-8 p-2"
+            data-netlify-recaptcha="true"
+            data-netlify="true"
           >
             <FormField
               control={form.control}
@@ -187,6 +189,7 @@ export default function CartPage() {
                 </FormItem>
               )}
             />
+            <div data-netlify-recaptcha="true"></div>
             <Button
               type="submit"
               className="rounded-md px-4 py-2 text-white"
