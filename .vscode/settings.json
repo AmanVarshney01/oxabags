@@ -1,4 +1,4 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "cSpell.words": ["groq", "oxabags"]
+  "cSpell.words": ["groq", "oxabags", "razorpay"]
 }
