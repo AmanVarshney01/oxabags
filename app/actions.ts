@@ -1,5 +1,7 @@
 "use server";
 
+export const runtime = "edge"
+
 import Razorpay from "razorpay";
 import { Product } from "@/lib/types";
 import { redirect } from "next/navigation";

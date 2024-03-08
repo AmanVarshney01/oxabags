@@ -7,7 +7,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import FloatingBar from "@/components/FloatingBar";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -59,7 +58,6 @@ export default function RootLayout({
           <Toaster />
         </ThemeProvider>
       </body>
-      <GoogleAnalytics gaId="G-L7XX22H2K4" />
-    </html>
+\    </html>
   );
 }

@@ -79,7 +79,6 @@ export default function CartPage() {
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-8 p-2"
             data-netlify-recaptcha="true"
-            data-netlify="true"
           >
             <FormField
               control={form.control}
