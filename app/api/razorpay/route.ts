@@ -2,6 +2,8 @@ import { Product } from "@/lib/types";
 import { NextResponse } from "next/server";
 import Razorpay from "razorpay";
 
+export const runtime = 'edge';
+
 const instance = new Razorpay({
   key_id: process.env.RAZORPAY_ID ?? "",
   key_secret: process.env.RAZORPAY_KEY,
