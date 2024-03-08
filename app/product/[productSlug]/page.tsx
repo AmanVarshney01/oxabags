@@ -5,6 +5,8 @@ import { getProductBySlug, getProductsSlug } from "@/sanity/lib/sanity.query";
 import type { Metadata } from "next";
 import { urlForImage } from "@/sanity/lib/image";
 
+export const dynamicParams = false;
+
 type Props = {
   params: { productSlug: string };
 };

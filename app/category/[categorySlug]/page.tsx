@@ -4,6 +4,8 @@ import { getCategories } from "@/sanity/lib/sanity.query";
 import { Metadata } from "next";
 import { Product } from "@/lib/types";
 
+export const dynamicParams = false;
+
 type Props = {
   params: { categorySlug: string };
 };

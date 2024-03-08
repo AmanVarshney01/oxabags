@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+export const runtime = "edge";
+
 export default function NotFound() {
   return (
     <div className="flex h-[60vh] flex-col items-center justify-center text-center">
