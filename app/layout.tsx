@@ -49,7 +49,7 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="mx-auto min-h-svh max-w-7xl">
+          <main className="mx-auto max-w-7xl">
             <Header />
             {children}
             <Footer />

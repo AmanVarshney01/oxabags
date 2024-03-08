@@ -54,6 +54,21 @@ export default function CartPage() {
     },
   });
 
+  // const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  //   const cartProducts = cart.map((item) => ({
+  //     name: item.name,
+  //     price: item.price,
+  //     quantity: item.quantity,
+  //   }));
+
+  //   await sendInvoice({
+  //     ...values,
+  //     products: cartProducts,
+  //   });
+
+  //   form.reset();
+  // };
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const cartProducts = cart.map((item) => ({
       name: item.name,
@@ -61,10 +76,24 @@ export default function CartPage() {
       quantity: item.quantity,
     }));
 
-    await sendInvoice({
-      ...values,
-      products: cartProducts,
-    });
+    const response: any = await fetch("/api/razorpay", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...values,
+        products: cartProducts,
+      }),
+    }).then((response) => response.json());
+
+    if (response.invoice.status === "issued") {
+      router.push(
+        `/cart/success?name=${response.invoice.customer_details.name}&email=${response.invoice.customer_details.email}&phoneNumber=${response.invoice.customer_details.contact}&short_url=${response.invoice.short_url}`,
+      );
+    } else {
+      console.error("An error occurred please try again");
+    }
 
     form.reset();
   };

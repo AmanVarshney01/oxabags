@@ -1,5 +1,5 @@
 import { MailIcon, PhoneCallIcon } from "lucide-react";
-import ContactForm from "./ContactForm";
+// import ContactForm from "./ContactForm";
 import Link from "next/link";
 import Image from "next/image";
 import whatsapp from "../public/WhatsAppButtonGreenSmall.svg";
@@ -117,7 +117,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          <ContactForm />
+          {/* <ContactForm /> */}
         </div>
       </section>
       <p className="mt-10 text-center text-sm">
