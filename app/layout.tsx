@@ -58,6 +58,6 @@ export default function RootLayout({
           <Toaster />
         </ThemeProvider>
       </body>
-\    </html>
+    </html>
   );
 }

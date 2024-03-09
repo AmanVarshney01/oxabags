@@ -87,9 +87,9 @@ export default function CartPage() {
       }),
     }).then((response) => response.json());
 
-    if (response.invoice.status === "issued") {
+    if (response.status === "issued") {
       router.push(
-        `/cart/success?name=${response.invoice.customer_details.name}&email=${response.invoice.customer_details.email}&phoneNumber=${response.invoice.customer_details.contact}&short_url=${response.invoice.short_url}`,
+        `/cart/success?name=${response.customer_details.name}&email=${response.customer_details.email}&phoneNumber=${response.customer_details.contact}&short_url=${response.short_url}`,
       );
     } else {
       console.error("An error occurred please try again");

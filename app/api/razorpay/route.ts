@@ -1,15 +1,12 @@
+export const runtime = "edge";
+
 import { Product } from "@/lib/types";
 import { NextResponse } from "next/server";
-import Razorpay from "razorpay";
-
-export const runtime = 'edge';
-
-const instance = new Razorpay({
-  key_id: process.env.RAZORPAY_ID ?? "",
-  key_secret: process.env.RAZORPAY_KEY,
-});
 
 export async function POST(request: Request) {
+  const razorpayID = process.env.RAZORPAY_ID;
+  const razorpayKey = process.env.RAZORPAY_KEY;
+
   const body = await request.json();
 
   const lineItems = body.products.map((product: Product) => {
@@ -21,7 +18,7 @@ export async function POST(request: Request) {
     };
   });
 
-  const invoice = await instance.invoices.create({
+  const invoice = {
     type: "invoice",
     customer: {
       name: body.name,
@@ -36,7 +33,21 @@ export async function POST(request: Request) {
       },
     },
     line_items: lineItems,
-  });
-  //   console.log(invoice);
-  return NextResponse.json({ invoice });
+  };
+
+  try {
+    const response = await fetch("https://api.razorpay.com/v1/invoices", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Basic ${btoa(`${razorpayID}:${razorpayKey}`)}`,
+      },
+      body: JSON.stringify(invoice),
+    });
+    const data = await response.json();
+    // console.log("🚀 ~ POST ~ data:", data)
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error(error);
+  }
 }
