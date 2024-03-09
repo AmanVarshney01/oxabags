@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { PlusIcon } from "lucide-react";
 import { State, useCartStore } from "@/store/useCartStore";
 import { useToast } from "@/components/ui/use-toast";
-import { ToastAction } from "./ui/toast";
+import { ToastAction } from "../ui/toast";
 import Link from "next/link";
 import { Actions } from "@/store/useCartStore";
 import { Product } from "@/lib/types";

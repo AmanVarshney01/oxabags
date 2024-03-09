@@ -10,7 +10,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 import { Product } from "@/lib/types";
-import { AspectRatio } from "./ui/aspect-ratio";
+import { AspectRatio } from "../ui/aspect-ratio";
 
 export default function ProductCarousel({ product }: { product: Product }) {
   return (

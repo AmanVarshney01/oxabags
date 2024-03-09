@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import * as z from "zod";
-import CartOrderTable from "@/components/CartOrderTable";
+import CartOrderTable from "@/components/cart/CartOrderTable";
 
 const formSchema = z.object({
   name: z

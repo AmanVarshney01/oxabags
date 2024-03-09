@@ -18,7 +18,7 @@ export default function FloatingBar() {
           href={"https://wa.me/9868151526"}
           className="flex shrink-0 flex-row items-center space-x-1 p-2"
         >
-          <Image src={Whatsapp} alt="whatsapp logo" width={20} height={20} />
+          <Image src={Whatsapp} className=" dark:invert" alt="whatsapp logo" width={20} height={20} />
           <span className=" text-sm">Whatsapp</span>
         </Link>
       </div>

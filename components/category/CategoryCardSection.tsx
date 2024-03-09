@@ -1,4 +1,4 @@
-import CategoryCard from "@/components/CategoryCard";
+import CategoryCard from "@/components/category/CategoryCard";
 import CanvasBag from "@/public/categoryImages/canvas bags.webp";
 import CottonBag from "@/public/categoryImages/cotton bag.webp";
 import DenimBag from "@/public/categoryImages/denim bags.webp";

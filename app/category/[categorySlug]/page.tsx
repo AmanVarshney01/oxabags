@@ -1,4 +1,4 @@
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/components/product/ProductCard";
 import { getProductsByCategory } from "@/sanity/lib/sanity.query";
 import { getCategories } from "@/sanity/lib/sanity.query";
 import { Metadata } from "next";

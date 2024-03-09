@@ -1,5 +1,5 @@
 import ProductCarousel from "./ProductCarousel";
-import AddToCartButton from "./AddToCartButton";
+import AddToCartButton from "../cart/AddToCartButton";
 import { Product } from "@/lib/types";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 

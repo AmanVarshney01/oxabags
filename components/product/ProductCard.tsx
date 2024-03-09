@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
-} from "./ui/card";
+} from "../ui/card";
 import { Product } from "@/lib/types";
 
 export default function ProductCard({ product }: { product: Product }) {

@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import CartProductCard from "@/components/CartProductCard";
+import CartProductCard from "@/components/cart/CartProductCard";
 import { useCartStore } from "@/store/useCartStore";
 import { Product } from "@/store/useCartStore";
 

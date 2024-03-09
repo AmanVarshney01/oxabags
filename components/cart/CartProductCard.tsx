@@ -1,5 +1,5 @@
-import { Card, CardContent } from "./ui/card";
-import { Button } from "./ui/button";
+import { Card, CardContent } from "../ui/card";
+import { Button } from "../ui/button";
 import { urlForImage } from "@/sanity/lib/image";
 import { PlusIcon, MinusIcon, DeleteIcon } from "lucide-react";
 import Image from "next/image";

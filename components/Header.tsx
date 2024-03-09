@@ -1,4 +1,4 @@
-import CartSheet from "./CartSheet";
+import CartSheet from "./cart/CartSheet";
 import MenuSheet from "./MenuSheet";
 import Navbar from "./Navbar";
 import { getCategories } from "@/sanity/lib/sanity.query";
