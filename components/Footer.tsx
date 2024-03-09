@@ -1,5 +1,4 @@
 import { MailIcon, PhoneCallIcon } from "lucide-react";
-// import ContactForm from "./ContactForm";
 import Link from "next/link";
 import Image from "next/image";
 import whatsapp from "../public/WhatsAppButtonGreenSmall.svg";
@@ -7,7 +6,7 @@ import razorpay from "../public/razorpay.png";
 
 export default function Footer() {
   return (
-    <footer className=" pb-5 md:px-5 md:pb-10">
+    <footer className=" pb-10 md:px-5 md:pb-20">
       <section className="flex flex-row items-center justify-around text-pretty border-y py-10 text-center">
         <div className="">
           <span className="text-sm font-medium md:text-lg">Made in India</span>
@@ -117,7 +116,13 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          {/* <ContactForm /> */}
+          <div>
+            <h2 className="mb-3 text-lg font-bold">Aman Enterprises</h2>
+            <p>
+              G-211, UPSIDC Industrial Area Phase-1 M. G. Road, Dholana
+              GHAZIABAD -201015, UP
+            </p>
+          </div>
         </div>
       </section>
       <p className="mt-10 text-center text-sm">

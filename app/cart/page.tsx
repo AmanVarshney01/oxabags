@@ -53,21 +53,6 @@ export default function CartPage() {
     },
   });
 
-  // const onSubmit = async (values: z.infer<typeof formSchema>) => {
-  //   const cartProducts = cart.map((item) => ({
-  //     name: item.name,
-  //     price: item.price,
-  //     quantity: item.quantity,
-  //   }));
-
-  //   await sendInvoice({
-  //     ...values,
-  //     products: cartProducts,
-  //   });
-
-  //   form.reset();
-  // };
-
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const cartProducts = cart.map((item) => ({
       name: item.name,
