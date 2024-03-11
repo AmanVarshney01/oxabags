@@ -35,6 +35,7 @@ export const metadata: Metadata = {
     title: "oxabags",
   },
 };
+
 export default function RootLayout({
   children,
 }: {
