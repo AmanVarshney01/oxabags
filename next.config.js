@@ -8,6 +8,8 @@ const nextConfig = {
       },
     ],
     formats: ["image/webp"],
+    loader: "custom",
+    loaderFile: "./imageLoader.js",
   },
 };
 
