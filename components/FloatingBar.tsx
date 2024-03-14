@@ -13,12 +13,10 @@ export default function FloatingBar() {
         .share({
           title: "oxabags",
           text: "Manufacturer, Wholesaler & Exporter of Jute bags, Cotton Bag for Corporate Events & Exhibitions",
-          url: `https://www.oxabags.com/${pathname}`,
+          url: `https://www.oxabags.com${pathname}`,
         })
-        .then(() => console.log("Successful share"))
-        .catch((error) => console.log("Error sharing", error));
     } else {
-      navigator.clipboard.writeText(`https://www.oxabags.com/${pathname}`);
+      navigator.clipboard.writeText(`https://www.oxabags.com${pathname}`);
       alert("Link copied to clipboard");
     }
   };
