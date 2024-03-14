@@ -117,11 +117,12 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h2 className="mb-3 text-lg font-bold">Aman Enterprises</h2>
+            <h2 className="mb-3 text-xl font-bold">Aman Enterprises</h2>
             <a
               href="https://maps.app.goo.gl/diaZLM6SnYkpa6LV7"
               target="_blank"
               rel="noopener noreferrer"
+              className="text-sm hover:underline"
             >
               G-211, UPSIDC Industrial Area Phase-1 M. G. Road, Dholana
               GHAZIABAD -201015, UP

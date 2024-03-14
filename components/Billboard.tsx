@@ -48,6 +48,7 @@ export default function Billboard() {
                 alt="Customize your with your own design and preference."
                 width={1920}
                 height={960}
+                priority
               />
             </AspectRatio>
           </CarouselItem>
