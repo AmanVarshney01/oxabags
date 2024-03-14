@@ -10,7 +10,7 @@ export default function Contact() {
   const address =
     "G-211, UPSIDC Industrial Area Phase-1 M. G. Road, Dholana GHAZIABAD -201015, UP";
   const phoneNumber = "9868151526, 9811365888";
-  const email = "info@amanasia.com";
+  const email = "info@oxabags.com";
 
   return (
     <section className="px-2 py-4">

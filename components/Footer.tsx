@@ -70,7 +70,7 @@ export default function Footer() {
             <h2 className="mb-3 text-lg font-bold">Contact Us</h2>
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <MailIcon size={16} />
-              <Link href="mailto:info@amanasia.com">info@amanasia.com</Link>
+              <Link href="mailto:info@oxabags.com">info@oxabags.com</Link>
             </div>
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <PhoneCallIcon size={16} />
