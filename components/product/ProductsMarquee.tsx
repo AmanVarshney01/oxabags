@@ -18,7 +18,10 @@ export default function ProductsMarquee({ products }: { products: Product[] }) {
     >
       <CarouselContent className="-ml-2 px-2">
         {products.map((product: Product, index: number) => (
-          <CarouselItem className=" basis-auto  pl-2  md:pl-4" key={index}>
+          <CarouselItem
+            className=" basis-1/2 pl-2 sm:basis-1/3 md:basis-1/4 md:pl-4 lg:basis-1/5 xl:basis-1/6"
+            key={index}
+          >
             <ProductCard product={product} />
           </CarouselItem>
         ))}
