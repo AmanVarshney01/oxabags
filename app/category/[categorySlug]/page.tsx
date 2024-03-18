@@ -45,7 +45,7 @@ export default async function CategoryPage({ params }: Props) {
     <section className="px-2 py-4">
       {products && products.length > 0 ? (
         <div>
-          <h2 className="p-4 text-3xl font-medium ">
+          <h2 className="my-4 p-4 text-3xl font-medium ">
             {products[0].category.name}
           </h2>
           {/* FIXME last item is centered */}

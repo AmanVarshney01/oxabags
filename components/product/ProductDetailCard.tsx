@@ -11,6 +11,7 @@ export default function ProductDetailCard({ product }: { product: Product }) {
         <h1 className="p-2 text-xl font-bold md:text-2xl">{product.name}</h1>
         <h2 className="p-2 text-xl font-medium text-primary">
           Price: ₹ {product.price}
+          <span className=" px-2 text-sm text-foreground">(including GST)</span>
         </h2>
         <Table>
           <TableBody>

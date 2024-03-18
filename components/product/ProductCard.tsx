@@ -14,7 +14,7 @@ import { Product } from "@/lib/types";
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={`/product/${product.slug.current}`}>
-      <Card className="flex h-full max-w-[160px] flex-col justify-around sm:max-w-none">
+      <Card className="flex h-full w-fit flex-col justify-around">
         <CardHeader className="flex items-center justify-center p-1">
           <Image
             src={urlForImage(product.images)}
@@ -26,7 +26,7 @@ export default function ProductCard({ product }: { product: Product }) {
           />
         </CardHeader>
         <CardContent className="p-2 pt-0">
-          <CardTitle className="line-clamp-2 text-sm font-medium leading-tight sm:max-w-[180px] sm:text-base sm:leading-tight">
+          <CardTitle className="line-clamp-2 max-w-[180px] text-sm font-medium leading-tight sm:text-base">
             {product.name}
           </CardTitle>
           <CardDescription className="text-sm">
