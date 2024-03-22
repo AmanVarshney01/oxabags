@@ -122,7 +122,7 @@ export default function Footer() {
               href="https://maps.app.goo.gl/diaZLM6SnYkpa6LV7"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm hover:underline"
+              className="text-xs md:text-sm hover:underline"
             >
               G-211, UPSIDC Industrial Area Phase-1 M. G. Road, Dholana
               GHAZIABAD -201015, UP
