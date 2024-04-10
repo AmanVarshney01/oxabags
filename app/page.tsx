@@ -4,7 +4,7 @@ import CategoryCardSection from "@/components/category/CategoryCardSection";
 
 export default function Home() {
   return (
-    <main className="flex-1 px-2">
+    <main className="px-2">
       <Billboard />
       <ProductMarquee />
       <CategoryCardSection />
