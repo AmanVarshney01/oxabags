@@ -22,6 +22,7 @@ export type Actions = {
   addToCart: (Item: Product) => void;
   removeFromCart: (Item: Product) => void;
   deleteFromCart: (Item: Product) => void;
+  clearCart: () => void;
 };
 
 const INITIAL_STATE = {
@@ -95,6 +96,9 @@ export const useCartStore = create(
             0,
           ),
         }));
+      },
+      clearCart: () => {
+        set(INITIAL_STATE);
       },
     }),
     {

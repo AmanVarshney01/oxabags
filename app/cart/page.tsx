@@ -1,10 +1,6 @@
 "use client";
+import CartOrderTable from "@/components/cart/CartOrderTable";
 import { Button } from "@/components/ui/button";
-import { useCartStore } from "@/store/useCartStore";
-import { useRouter } from "next/navigation";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { Loader2 } from "lucide-react";
 import {
   Form,
   FormControl,
@@ -15,8 +11,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useCartStore } from "@/store/useCartStore";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
 import * as z from "zod";
-import CartOrderTable from "@/components/cart/CartOrderTable";
 
 const formSchema = z.object({
   name: z
@@ -38,7 +38,7 @@ const formSchema = z.object({
 
 export default function CartPage() {
   const router = useRouter();
-  const { cart, totalItems } = useCartStore();
+  const { cart, totalItems, clearCart } = useCartStore();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -72,6 +72,7 @@ export default function CartPage() {
     }).then((response) => response.json());
 
     if (response.status === "issued") {
+      clearCart();
       router.push(
         `/cart/success?name=${response.customer_details.name}&email=${response.customer_details.email}&phoneNumber=${response.customer_details.contact}&short_url=${response.short_url}`,
       );
