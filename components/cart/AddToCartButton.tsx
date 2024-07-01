@@ -1,14 +1,13 @@
 "use client";
 
-import { Button } from "../ui/button";
-import { PlusIcon } from "lucide-react";
-import { State, useCartStore } from "@/store/useCartStore";
 import { useToast } from "@/components/ui/use-toast";
-import { ToastAction } from "../ui/toast";
-import Link from "next/link";
-import { Actions } from "@/store/useCartStore";
 import { Product } from "@/lib/types";
+import { Actions, State, useCartStore } from "@/store/useCartStore";
+import { PlusIcon } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Button } from "../ui/button";
+import { ToastAction } from "../ui/toast";
 
 export default function AddToCartButton({ product }: { product: Product }) {
   const { toast } = useToast();

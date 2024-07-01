@@ -1,6 +1,6 @@
 import Billboard from "@/components/Billboard";
-import ProductMarquee from "@/components/product/ProductsMarqueeWrapper";
 import CategoryCardSection from "@/components/category/CategoryCardSection";
+import ProductMarquee from "@/components/product/ProductsMarqueeWrapper";
 
 export default function Home() {
   return (

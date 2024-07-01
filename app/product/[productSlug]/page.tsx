@@ -1,9 +1,9 @@
 import ProductDetailCard from "@/components/product/ProductDetailCard";
 import ProductsMarqueeWrapper from "@/components/product/ProductsMarqueeWrapper";
 import { Product } from "@/lib/types";
+import { urlForImage } from "@/sanity/lib/image";
 import { getProductBySlug, getProductsSlug } from "@/sanity/lib/sanity.query";
 import type { Metadata } from "next";
-import { urlForImage } from "@/sanity/lib/image";
 
 export const dynamicParams = false;
 

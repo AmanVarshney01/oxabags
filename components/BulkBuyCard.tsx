@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { Button } from "./ui/button";
 import {
   Card,
   CardContent,
@@ -7,14 +9,12 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import Link from "next/link";
-import { Button } from "./ui/button";
 
 export default function BulkBuyCard({ className }: { className?: string }) {
   return (
-    <Card className={cn(className, " flex flex-col justify-between")}>
-      <CardHeader className=" items-center">
-        <CardTitle className=" text-3xl">Buy in Bulk and Save!</CardTitle>
+    <Card className={cn(className, "flex flex-col justify-between")}>
+      <CardHeader className="items-center">
+        <CardTitle className="text-3xl">Buy in Bulk and Save!</CardTitle>
         <CardDescription>
           Save money and get customized options.
         </CardDescription>

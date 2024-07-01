@@ -1,9 +1,6 @@
 "use client";
 
-import * as z from "zod";
 import { Button } from "@/components/ui/button";
-import { SearchIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
 import {
   Form,
   FormControl,
@@ -12,10 +9,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { getProductSlugByID } from "@/sanity/lib/sanity.query";
-import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
+import { getProductSlugByID } from "@/sanity/lib/sanity.query";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SearchIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 const formSchema = z.object({
   productCode: z.coerce.number({
@@ -64,10 +64,10 @@ export default function SearchInput() {
                     size={"icon"}
                     type="submit"
                     variant={"outline"}
-                    className="absolute right-1 scale-75 border-0 p-0 "
+                    className="absolute right-1 scale-75 border-0 p-0"
                   >
                     <SearchIcon size={15} />
-                    <span className=" sr-only">search</span>
+                    <span className="sr-only">search</span>
                   </Button>
                 </div>
               </FormControl>

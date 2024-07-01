@@ -1,6 +1,4 @@
 "use client";
-import { useState } from "react";
-import CartProductCard from "./CartProductCard";
 import {
   Sheet,
   SheetContent,
@@ -10,11 +8,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "../ui/button";
+import { Actions, Product, State, useCartStore } from "@/store/useCartStore";
 import { ShoppingCartIcon } from "lucide-react";
-import { useCartStore } from "@/store/useCartStore";
-import { Product, Actions, State } from "@/store/useCartStore";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Button } from "../ui/button";
+import CartProductCard from "./CartProductCard";
 
 export default function CartSheet() {
   const { cart, removeFromCart, addToCart, deleteFromCart }: Actions & State =
@@ -33,11 +32,11 @@ export default function CartSheet() {
           <span className="sr-only">Cart</span>
         </Button>
       </SheetTrigger>
-      <SheetContent className=" flex flex-col p-2">
+      <SheetContent className="flex flex-col p-2">
         <SheetHeader className="p-2">
           <SheetTitle>Cart</SheetTitle>
         </SheetHeader>
-        <SheetDescription className=" text-gray-500">
+        <SheetDescription className="text-gray-500">
           {cart.length > 0 ? "" : "Empty"}
         </SheetDescription>
         <div className="overflow-y-auto">

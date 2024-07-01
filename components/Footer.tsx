@@ -1,12 +1,12 @@
 import { MailIcon, PhoneCallIcon } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import whatsapp from "../public/WhatsAppButtonGreenSmall.svg";
 import razorpay from "../public/razorpay.png";
 
 export default function Footer() {
   return (
-    <footer className=" pb-10 md:px-5 md:pb-20">
+    <footer className="pb-10 md:px-5 md:pb-20">
       <section className="flex flex-row items-center justify-around text-pretty border-y py-10 text-center">
         <div className="">
           <span className="text-sm font-medium md:text-lg">Made in India</span>
@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="">
           <span className="text-sm font-medium md:text-lg">Free Shipping</span>
         </div>
-        <div className=" flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
           <span className="text-sm font-medium md:text-lg">Payments via</span>
           <Image
             loading="lazy"
@@ -122,7 +122,7 @@ export default function Footer() {
               href="https://maps.app.goo.gl/diaZLM6SnYkpa6LV7"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs md:text-sm hover:underline"
+              className="text-xs hover:underline md:text-sm"
             >
               G-211, UPSIDC Industrial Area Phase-1 M. G. Road, Dholana
               GHAZIABAD -201015, UP

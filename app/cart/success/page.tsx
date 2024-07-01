@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import Link from "next/link";
 
-export const runtime = "edge"
+export const runtime = "edge";
 
 export default function SuccessPage({
   searchParams,
@@ -22,7 +22,7 @@ export default function SuccessPage({
       <div className="rounded-full bg-green-400 p-8">
         <Check size={100} />
       </div>
-      <h1 className=" text-center text-4xl md:text-6xl">
+      <h1 className="text-center text-4xl md:text-6xl">
         Thank you for your order
       </h1>
       <div className="flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-secondary p-4">

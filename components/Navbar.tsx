@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,6 +8,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import Link from "next/link";
 
 import { Category } from "@/lib/types";
 

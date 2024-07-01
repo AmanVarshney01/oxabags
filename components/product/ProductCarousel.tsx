@@ -6,10 +6,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { urlForImage } from "@/sanity/lib/image";
-import Image from "next/image";
-import Autoplay from "embla-carousel-autoplay";
 import { Product } from "@/lib/types";
+import { urlForImage } from "@/sanity/lib/image";
+import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 import { AspectRatio } from "../ui/aspect-ratio";
 
 export default function ProductCarousel({ product }: { product: Product }) {

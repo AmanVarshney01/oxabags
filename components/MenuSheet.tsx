@@ -6,11 +6,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "./ui/button";
-import Link from "next/link";
-import { MenuIcon } from "lucide-react";
 import { Category } from "@/lib/types";
+import { MenuIcon } from "lucide-react";
+import Link from "next/link";
 import SearchInput from "./SearchInput";
+import { Button } from "./ui/button";
 
 export default async function MenuSheet({
   categories,
@@ -29,7 +29,7 @@ export default async function MenuSheet({
         <SheetHeader className="p-2">
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
-        <div className=" my-8 flex flex-col space-y-3">
+        <div className="my-8 flex flex-col space-y-3">
           <SheetClose asChild>
             <Link href="/">
               <Button className="text-lg" variant="ghost">

@@ -1,15 +1,15 @@
-import Image from "next/image";
+import { Product } from "@/lib/types";
 import { urlForImage } from "@/sanity/lib/image";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
 } from "../ui/card";
-import { Product } from "@/lib/types";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (

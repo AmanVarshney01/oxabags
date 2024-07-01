@@ -207,7 +207,7 @@ export default function CartPage() {
               disabled={form.formState.isSubmitting || totalItems == 0}
             >
               {form.formState.isSubmitting ? (
-                <div className=" flex flex-row gap-2">
+                <div className="flex flex-row gap-2">
                   <span>Loading</span>
                   <Loader2 className="animate-spin" />
                 </div>

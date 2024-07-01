@@ -1,6 +1,6 @@
 "use client";
-import { PhoneCallIcon, Share } from "lucide-react";
 import Whatsapp from "@/public/whatsapp_logo.svg";
+import { PhoneCallIcon, Share } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,12 +9,11 @@ export default function FloatingBar() {
   const pathname = usePathname();
   const handleShare = async () => {
     if (navigator.share) {
-      navigator
-        .share({
-          title: "oxabags",
-          text: "Manufacturer, Wholesaler & Exporter of Jute bags, Cotton Bag for Corporate Events & Exhibitions",
-          url: `https://www.oxabags.com${pathname}`,
-        })
+      navigator.share({
+        title: "oxabags",
+        text: "Manufacturer, Wholesaler & Exporter of Jute bags, Cotton Bag for Corporate Events & Exhibitions",
+        url: `https://www.oxabags.com${pathname}`,
+      });
     } else {
       navigator.clipboard.writeText(`https://www.oxabags.com${pathname}`);
       alert("Link copied to clipboard");
@@ -29,7 +28,7 @@ export default function FloatingBar() {
           className="flex shrink-0 flex-row items-center space-x-1 p-2"
         >
           <PhoneCallIcon size={20} />
-          <span className=" text-sm">Call Us</span>
+          <span className="text-sm">Call Us</span>
         </Link>
         <Link
           href={"https://wa.me/9868151526"}
@@ -37,22 +36,22 @@ export default function FloatingBar() {
         >
           <Image
             src={Whatsapp}
-            className=" dark:invert"
+            className="dark:invert"
             alt="whatsapp logo"
             width={20}
             height={20}
           />
-          <span className=" text-sm">Whatsapp</span>
+          <span className="text-sm">Whatsapp</span>
         </Link>
         <button
           onClick={() => handleShare()}
           className="flex shrink-0 flex-row items-center space-x-1 p-2"
         >
           <Share size={20} />
-          <span className=" text-sm">Share</span>
+          <span className="text-sm">Share</span>
         </button>
       </div>
-      <span className="absolute inset-x-0 -bottom-px mx-auto h-px w-1/2 bg-gradient-to-r from-transparent via-primary  to-transparent" />
+      <span className="absolute inset-x-0 -bottom-px mx-auto h-px w-1/2 bg-gradient-to-r from-transparent via-primary to-transparent" />
     </div>
   );
 }

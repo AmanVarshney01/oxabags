@@ -1,10 +1,10 @@
 export default function ReturnRefundPolicy() {
   return (
     <section className="flex flex-col gap-2 px-2 py-4">
-      <h2 className="p-4 text-3xl font-medium ">Return and Refund Policy</h2>
+      <h2 className="p-4 text-3xl font-medium">Return and Refund Policy</h2>
       <section>
         <h3 className="p-2 text-2xl">Handcrafted Products</h3>
-        <p className=" p-2">
+        <p className="p-2">
           At Aman Enterprise, we take pride in offering handcrafted products,
           where slight differences in detailing may occur. These minor printing
           and weaving irregularities contribute to the uniqueness and beauty of
@@ -14,7 +14,7 @@ export default function ReturnRefundPolicy() {
 
       <section>
         <h3 className="p-2 text-2xl">Color Fastness</h3>
-        <p className=" p-2">
+        <p className="p-2">
           We do not provide guarantees on color fastness. Natural colors, such
           as indigo, may bleed during the first wash. Therefore, we do not offer
           refunds or exchanges in such cases.
@@ -23,7 +23,7 @@ export default function ReturnRefundPolicy() {
 
       <section>
         <h3 className="p-2 text-2xl">Care Instructions</h3>
-        <p className=" p-2">
+        <p className="p-2">
           Handmade bags require special care to preserve their beauty and
           strength. We recommend reading our instruction manual for washing and
           care before using the bags. Requests for bag replacement or refund
@@ -34,7 +34,7 @@ export default function ReturnRefundPolicy() {
 
       <section>
         <h3 className="p-2 text-2xl">Customer Satisfaction</h3>
-        <p className=" p-2">
+        <p className="p-2">
           Your satisfaction is of utmost importance to us. If you are not
           satisfied with your purchase, we are prepared to replace the product
           when the parameters of our return policy are met.
@@ -58,7 +58,7 @@ export default function ReturnRefundPolicy() {
 
       <section>
         <h3 className="p-2 text-2xl">Steps to Notify Us</h3>
-        <p className=" p-2">
+        <p className="p-2">
           Please notify us immediately by following the steps below:
         </p>
         <ol className="list-disc p-2">
@@ -97,7 +97,7 @@ export default function ReturnRefundPolicy() {
 
       <section>
         <h3 className="p-2 text-2xl">After Receiving the Package</h3>
-        <p className=" p-2">
+        <p className="p-2">
           Our team will decide whether the product is eligible for refunds or
           replacement and inform you via email.
         </p>
@@ -123,15 +123,15 @@ export default function ReturnRefundPolicy() {
 
       <section>
         <h3 className="p-2 text-2xl">Processing Time</h3>
-        <p className=" p-2">
+        <p className="p-2">
           It may take up to 10 days from our end to process and close a
           refund/replacement issue.
         </p>
-        <p className=" p-2">
+        <p className="p-2">
           Allow one billing cycle for credits issued to your debit/credit card
           to appear on your statement.
         </p>
-        <p className=" p-2">
+        <p className="p-2">
           The issuing bank manages the cardholder&apos;s account. We are not
           responsible for any delays in the amount being credited to a bank
           account. The time taken for the refund to appear on the

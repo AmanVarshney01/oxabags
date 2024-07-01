@@ -1,12 +1,11 @@
+import FloatingBar from "@/components/FloatingBar";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { Toaster } from "@/components/ui/toaster";
+import { cn } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Toaster } from "@/components/ui/toaster";
-import { ThemeProvider } from "@/components/theme-provider";
-import { cn } from "@/lib/utils";
-import FloatingBar from "@/components/FloatingBar";
 
 const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -49,15 +48,13 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="mx-auto max-w-7xl">
-            <Header />
-            {children}
-            <Footer />
-          </main>
-          <FloatingBar />
-          <Toaster />
-        </ThemeProvider>
+        <main className="mx-auto max-w-7xl">
+          <Header />
+          {children}
+          <Footer />
+        </main>
+        <FloatingBar />
+        <Toaster />
       </body>
     </html>
   );

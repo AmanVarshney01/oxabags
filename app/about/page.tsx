@@ -14,9 +14,11 @@ export default function About() {
           manufacturing and distribution of premium quality bags and pouches.
         </li>
         <li>
-          Nestled within the industrious landscape of Uttar Pradesh State Industrial Development Corporation, Ghaziabad, Uttar Pradesh, our journey began with a vision to blend tradition with
-          modernity, offering products that resonate with our customers&apos;
-          diverse needs.
+          Nestled within the industrious landscape of Uttar Pradesh State
+          Industrial Development Corporation, Ghaziabad, Uttar Pradesh, our
+          journey began with a vision to blend tradition with modernity,
+          offering products that resonate with our customers&apos; diverse
+          needs.
         </li>
         <li>
           At Aman Enterprises, we take pride in our extensive range of

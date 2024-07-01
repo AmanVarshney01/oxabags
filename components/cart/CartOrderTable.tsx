@@ -1,3 +1,4 @@
+import CartProductCard from "@/components/cart/CartProductCard";
 import {
   Table,
   TableBody,
@@ -7,9 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import CartProductCard from "@/components/cart/CartProductCard";
-import { useCartStore } from "@/store/useCartStore";
-import { Product } from "@/store/useCartStore";
+import { Product, useCartStore } from "@/store/useCartStore";
 
 export default function CartOrderTable() {
   const { cart, removeFromCart, addToCart, deleteFromCart, totalAmount } =
@@ -31,7 +30,7 @@ export default function CartOrderTable() {
             ))}
           </div>
           <div className="mt-4 flex flex-col gap-2">
-            <h2 className=" p-2 text-xl font-medium">Order Summary</h2>
+            <h2 className="p-2 text-xl font-medium">Order Summary</h2>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -71,7 +70,7 @@ export default function CartOrderTable() {
           </div>
         </div>
       ) : (
-        <span className="p-2 ">Empty Cart</span>
+        <span className="p-2">Empty Cart</span>
       )}
     </div>
   );
