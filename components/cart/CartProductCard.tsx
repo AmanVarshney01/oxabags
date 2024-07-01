@@ -1,17 +1,21 @@
-import { Card, CardContent } from "../ui/card";
-import { Button } from "../ui/button";
 import { urlForImage } from "@/sanity/lib/image";
-import { PlusIcon, MinusIcon, DeleteIcon } from "lucide-react";
+import { Product } from "@/store/useCartStore";
+import { DeleteIcon, MinusIcon, PlusIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Actions, Product } from "@/store/useCartStore";
+import { Button } from "../ui/button";
+import { Card, CardContent } from "../ui/card";
 
 export default function CartProductCard({
   product,
   addToCart,
   removeFromCart,
   deleteFromCart,
-}: Actions & { product: Product }) {
+}: {
+  addToCart: (Item: Product) => void;
+  removeFromCart: (Item: Product) => void;
+  deleteFromCart: (Item: Product) => void;
+} & { product: Product }) {
   return (
     <Card className="mb-2 flex flex-row p-1">
       <CardContent className="flex w-full flex-row p-0">
@@ -36,7 +40,7 @@ export default function CartProductCard({
           </div>
           <div className="flex w-min flex-row gap-1 rounded-lg border p-1">
             <Button
-              className=" h-5 w-5"
+              className="h-5 w-5"
               variant={"ghost"}
               size={"icon"}
               onClick={() => removeFromCart(product)}
@@ -47,7 +51,7 @@ export default function CartProductCard({
               {product.quantity}
             </span>
             <Button
-              className=" h-5 w-5"
+              className="h-5 w-5"
               variant={"ghost"}
               size={"icon"}
               onClick={() => addToCart(product)}
@@ -56,7 +60,7 @@ export default function CartProductCard({
             </Button>
           </div>
         </div>
-        <div className=" ml-auto mt-auto pl-2">
+        <div className="ml-auto mt-auto pl-2">
           <Button
             className="h-5 w-5"
             variant={"destructive"}
