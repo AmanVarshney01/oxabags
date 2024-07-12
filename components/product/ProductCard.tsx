@@ -18,15 +18,15 @@ export default function ProductCard({ product }: { product: Product }) {
         <CardHeader className="flex items-center justify-center p-1">
           <Image
             src={urlForImage(product.images)}
-            width={200}
-            height={200}
+            width={220}
+            height={220}
             alt={product.name}
             loading="lazy"
             className="rounded-md object-cover"
           />
         </CardHeader>
         <CardContent className="p-2 pt-0">
-          <CardTitle className="line-clamp-2 max-w-[180px] text-sm font-medium leading-tight sm:text-base">
+          <CardTitle className="line-clamp-2 max-w-[200px] text-sm font-medium leading-tight sm:text-base">
             {product.name}
           </CardTitle>
           <CardDescription className="text-sm">

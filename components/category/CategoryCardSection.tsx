@@ -10,8 +10,8 @@ import BulkBuyCard from "../BulkBuyCard";
 export default function CategoryCardSection() {
   return (
     <section className="py-4 md:py-10">
-      <div className="grid grid-cols-1 justify-end gap-2 sm:grid-cols-2 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
-        <BulkBuyCard className="col-span-1 sm:col-span-2" />
+      <div className="grid grid-cols-1 justify-end gap-2 sm:grid-cols-2 md:grid-cols-3 md:gap-4">
+        {/* <BulkBuyCard className="col-span-1 sm:col-span-2" /> */}
         <CategoryCard
           title="Cotton Bags"
           description="Ethically sourced and made from 100% organic cotton."
