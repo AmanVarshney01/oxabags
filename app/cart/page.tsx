@@ -212,7 +212,7 @@ export default function CartPage() {
                   <Loader2 className="animate-spin" />
                 </div>
               ) : (
-                "Buy Now"
+                "Send Invoice"
               )}
             </Button>
           </form>
