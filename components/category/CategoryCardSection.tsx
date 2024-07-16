@@ -2,16 +2,14 @@ import CategoryCard from "@/components/category/CategoryCard";
 import CanvasBag from "@/public/categoryImages/canvas bags.webp";
 import CottonBag from "@/public/categoryImages/cotton bag.webp";
 import DenimBag from "@/public/categoryImages/denim bags.webp";
-import FileFolder from "@/public/categoryImages/file folder.jpg";
+import FileFolder from "@/public/categoryImages/file folder.webp";
 import JuteBag from "@/public/categoryImages/JUTE BAGS.webp";
 import Pouch from "@/public/categoryImages/pouch.webp";
-import BulkBuyCard from "../BulkBuyCard";
 
 export default function CategoryCardSection() {
   return (
     <section className="py-4 md:py-10">
       <div className="grid grid-cols-1 justify-end gap-2 sm:grid-cols-2 md:grid-cols-3 md:gap-4">
-        {/* <BulkBuyCard className="col-span-1 sm:col-span-2" /> */}
         <CategoryCard
           title="Cotton Bags"
           description="Ethically sourced and made from 100% organic cotton."
