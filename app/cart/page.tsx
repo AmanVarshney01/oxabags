@@ -23,8 +23,6 @@ import { sendInvoiceAction } from "../actions";
 
 const formSchema = checkoutFormSchema;
 
-export const runtime = "edge";
-
 export default function CartPage() {
   const router = useRouter();
   const { toast } = useToast();
