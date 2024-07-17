@@ -6,6 +6,7 @@ import {
 } from "@/sanity/lib/sanity.query";
 import { Metadata } from "next";
 
+export const runtime = "edge";
 export const dynamicParams = false;
 
 type Props = {

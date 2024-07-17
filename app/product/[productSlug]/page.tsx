@@ -5,6 +5,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import { getProductBySlug, getProductsSlug } from "@/sanity/lib/sanity.query";
 import type { Metadata } from "next";
 
+export const runtime = "edge";
 export const dynamicParams = false;
 
 type Props = {
