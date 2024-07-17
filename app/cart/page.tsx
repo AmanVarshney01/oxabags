@@ -11,33 +11,23 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
+import { checkoutFormSchema } from "@/lib/types";
 import { useCartStore } from "@/store/useCartStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { sendInvoiceAction } from "../actions";
 
-const formSchema = z.object({
-  name: z
-    .string()
-    .min(2, {
-      message: "Name must contain at least 2 characters(s)",
-    })
-    .max(50, {
-      message: "Name is too long",
-    }),
-  email: z.string().email(),
-  phoneNumber: z.string().regex(/^\d{10}$/),
-  addressLine: z.string(),
-  city: z.string(),
-  state: z.string(),
-  country: z.string().optional(),
-  zipcode: z.string(),
-});
+const formSchema = checkoutFormSchema;
+
+export const runtime = "edge";
 
 export default function CartPage() {
   const router = useRouter();
+  const { toast } = useToast();
   const { cart, totalItems, clearCart } = useCartStore();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -60,27 +50,23 @@ export default function CartPage() {
       quantity: item.quantity,
     }));
 
-    const response: any = await fetch("/api/razorpay", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...values,
-        products: cartProducts,
-      }),
-    }).then((response) => response.json());
+    const response = await sendInvoiceAction({
+      ...values,
+      products: cartProducts,
+    });
 
-    if (response.status === "issued") {
+    if (response.data.error) {
+      toast({
+        variant: "destructive",
+        title: response.data.error.description,
+      });
+    } else if (response.data.status === "issued") {
       clearCart();
       router.push(
-        `/cart/success?name=${response.customer_details.name}&email=${response.customer_details.email}&phoneNumber=${response.customer_details.contact}&short_url=${response.short_url}`,
+        `/cart/success?name=${response.data.customer_details.name}&email=${response.data.customer_details.email}&phoneNumber=${response.data.customer_details.contact}&short_url=${response.data.short_url}`,
       );
-    } else {
-      console.error("An error occurred please try again");
+      form.reset();
     }
-
-    form.reset();
   };
 
   return (
@@ -152,7 +138,11 @@ export default function CartPage() {
                 <FormItem>
                   <FormLabel>Zipcode</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter Zipcode" {...field} />
+                    <Input
+                      placeholder="Enter Zipcode"
+                      {...field}
+                      type="number"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

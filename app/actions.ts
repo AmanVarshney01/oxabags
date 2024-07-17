@@ -1,17 +1,14 @@
-export const runtime = "edge";
+"use server";
 
 import { invoiceSchema } from "@/lib/types";
-import { NextResponse } from "next/server";
 
-export async function POST(request: Request) {
+export const sendInvoiceAction = async (input: unknown) => {
   const razorpayID = process.env.RAZORPAY_ID;
   const razorpayKey = process.env.RAZORPAY_KEY;
 
-  const body = await request.json();
+  const parsedInput = invoiceSchema.parse(input);
 
-  const parsedBody = invoiceSchema.parse(body);
-
-  const lineItems = parsedBody.products.map((product) => {
+  const lineItems = parsedInput.products.map((product) => {
     return {
       name: product.name,
       amount: product.price * 100,
@@ -23,15 +20,15 @@ export async function POST(request: Request) {
   const invoice = {
     type: "invoice",
     customer: {
-      name: parsedBody.name,
-      email: parsedBody.email,
-      contact: parsedBody.phoneNumber,
+      name: parsedInput.name,
+      email: parsedInput.email,
+      contact: parsedInput.phoneNumber,
       shipping_address: {
-        line1: parsedBody.addressLine,
-        city: parsedBody.city,
-        state: parsedBody.state,
+        line1: parsedInput.addressLine,
+        city: parsedInput.city,
+        state: parsedInput.state,
         country: "India",
-        zipcode: parsedBody.zipcode,
+        zipcode: parsedInput.zipcode,
       },
     },
     line_items: lineItems,
@@ -47,9 +44,16 @@ export async function POST(request: Request) {
       body: JSON.stringify(invoice),
     });
     const data = await response.json();
-    // console.log("🚀 ~ POST ~ data:", data)
-    return NextResponse.json(data);
+    return {
+      data: data,
+    };
   } catch (error) {
-    console.error(error);
+    return {
+      data: {
+        error: {
+          description: "Something went wrong",
+        },
+      },
+    };
   }
-}
+};
