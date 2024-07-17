@@ -1,3 +1,5 @@
+export const dynamicParams = false;
+
 import ProductCard from "@/components/product/ProductCard";
 import { Product } from "@/lib/types";
 import {
@@ -5,9 +7,6 @@ import {
   getProductsByCategory,
 } from "@/sanity/lib/sanity.query";
 import { Metadata } from "next";
-
-export const runtime = "edge";
-export const dynamicParams = false;
 
 type Props = {
   params: { categorySlug: string };
