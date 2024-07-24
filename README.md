@@ -58,7 +58,7 @@ To set up the project locally:
 
 ## Lighthouse Score
 
-<img src="https://github.com/user-attachments/assets/0b2c207a-355a-4a42-b4d7-07d55b602695" height="500">
+<img src="https://github.com/user-attachments/assets/0b2c207a-355a-4a42-b4d7-07d55b602695" width="500">
 
 ## Known Issues
 
