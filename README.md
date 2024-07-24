@@ -1,4 +1,4 @@
-# OxaBags
+# oxabags
 
 OxaBags is an e-commerce website showcasing our collection of bags. We are manufacturers, wholesalers, and exporters of jute bags and cotton bags, specializing in corporate events and exhibitions.
 
