@@ -11,6 +11,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { checkoutFormSchema } from "@/lib/types";
 import { useCartStore } from "@/store/useCartStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -18,23 +19,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-const formSchema = z.object({
-  name: z
-    .string()
-    .min(2, {
-      message: "Name must contain at least 2 characters(s)",
-    })
-    .max(50, {
-      message: "Name is too long",
-    }),
-  email: z.string().email(),
-  phoneNumber: z.string().regex(/^\d{10}$/),
-  addressLine: z.string(),
-  city: z.string(),
-  state: z.string(),
-  country: z.string().optional(),
-  zipcode: z.string(),
-});
+const formSchema = checkoutFormSchema;
 
 export default function CartPage() {
   const router = useRouter();

@@ -1,6 +1,6 @@
 export const runtime = "edge";
 
-import { Product } from "@/lib/types";
+import { invoiceSchema } from "@/lib/types";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -9,7 +9,9 @@ export async function POST(request: Request) {
 
   const body = await request.json();
 
-  const lineItems = body.products.map((product: Product) => {
+  const parsedBody = invoiceSchema.parse(body);
+
+  const lineItems = parsedBody.products.map((product) => {
     return {
       name: product.name,
       amount: product.price * 100,
@@ -21,15 +23,15 @@ export async function POST(request: Request) {
   const invoice = {
     type: "invoice",
     customer: {
-      name: body.name,
-      email: body.email,
-      contact: body.phoneNumber,
+      name: parsedBody.name,
+      email: parsedBody.email,
+      contact: parsedBody.phoneNumber,
       shipping_address: {
-        line1: body.addressLine,
-        city: body.city,
-        state: body.state,
+        line1: parsedBody.addressLine,
+        city: parsedBody.city,
+        state: parsedBody.state,
         country: "India",
-        zipcode: body.zipcode,
+        zipcode: parsedBody.zipcode,
       },
     },
     line_items: lineItems,
