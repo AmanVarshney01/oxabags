@@ -69,7 +69,7 @@ export default function CartPage() {
   };
 
   return (
-    <section className="p-2">
+    <section className="grid gap-8 p-2 md:grid-cols-2">
       <CartOrderTable />
       <div className="py-2">
         <h1 className="p-2 text-2xl font-bold">Checkout</h1>
@@ -188,7 +188,7 @@ export default function CartPage() {
             />
             <Button
               type="submit"
-              className="rounded-md px-4 py-2 text-white"
+              className="w-full rounded-md px-4 py-2 text-center text-white"
               disabled={form.formState.isSubmitting || totalItems == 0}
             >
               {form.formState.isSubmitting ? (

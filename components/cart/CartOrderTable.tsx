@@ -15,10 +15,10 @@ export default function CartOrderTable() {
     useCartStore();
   return (
     <div className="py-2">
-      <h1 className="p-2 text-left text-2xl font-bold">Cart</h1>
+      <h1 className="p-2 text-2xl font-bold">Cart</h1>
       {cart.length > 0 ? (
         <div>
-          <div className="grid grid-cols-1 gap-2 py-2 md:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-row md:flex-col gap-2 py-2">
             {cart.map((product: Product, index: number) => (
               <CartProductCard
                 key={index}

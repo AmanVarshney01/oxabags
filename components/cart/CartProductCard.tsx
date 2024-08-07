@@ -29,8 +29,8 @@ export default function CartProductCard({
             className="rounded-lg"
           />
         </Link>
-        <div className="flex flex-col justify-between pl-2 md:pl-4">
-          <div>
+        <div className="flex flex-col justify-between gap-2 pl-2 md:flex-row md:pl-4">
+          <div className="w-full">
             <div className="line-clamp-2 text-sm font-medium leading-tight">
               {product.name}
             </div>
@@ -38,37 +38,39 @@ export default function CartProductCard({
               ₹{product.price}
             </div>
           </div>
-          <div className="flex w-min flex-row gap-1 rounded-lg border p-1">
-            <Button
-              className="h-5 w-5"
-              variant={"ghost"}
-              size={"icon"}
-              onClick={() => removeFromCart(product)}
-            >
-              <MinusIcon size={15} />
-            </Button>
-            <span className="min-w-5 px-1 text-center text-sm">
-              {product.quantity}
-            </span>
-            <Button
-              className="h-5 w-5"
-              variant={"ghost"}
-              size={"icon"}
-              onClick={() => addToCart(product)}
-            >
-              <PlusIcon size={15} />
-            </Button>
+          <div className="flex flex-row justify-end gap-1 md:items-end md:justify-center">
+            <div className="flex w-min flex-row gap-1 rounded-lg border p-1">
+              <Button
+                className="h-5 w-5"
+                variant={"ghost"}
+                size={"icon"}
+                onClick={() => addToCart(product)}
+              >
+                <PlusIcon size={15} />
+              </Button>
+              <span className="min-w-5 px-1 text-center text-sm">
+                {product.quantity}
+              </span>
+              <Button
+                className="h-5 w-5"
+                variant={"ghost"}
+                size={"icon"}
+                onClick={() => removeFromCart(product)}
+              >
+                <MinusIcon size={15} />
+              </Button>
+            </div>
+            <div className="">
+              <Button
+                className="h-6 w-6"
+                variant={"destructive"}
+                size={"icon"}
+                onClick={() => deleteFromCart(product)}
+              >
+                <DeleteIcon size={15} />
+              </Button>
+            </div>
           </div>
-        </div>
-        <div className="ml-auto mt-auto pl-2">
-          <Button
-            className="h-5 w-5"
-            variant={"destructive"}
-            size={"icon"}
-            onClick={() => deleteFromCart(product)}
-          >
-            <DeleteIcon size={15} />
-          </Button>
         </div>
       </CardContent>
     </Card>
