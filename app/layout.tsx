@@ -32,6 +32,16 @@ export const metadata: Metadata = {
   category: "Shopping",
   openGraph: {
     title: "oxabags",
+    description:
+      "Manufacturer, Wholesaler & Exporter of Jute bags, Cotton Bag for Corporate Events & Exhibitions",
+    url: "https://www.oxabags.com/",
+    type: "website",
+    siteName: "oxabags",
+    images: [
+      {
+        url: "https://www.oxabags.com/og.webp",
+      },
+    ],
   },
 };
 
