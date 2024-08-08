@@ -29,7 +29,7 @@ export default function CartProductCard({
             className="rounded-lg"
           />
         </Link>
-        <div className="flex flex-col justify-between gap-2 pl-2 md:flex-row md:pl-4">
+        <div className="flex flex-col justify-between gap-2 pl-2 md:pl-4">
           <div className="w-full">
             <div className="line-clamp-2 text-sm font-medium leading-tight">
               {product.name}
@@ -38,7 +38,7 @@ export default function CartProductCard({
               ₹{product.price}
             </div>
           </div>
-          <div className="flex flex-row justify-end gap-1 md:items-end md:justify-center">
+          <div className="flex flex-row items-center justify-end gap-1">
             <div className="flex w-min flex-row gap-1 rounded-lg border p-1">
               <Button
                 className="h-5 w-5"
@@ -60,16 +60,14 @@ export default function CartProductCard({
                 <MinusIcon size={15} />
               </Button>
             </div>
-            <div className="">
-              <Button
-                className="h-6 w-6"
-                variant={"destructive"}
-                size={"icon"}
-                onClick={() => deleteFromCart(product)}
-              >
-                <DeleteIcon size={15} />
-              </Button>
-            </div>
+            <Button
+              className="h-6 w-6"
+              variant={"destructive"}
+              size={"icon"}
+              onClick={() => deleteFromCart(product)}
+            >
+              <DeleteIcon size={15} />
+            </Button>
           </div>
         </div>
       </CardContent>

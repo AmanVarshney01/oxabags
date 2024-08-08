@@ -39,7 +39,7 @@ export default function CartSheet() {
         <SheetDescription className="text-gray-500">
           {cart.length > 0 ? "" : "Empty"}
         </SheetDescription>
-        <div className="overflow-y-auto">
+        <div className="h-full overflow-y-auto">
           {cart.map((product: Product, index: number) => (
             <CartProductCard
               key={index}
