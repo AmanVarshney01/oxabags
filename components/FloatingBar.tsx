@@ -1,4 +1,5 @@
 "use client";
+import { OWNER_PHONE_1, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
 import Whatsapp from "@/public/whatsapp_logo.svg";
 import { PhoneCallIcon, Share } from "lucide-react";
 import Image from "next/image";
@@ -10,12 +11,12 @@ export default function FloatingBar() {
   const handleShare = async () => {
     if (navigator.share) {
       navigator.share({
-        title: "oxabags",
-        text: "Manufacturer, Wholesaler & Exporter of Jute bags, Cotton Bag for Corporate Events & Exhibitions",
-        url: `https://www.oxabags.com${pathname}`,
+        title: SITE_NAME,
+        text: SITE_DESCRIPTION,
+        url: `${SITE_URL}${pathname}`,
       });
     } else {
-      navigator.clipboard.writeText(`https://www.oxabags.com${pathname}`);
+      navigator.clipboard.writeText(`${SITE_URL}${pathname}`);
       alert("Link copied to clipboard");
     }
   };
@@ -24,14 +25,14 @@ export default function FloatingBar() {
     <div className="fixed bottom-2 left-1/2 w-max -translate-x-1/2 transform rounded-full border-2 border-border bg-background/95 shadow-md shadow-black/20 backdrop-blur supports-[backdrop-filter]:bg-background/90">
       <div className="flex flex-row divide-x p-1">
         <Link
-          href="tel:9868151526"
+          href={`tel:${OWNER_PHONE_1}`}
           className="flex shrink-0 flex-row items-center space-x-1 p-2"
         >
           <PhoneCallIcon size={20} />
           <span className="text-sm">Call Us</span>
         </Link>
         <Link
-          href={"https://wa.me/9868151526"}
+          href={`https://wa.me/${OWNER_PHONE_1}`}
           className="flex shrink-0 flex-row items-center space-x-1 p-2"
         >
           <Image

@@ -4,6 +4,7 @@ import CartSheet from "./cart/CartSheet";
 import MenuSheet from "./MenuSheet";
 import Navbar from "./Navbar";
 import SearchInput from "./SearchInput";
+import { SITE_NAME } from "@/lib/constants";
 
 export default async function Header() {
   const categories = await getCategories();
@@ -12,7 +13,7 @@ export default async function Header() {
       <nav className="flex flex-row items-center gap-6">
         <MenuSheet categories={categories} />
         <Link className="mx-auto md:mx-0" href="/">
-          <h1 className="text-2xl font-bold italic">oxabags</h1>
+          <h1 className="text-2xl font-bold italic">{SITE_NAME}</h1>
         </Link>
         <Navbar categories={categories} />
         <div className="ml-0 flex flex-row gap-2 md:ml-auto">

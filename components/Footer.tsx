@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import whatsapp from "../public/WhatsAppButtonGreenSmall.svg";
 import razorpay from "../public/razorpay.png";
+import { COMPANY_ADDRESS, COMPANY_NAME, OWNER_EMAIL, OWNER_PHONE_1, OWNER_PHONE_2, SITE_NAME } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -70,19 +71,19 @@ export default function Footer() {
             <h2 className="mb-3 text-lg font-bold">Contact Us</h2>
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <MailIcon size={16} />
-              <Link href="mailto:info@oxabags.com">info@oxabags.com</Link>
+              <Link href={`mailto:${OWNER_EMAIL}`}>{OWNER_EMAIL}</Link>
             </div>
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <PhoneCallIcon size={16} />
-              <Link href="tel:9868151526">9868151526</Link>
+              <Link href={`tel:${OWNER_PHONE_1}`}>{OWNER_PHONE_1}</Link>
             </div>
             <div className="mb-3 flex gap-2 text-sm hover:underline">
               <PhoneCallIcon size={16} />
-              <Link href="tel:9811365888">9811365888</Link>
+              <Link href={`tel:${OWNER_PHONE_2}`}>{OWNER_PHONE_2}</Link>
             </div>
             <div className="w-fit">
               <Link
-                href={"https://wa.me/9868151526"}
+                href={`https://wa.me/${OWNER_PHONE_1}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -117,21 +118,20 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h2 className="mb-3 text-xl font-bold">Aman Enterprises</h2>
+            <h2 className="mb-3 text-xl font-bold">{COMPANY_NAME}</h2>
             <a
               href="https://maps.app.goo.gl/diaZLM6SnYkpa6LV7"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs hover:underline md:text-sm"
             >
-              G-211, UPSIDC Industrial Area Phase-1 M. G. Road, Dholana
-              GHAZIABAD -201015, UP
+              {COMPANY_ADDRESS}
             </a>
           </div>
         </div>
       </section>
       <p className="mt-10 text-center text-sm">
-        © {new Date().getFullYear()} oxabags
+        © {new Date().getFullYear()} {SITE_NAME}
       </p>
     </footer>
   );

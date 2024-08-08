@@ -1,5 +1,6 @@
 import ProductDetailCard from "@/components/product/ProductDetailCard";
 import ProductsMarqueeWrapper from "@/components/product/ProductsMarqueeWrapper";
+import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import { Product } from "@/lib/types";
 import { urlForImage } from "@/sanity/lib/image";
 import { getProductBySlug, getProductsSlug } from "@/sanity/lib/sanity.query";
@@ -42,14 +43,14 @@ const ProductPage = async ({ params }: Props) => {
   const product: Product = await getProductBySlug(params.productSlug);
 
   const jsonLd = {
-    "@context": "https://www.oxabags.com/",
+    "@context": SITE_URL,
     "@type": "Product",
     name: product.name,
     image: urlForImage(product.images[0]),
     description: product.features,
     brand: {
       "@type": "Brand",
-      name: "oxabags",
+      name: SITE_NAME,
     },
   };
 

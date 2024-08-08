@@ -1,3 +1,5 @@
+import { OWNER_EMAIL } from "@/lib/constants";
+
 export default function ReturnRefundPolicy() {
   return (
     <section className="flex flex-col gap-2 px-2 py-4">
@@ -64,7 +66,7 @@ export default function ReturnRefundPolicy() {
         <ol className="list-disc p-2">
           <li>
             Send an email to{" "}
-            <a href="mailto:info@oxabags.in">info@oxabags.in</a> along with a
+            <a href={`mailto:${OWNER_EMAIL}`}>${OWNER_EMAIL}</a> along with a
             photo of the damaged product.
           </li>
           <li>

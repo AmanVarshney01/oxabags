@@ -1,6 +1,6 @@
 # oxabags
 
-OxaBags is an e-commerce website showcasing our collection of bags. We are manufacturers, wholesalers, and exporters of jute bags and cotton bags, specializing in corporate events and exhibitions.
+oxaBags is an e-commerce website showcasing our collection of bags. We are manufacturers, wholesalers, and exporters of jute bags and cotton bags, specializing in corporate events and exhibitions.
 
 ![image](https://github.com/user-attachments/assets/1cca385a-d409-4a6a-82ce-f408b5114299)
 
@@ -28,7 +28,7 @@ OxaBags is an e-commerce website showcasing our collection of bags. We are manuf
 The project is organized into two main branches:
 
 - `master`: Contains the API routes version
-- `with-server-action`: Implements server actions (currently facing issues with Cloudflare Pages)
+- `with-server-action`: Implements server actions
 
 ## Screenshots
 
@@ -53,7 +53,7 @@ To set up the project locally:
 
 1. Clone the repository
 2. Install dependencies: `npm install`
-3. Set up environment variables for sanity and razorpay (see `.env`)
+3. Set up environment variables for sanity and razorpay (see `.env.example`)
 4. Run the development server: `npm run dev`
 
 ## Lighthouse Score

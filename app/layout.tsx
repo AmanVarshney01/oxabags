@@ -6,6 +6,14 @@ import { cn } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import {
+  SITE_CATEGORY,
+  SITE_DESCRIPTION,
+  SITE_IMAGE,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/constants";
 
 const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -17,29 +25,26 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.oxabags.com/"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    template: "%s | oxabags",
-    default: "oxabags",
+    template: `%s | ${SITE_NAME}`,
+    default: SITE_NAME,
   },
-  description:
-    "Manufacturer, Wholesaler & Exporter of Jute bags, Cotton Bag for Corporate Events & Exhibitions",
-  keywords:
-    "Jute bags, Cotton Bag, Canvas Bags, File Folders, Denim Bags, Pouches",
+  description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
   alternates: {
     canonical: "/",
   },
-  category: "Shopping",
+  category: SITE_CATEGORY,
   openGraph: {
-    title: "oxabags",
-    description:
-      "Manufacturer, Wholesaler & Exporter of Jute bags, Cotton Bag for Corporate Events & Exhibitions",
-    url: "https://www.oxabags.com/",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
     type: "website",
-    siteName: "oxabags",
+    siteName: SITE_NAME,
     images: [
       {
-        url: "https://www.oxabags.com/og.webp",
+        url: SITE_IMAGE,
       },
     ],
   },
