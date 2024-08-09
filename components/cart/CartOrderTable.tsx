@@ -18,7 +18,7 @@ export default function CartOrderTable() {
       <h1 className="p-2 text-2xl font-bold">Cart</h1>
       {cart.length > 0 ? (
         <div>
-          <div className="flex flex-row md:flex-col gap-2 py-2">
+          <div className="flex flex-col gap-2 py-2">
             {cart.map((product: Product, index: number) => (
               <CartProductCard
                 key={index}

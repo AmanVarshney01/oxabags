@@ -17,8 +17,8 @@ export default function CartProductCard({
   deleteFromCart: (Item: Product) => void;
 } & { product: Product }) {
   return (
-    <Card className="mb-2 flex flex-row p-1">
-      <CardContent className="flex w-full flex-row p-0">
+    <Card className="mb-2 p-1">
+      <CardContent className="grid w-full grid-cols-[auto_1fr] p-0">
         <Link className="min-w-fit" href={`/product/${product.slug.current}`}>
           <Image
             src={urlForImage(product.images[0])}
