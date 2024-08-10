@@ -22,15 +22,6 @@ export async function getProductBySlug(slug: string) {
   );
 }
 
-export async function getProductSlugByID(id: number) {
-  return client.fetch(
-    groq`*[_type == "product" && id == $id][0] {
-      slug
-    }`,
-    { id },
-  );
-}
-
 export async function getProductsByCategory(categorySlug: string) {
   return client.fetch(
     groq`*[_type == "product" && category->slug.current == $categorySlug]{
@@ -75,5 +66,30 @@ export async function getProductsSlug() {
         current
       }
     }`,
+  );
+}
+
+export async function searchProducts(searchTerm: string) {
+  return client.fetch(
+    groq`*[_type == "product" && (
+      name match $searchTerm
+      || description match $searchTerm
+      || color match $searchTerm
+      || size match $searchTerm
+      || weight match $searchTerm
+      || fabric match $searchTerm
+      || features match $searchTerm
+      || category->name match $searchTerm
+    )] {
+      id,
+      name,
+      price,
+      images[0],
+      category->{
+        name
+      },
+      slug,
+    }`,
+    { searchTerm },
   );
 }

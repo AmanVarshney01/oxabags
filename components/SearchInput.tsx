@@ -9,8 +9,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
-import { getProductSlugByID } from "@/sanity/lib/sanity.query";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SearchIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -18,13 +16,10 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 
 const formSchema = z.object({
-  productCode: z.coerce.number({
-    invalid_type_error: "Invalid ID",
-  }),
+  searchTerm: z.string(),
 });
 
 export default function SearchInput() {
-  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
@@ -32,16 +27,7 @@ export default function SearchInput() {
   const router = useRouter();
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const id: number = Number(values.productCode);
-    try {
-      const productSlug = await getProductSlugByID(id);
-      router.push(`/product/${productSlug.slug.current}`);
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Invalid Product Code",
-      });
-    }
+    router.push(`/search?q=${values.searchTerm}`);
     form.reset();
   }
   return (
@@ -49,13 +35,13 @@ export default function SearchInput() {
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
-          name="productCode"
+          name="searchTerm"
           render={({ field }) => (
             <FormItem className="relative">
               <FormControl>
                 <div className="relative flex flex-row">
                   <Input
-                    placeholder="Search by Code"
+                    placeholder="Search Products"
                     {...field}
                     disabled={form.formState.isSubmitting}
                   />

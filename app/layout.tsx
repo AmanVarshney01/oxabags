@@ -60,7 +60,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-svh bg-background font-sans antialiased",
-          fontSans.variable,
+          fontSans.className,
         )}
       >
         <main className="mx-auto max-w-7xl">
