@@ -1,4 +1,7 @@
 "use client";
+
+export const runtime = "edge";
+
 import { sendInvoiceAction } from "@/app/actions";
 import CartOrderTable from "@/components/cart/CartOrderTable";
 import { Button } from "@/components/ui/button";
