@@ -1,6 +1,6 @@
 # oxabags
 
-oxaBags is an e-commerce website showcasing our collection of bags. We are manufacturers, wholesalers, and exporters of jute bags and cotton bags, specializing in corporate events and exhibitions.
+oxabags is an e-commerce website showcasing our collection of bags. We are manufacturers, wholesalers, and exporters of jute bags and cotton bags, specializing in corporate events and exhibitions.
 
 ![image](https://github.com/user-attachments/assets/1cca385a-d409-4a6a-82ce-f408b5114299)
 
@@ -21,14 +21,7 @@ oxaBags is an e-commerce website showcasing our collection of bags. We are manuf
 - **CMS:** Sanity.io
 - **Hosting:** Cloudflare Pages
 - **State Management:** Zustand
-- **Payment:**  Razorpay Invoices
-
-## Project Structure
-
-The project is organized into two main branches:
-
-- `master`: Contains the API routes version
-- `with-server-action`: Implements server actions
+- **Payment:** Razorpay Invoices
 
 ## Screenshots
 
@@ -59,7 +52,3 @@ To set up the project locally:
 ## Lighthouse Score
 
 <img src="https://github.com/user-attachments/assets/0b2c207a-355a-4a42-b4d7-07d55b602695" width="500">
-
-## Known Issues
-
-I am currently experiencing issues with server actions in Cloudflare Pages. The `with-server-action` branch contains this implementation, while the `master` branch uses API routes.
