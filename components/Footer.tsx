@@ -1,8 +1,8 @@
 import { MailIcon, PhoneCallIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import whatsapp from "../public/WhatsAppButtonGreenSmall.svg";
-import razorpay from "../public/razorpay.png";
+import whatsapp from "@/public/WhatsAppButtonGreenSmall.svg";
+import razorpay from "@/public/razorpay.png";
 import { COMPANY_ADDRESS, COMPANY_NAME, OWNER_EMAIL, OWNER_PHONE_1, OWNER_PHONE_2, SITE_NAME } from "@/lib/constants";
 
 export default function Footer() {

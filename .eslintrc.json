@@ -1,3 +1,7 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "plugin:next-on-pages/recommended"],
+  "plugins": ["next-on-pages"],
+  "rules": {
+    "next-on-pages/no-unsupported-configs": "warn"
+  }
 }
