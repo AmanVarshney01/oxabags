@@ -1,4 +1,5 @@
 "use client";
+import { sendInvoiceAction } from "@/app/actions";
 import CartOrderTable from "@/components/cart/CartOrderTable";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,6 +12,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
 import { checkoutFormSchema } from "@/lib/types";
 import { useCartStore } from "@/store/useCartStore";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,6 +25,7 @@ const formSchema = checkoutFormSchema;
 
 export default function CartPage() {
   const router = useRouter();
+  const { toast } = useToast();
   const { cart, totalItems, clearCart } = useCartStore();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,33 +42,32 @@ export default function CartPage() {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    const cartProducts = cart.map((item) => ({
-      name: item.name,
-      price: item.price,
-      quantity: item.quantity,
-    }));
-
-    const response: any = await fetch("/api/razorpay", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    try {
+      const cartProducts = cart.map(({ name, price, quantity }) => ({
+        name,
+        price,
+        quantity,
+      }));
+      const response = await sendInvoiceAction({
         ...values,
         products: cartProducts,
-      }),
-    }).then((response) => response.json());
+      });
 
-    if (response.status === "issued") {
+      if (response.error) {
+        toast({ variant: "destructive", title: response.error });
+        return;
+      }
+
       clearCart();
-      router.push(
-        `/cart/success?name=${response.customer_details.name}&email=${response.customer_details.email}&phoneNumber=${response.customer_details.contact}&short_url=${response.short_url}`,
-      );
-    } else {
-      console.error("An error occurred please try again");
+      form.reset();
+      router.push(`/cart/success?${new URLSearchParams(response.data)}`);
+    } catch (error) {
+      console.error("Checkout error:", error);
+      toast({
+        variant: "destructive",
+        title: "An unexpected error occurred. Please try again.",
+      });
     }
-
-    form.reset();
   };
 
   return (
@@ -188,11 +190,11 @@ export default function CartPage() {
             />
             <Button
               type="submit"
-              className="w-full rounded-md px-4 py-2 text-center text-white"
+              className="w-full rounded-md px-4 py-2 text-center text-background"
               disabled={form.formState.isSubmitting || totalItems == 0}
             >
               {form.formState.isSubmitting ? (
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-row items-center gap-2">
                   <span>Loading</span>
                   <Loader2 className="animate-spin" />
                 </div>
