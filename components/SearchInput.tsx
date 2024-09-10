@@ -16,7 +16,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 
 const formSchema = z.object({
-  searchTerm: z.string(),
+  searchTerm: z.string().min(1),
 });
 
 export default function SearchInput() {
@@ -40,13 +40,13 @@ export default function SearchInput() {
             <FormItem className="relative">
               <FormControl>
                 <div className="relative flex flex-row">
-                  <Input
-                    placeholder="Search Products"
-                    {...field}
-                    disabled={form.formState.isSubmitting}
-                  />
+                  <Input placeholder="Search Products" {...field} />
                   <Button
-                    disabled={form.formState.isSubmitting}
+                    disabled={
+                      !form.formState.isValid ||
+                      form.formState.isSubmitting ||
+                      !form.formState.isDirty
+                    }
                     size={"icon"}
                     type="submit"
                     variant={"outline"}

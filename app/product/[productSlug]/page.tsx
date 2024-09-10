@@ -27,10 +27,13 @@ export async function generateStaticParams() {
   });
 }
 
-export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const product: Product = await getProductBySlug(params.productSlug);
 
-  const previousImages = (await parent).openGraph?.images || []
+  const previousImages = (await parent).openGraph?.images || [];
 
   return {
     title: product.name,
@@ -40,7 +43,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
     description: product.features,
     openGraph: {
       images: [urlForImage(product.images[0]), ...previousImages],
-    }
+    },
   };
 }
 

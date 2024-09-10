@@ -18,7 +18,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
     "@sanity/image-url": "^1.0.2",
-    "@sanity/vision": "^3.56.0",
+    "@sanity/vision": "^3.57.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "8.1.6",
@@ -30,7 +30,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
-    "sanity": "^3.56.0",
+    "sanity": "^3.57.1",
     "sharp": "^0.33.5",
     "styled-components": "^6.1.13",
     "tailwind-merge": "^2.5.2",
@@ -40,17 +40,17 @@
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.2",
-    "@types/node": "^20.16.3",
+    "@types/node": "^20.16.5",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.4",
     "eslint-plugin-next-on-pages": "^1.13.2",
-    "postcss": "^8.4.44",
+    "postcss": "^8.4.45",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.10",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.2"
   }
 }
