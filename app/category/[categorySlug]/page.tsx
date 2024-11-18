@@ -9,7 +9,7 @@ import { Metadata } from "next";
 export const dynamicParams = false;
 
 type Props = {
-  params: { categorySlug: string };
+  params: Promise<{ categorySlug: string }>;
 };
 
 type CategorySlug = {
@@ -27,7 +27,8 @@ export async function generateStaticParams() {
   });
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
   const title = params.categorySlug;
 
   return {
@@ -41,7 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function CategoryPage({ params }: Props) {
+export default async function CategoryPage(props: Props) {
+  const params = await props.params;
   const products = await getProductsByCategory(params.categorySlug);
   return (
     <section className="px-2 py-4">

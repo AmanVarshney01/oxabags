@@ -9,7 +9,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 export const dynamicParams = false;
 
 type Props = {
-  params: { productSlug: string };
+  params: Promise<{ productSlug: string }>;
 };
 
 type ProductSlug = {
@@ -27,10 +27,8 @@ export async function generateStaticParams() {
   });
 }
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const params = await props.params;
   const product: Product = await getProductBySlug(params.productSlug);
 
   const previousImages = (await parent).openGraph?.images || [];
@@ -47,7 +45,8 @@ export async function generateMetadata(
   };
 }
 
-const ProductPage = async ({ params }: Props) => {
+const ProductPage = async (props: Props) => {
+  const params = await props.params;
   const product: Product = await getProductBySlug(params.productSlug);
 
   const jsonLd = {

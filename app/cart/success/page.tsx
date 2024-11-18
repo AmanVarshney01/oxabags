@@ -4,16 +4,17 @@ import Link from "next/link";
 
 export const runtime = "edge";
 
-export default function SuccessPage({
-  searchParams,
-}: {
-  searchParams: {
-    name: string;
-    email: string;
-    phoneNumber: string;
-    short_url: string;
-  };
-}) {
+export default async function SuccessPage(
+  props: {
+    searchParams: Promise<{
+      name: string;
+      email: string;
+      phoneNumber: string;
+      short_url: string;
+    }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const email = searchParams.email;
   const phoneNumber = searchParams.phoneNumber;
   const short_url = searchParams.short_url;

@@ -4,11 +4,12 @@ import { searchProducts } from "@/sanity/lib/sanity.query";
 
 export const runtime = "edge";
 
-export default async function SearchPage({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string };
-}) {
+export default async function SearchPage(
+  props: {
+    searchParams: Promise<{ [key: string]: string }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const { q } = searchParams;
 
   const searchResults = await searchProducts(q);

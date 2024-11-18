@@ -22,6 +22,9 @@ const formSchema = z.object({
 export default function SearchInput() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      searchTerm: "",
+    },
   });
 
   const router = useRouter();
