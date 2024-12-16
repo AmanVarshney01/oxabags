@@ -33,8 +33,6 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const product: Product = await getProductBySlug(params.productSlug);
 
-  const previousImages = (await parent).openGraph?.images || [];
-
   return {
     title: product.name,
     alternates: {
@@ -42,7 +40,17 @@ export async function generateMetadata(
     },
     description: product.features,
     openGraph: {
-      images: [urlForImage(product.images[0]).url(), ...previousImages],
+      title: product.name,
+      description: product.description,
+      url: `${SITE_URL}product/${params.productSlug}`,
+      images: [
+        {
+          url: urlForImage(product.images[0]).url(),
+          width: 1200,
+          height: 630,
+          alt: product.name,
+        },
+      ],
     },
   };
 }
