@@ -3,7 +3,7 @@ import ProductsMarqueeWrapper from "@/components/product/ProductsMarqueeWrapper"
 import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import { Product } from "@/lib/types";
 import { urlForImage } from "@/sanity/lib/image";
-import { getProductBySlug, getProductsSlug } from "@/sanity/lib/sanity.query";
+import { getProductBySlug, getProductsSlug } from "@/sanity/sanity.query";
 import type { Metadata, ResolvingMetadata } from "next";
 
 export const dynamicParams = false;
@@ -42,7 +42,7 @@ export async function generateMetadata(
     },
     description: product.features,
     openGraph: {
-      images: [urlForImage(product.images[0]), ...previousImages],
+      images: [urlForImage(product.images[0]).url(), ...previousImages],
     },
   };
 }

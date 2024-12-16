@@ -1,4 +1,4 @@
-import { getFeaturedProducts } from "@/sanity/lib/sanity.query";
+import { getFeaturedProducts } from "@/sanity/sanity.query";
 import ProductsMarquee from "./ProductsMarquee";
 
 export default async function ProductsMarqueeWrapper() {

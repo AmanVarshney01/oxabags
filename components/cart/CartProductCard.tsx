@@ -21,7 +21,7 @@ export default function CartProductCard({
       <CardContent className="grid w-full grid-cols-[auto_1fr] p-0">
         <Link className="min-w-fit" href={`/product/${product.slug.current}`}>
           <Image
-            src={urlForImage(product.images[0])}
+            src={urlForImage(product.images[0]).url()}
             width={100}
             height={100}
             alt={product.name}

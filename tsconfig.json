@@ -20,9 +20,15 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "imageLoader.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "imageLoader.js"
+  ],
   "exclude": ["node_modules"]
 }

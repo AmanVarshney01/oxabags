@@ -17,7 +17,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <Card className="flex h-full w-fit flex-col justify-around">
         <CardHeader className="flex items-center justify-center p-1">
           <Image
-            src={urlForImage(product.images)}
+            src={urlForImage(product.images).url()}
             width={220}
             height={220}
             alt={product.name}

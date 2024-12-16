@@ -1,4 +1,4 @@
-import { getCategories } from "@/sanity/lib/sanity.query";
+import { getCategories } from "@/sanity/sanity.query";
 import Link from "next/link";
 import CartSheet from "./cart/CartSheet";
 import MenuSheet from "./MenuSheet";

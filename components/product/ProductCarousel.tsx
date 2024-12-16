@@ -33,7 +33,7 @@ export default function ProductCarousel({ product }: { product: Product }) {
             <CarouselItem key={index}>
               <AspectRatio ratio={1 / 1}>
                 <Image
-                  src={urlForImage(image)}
+                  src={urlForImage(image).url()}
                   width={1000}
                   height={1000}
                   alt={product.name}

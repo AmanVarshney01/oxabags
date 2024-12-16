@@ -1,9 +1,6 @@
 import ProductCard from "@/components/product/ProductCard";
 import { Product } from "@/lib/types";
-import {
-  getCategories,
-  getProductsByCategory,
-} from "@/sanity/lib/sanity.query";
+import { getCategories, getProductsByCategory } from "@/sanity/sanity.query";
 import { Metadata } from "next";
 
 export const dynamicParams = false;

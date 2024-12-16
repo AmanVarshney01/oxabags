@@ -1,6 +1,6 @@
 import ProductCard from "@/components/product/ProductCard";
 import { Product } from "@/lib/types";
-import { searchProducts } from "@/sanity/lib/sanity.query";
+import { searchProducts } from "@/sanity/sanity.query";
 
 export const runtime = "edge";
 
