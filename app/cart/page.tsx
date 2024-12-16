@@ -75,7 +75,9 @@ export default function CartPage() {
 
   return (
     <section className="grid gap-8 p-2 md:grid-cols-2">
-      <CartOrderTable />
+      <div className="md:sticky md:top-20 md:h-fit">
+        <CartOrderTable />
+      </div>
       <div className="py-2">
         <h1 className="p-2 text-2xl font-bold">Checkout</h1>
         <Form {...form}>
