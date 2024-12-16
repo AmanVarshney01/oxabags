@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryPage({ params }: Props) {
   const products = await getProductsByCategory(params.categorySlug);
+
   return (
     <section className="px-2 py-4">
       {products && products.length > 0 ? (
