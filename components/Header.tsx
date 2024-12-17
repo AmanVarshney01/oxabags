@@ -1,13 +1,15 @@
-import { getCategories } from "@/sanity/sanity.query";
+import { SITE_NAME } from "@/lib/constants";
+import { client } from "@/sanity/lib/client";
+import { categoriesQuery } from "@/sanity/lib/queries";
 import Link from "next/link";
 import CartSheet from "./cart/CartSheet";
 import MenuSheet from "./MenuSheet";
 import Navbar from "./Navbar";
 import SearchInput from "./SearchInput";
-import { SITE_NAME } from "@/lib/constants";
+import { CategoriesQueryResult } from "@/sanity/types";
 
 export default async function Header() {
-  const categories = await getCategories();
+  const categories = await client.fetch<CategoriesQueryResult>(categoriesQuery);
   return (
     <header className="sticky top-0 z-10 mx-auto w-full max-w-7xl border-b border-border/40 bg-background/95 px-2 py-4 backdrop-blur supports-[backdrop-filter]:bg-background/90 md:px-10">
       <nav className="flex flex-row items-center gap-6">

@@ -1,8 +1,12 @@
-import { getFeaturedProducts } from "@/sanity/sanity.query";
+import { client } from "@/sanity/lib/client";
+import { featuredProductsQuery } from "@/sanity/lib/queries";
 import ProductsMarquee from "./ProductsMarquee";
+import { FeaturedProductsQueryResult } from "@/sanity/types";
 
 export default async function ProductsMarqueeWrapper() {
-  const products = await getFeaturedProducts();
+  const products = await client.fetch<FeaturedProductsQueryResult>(
+    featuredProductsQuery,
+  );
   return (
     <section className="py-4 md:py-10">
       <h2 className="p-2 pt-0 text-lg font-medium md:p-4 md:pt-0 md:text-xl">

@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "imageLoader.js"
+    "imageLoader.js",
+    "./sanity/types.ts"
   ],
   "exclude": ["node_modules"]
 }

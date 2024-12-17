@@ -6,13 +6,17 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Product } from "@/lib/types";
 import { urlForImage } from "@/sanity/lib/image";
+import { ProductBySlugQueryResult } from "@/sanity/types";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { AspectRatio } from "../ui/aspect-ratio";
 
-export default function ProductCarousel({ product }: { product: Product }) {
+export default function ProductCarousel({
+  product,
+}: {
+  product: ProductBySlugQueryResult;
+}) {
   return (
     <div className="flex-1 md:w-1/2">
       <Carousel
@@ -29,14 +33,14 @@ export default function ProductCarousel({ product }: { product: Product }) {
         ]}
       >
         <CarouselContent>
-          {product.images.map((image: any, index: number) => (
+          {product?.images!.map((image: any, index: number) => (
             <CarouselItem key={index}>
               <AspectRatio ratio={1 / 1}>
                 <Image
                   src={urlForImage(image).url()}
                   width={1000}
                   height={1000}
-                  alt={product.name}
+                  alt={product?.name!}
                   className="rounded-lg"
                   priority
                 />

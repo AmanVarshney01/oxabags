@@ -57,7 +57,6 @@ export default function SearchInput() {
                   </Button>
                 </div>
               </FormControl>
-              <FormMessage className="absolute -bottom-6" />
             </FormItem>
           )}
         />

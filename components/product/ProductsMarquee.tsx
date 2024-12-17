@@ -1,15 +1,22 @@
 "use client";
-import { Product } from "@/lib/types";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../ui/carousel";
+} from "@/components/ui/carousel";
+import {
+  FeaturedProductsQueryResult,
+  ProductBySlugQueryResult,
+} from "@/sanity/types";
 import ProductCard from "./ProductCard";
 
-export default function ProductsMarquee({ products }: { products: Product[] }) {
+export default function ProductsMarquee({
+  products,
+}: {
+  products: ProductBySlugQueryResult[] | FeaturedProductsQueryResult;
+}) {
   return (
     <Carousel
       opts={{
@@ -17,7 +24,7 @@ export default function ProductsMarquee({ products }: { products: Product[] }) {
       }}
     >
       <CarouselContent className="-ml-2 px-2">
-        {products.map((product: Product, index: number) => (
+        {products?.map((product, index: number) => (
           <CarouselItem
             className="basis-1/2 pl-2 sm:basis-1/3 md:basis-1/4 md:pl-4 lg:basis-1/5"
             key={index}

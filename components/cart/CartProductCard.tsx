@@ -1,10 +1,10 @@
 import { urlForImage } from "@/sanity/lib/image";
-import { Product } from "@/store/useCartStore";
 import { DeleteIcon, MinusIcon, PlusIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
+import { CartProduct } from "@/store/useCartStore";
 
 export default function CartProductCard({
   product,
@@ -12,19 +12,19 @@ export default function CartProductCard({
   removeFromCart,
   deleteFromCart,
 }: {
-  addToCart: (Item: Product) => void;
-  removeFromCart: (Item: Product) => void;
-  deleteFromCart: (Item: Product) => void;
-} & { product: Product }) {
+  addToCart: (Item: CartProduct) => void;
+  removeFromCart: (Item: CartProduct) => void;
+  deleteFromCart: (Item: CartProduct) => void;
+} & { product: CartProduct }) {
   return (
     <Card className="mb-2 p-1">
       <CardContent className="grid w-full grid-cols-[auto_1fr] p-0">
-        <Link className="min-w-fit" href={`/product/${product.slug.current}`}>
+        <Link className="min-w-fit" href={`/product/${product.slug!.current}`}>
           <Image
-            src={urlForImage(product.images[0]).url()}
+            src={urlForImage(product?.images?.[0]!).url()}
             width={100}
             height={100}
-            alt={product.name}
+            alt={product.name!}
             priority
             className="rounded-lg"
           />

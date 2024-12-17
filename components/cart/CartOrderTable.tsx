@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Product, useCartStore } from "@/store/useCartStore";
+import { useCartStore } from "@/store/useCartStore";
 
 export default function CartOrderTable() {
   const { cart, removeFromCart, addToCart, deleteFromCart, totalAmount } =
@@ -19,7 +19,7 @@ export default function CartOrderTable() {
       {cart.length > 0 ? (
         <div>
           <div className="flex flex-col gap-2 py-2">
-            {cart.map((product: Product, index: number) => (
+            {cart.map((product, index: number) => (
               <CartProductCard
                 key={index}
                 product={product}
@@ -41,13 +41,13 @@ export default function CartOrderTable() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {cart.map((product: Product, index: number) => (
+                {cart.map((product, index: number) => (
                   <TableRow key={index}>
                     <TableCell>{product.name}</TableCell>
                     <TableCell align="right">₹{product.price}</TableCell>
                     <TableCell align="right">{product.quantity}</TableCell>
                     <TableCell align="right">
-                      ₹{product.price * product.quantity}
+                      ₹{product.price! * product.quantity}
                     </TableCell>
                   </TableRow>
                 ))}

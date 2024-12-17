@@ -8,11 +8,14 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { CategoriesQueryResult } from "@/sanity/types";
 import Link from "next/link";
 
-import { Category } from "@/lib/types";
-
-export default function Navbar({ categories }: { categories: Category[] }) {
+export default function Navbar({
+  categories,
+}: {
+  categories: CategoriesQueryResult;
+}) {
   return (
     <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
@@ -27,10 +30,10 @@ export default function Navbar({ categories }: { categories: Category[] }) {
           <NavigationMenuTrigger>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-max grid-cols-2 gap-2 p-2">
-              {categories.map((category: Category, index: number) => (
+              {categories.map((category, index: number) => (
                 <li key={index}>
                   <Link
-                    href={`/category/${category.slug.current}`}
+                    href={`/category/${category?.slug?.current}`}
                     legacyBehavior
                     passHref
                   >

@@ -1,31 +1,26 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export type Product = {
-  id: number;
-  name: string;
-  slug: {
-    current: string;
-  };
-  price: number;
-  images: any;
+import { ProductBySlugQueryResult } from "@/sanity/types";
+
+export type CartProduct = ProductBySlugQueryResult & {
   quantity: number;
 };
 
 export type State = {
-  cart: Product[];
+  cart: CartProduct[];
   totalItems: number;
   totalAmount: number;
 };
 
 export type Actions = {
-  addToCart: (Item: Product) => void;
-  removeFromCart: (Item: Product) => void;
-  deleteFromCart: (Item: Product) => void;
+  addToCart: (Item: ProductBySlugQueryResult) => void;
+  removeFromCart: (Item: CartProduct) => void;
+  deleteFromCart: (Item: CartProduct) => void;
   clearCart: () => void;
 };
 
-const INITIAL_STATE = {
+const INITIAL_STATE: State = {
   cart: [],
   totalItems: 0,
   totalAmount: 0,
@@ -37,41 +32,40 @@ export const useCartStore = create(
       cart: INITIAL_STATE.cart,
       totalItems: INITIAL_STATE.totalItems,
       totalAmount: INITIAL_STATE.totalAmount,
-      addToCart: (product: Product) => {
+      addToCart: (product: ProductBySlugQueryResult) => {
         const cart = get().cart;
         const cartItem = cart.find(
-          (item: Product) => item.slug.current === product.slug.current,
+          (item) => item?.slug?.current === product?.slug?.current,
         );
+
         if (cartItem) {
           const updatedCart = cart.map((item) =>
-            item.slug.current === product.slug.current
+            item?.slug?.current === product?.slug?.current
               ? { ...item, quantity: item.quantity + 1 }
               : item,
           );
           set((state) => ({
             cart: updatedCart,
             totalItems: state.totalItems + 1,
-            totalAmount: Math.max(state.totalAmount + product.price, 0),
+            totalAmount: Math.max(state.totalAmount + product?.price!, 0),
           }));
         } else {
-          const updatedCart = [...cart, { ...product, quantity: 1 }];
-
           set((state) => ({
-            cart: updatedCart,
+            cart: [...state.cart, { ...product, quantity: 1 } as CartProduct],
             totalItems: state.totalItems + 1,
-            totalAmount: Math.max(state.totalAmount + product.price, 0),
+            totalAmount: Math.max(state.totalAmount + product?.price!, 0),
           }));
         }
       },
-      removeFromCart: (product: Product) => {
+      removeFromCart: (product: CartProduct) => {
         const cart = get().cart;
         const cartItem = cart.find(
-          (item: Product) => item.slug.current === product.slug.current,
+          (item) => item.slug!.current === product.slug!.current,
         );
         if (cartItem) {
           const updatedCart = cart
             .map((item) =>
-              item.slug.current === product.slug.current
+              item.slug!.current === product.slug!.current
                 ? { ...item, quantity: item.quantity - 1 }
                 : item,
             )
@@ -79,20 +73,20 @@ export const useCartStore = create(
           set((state) => ({
             cart: updatedCart,
             totalItems: state.totalItems - 1,
-            totalAmount: Math.max(state.totalAmount - product.price, 0),
+            totalAmount: Math.max(state.totalAmount - product.price!, 0),
           }));
         }
       },
-      deleteFromCart: (product: Product) => {
+      deleteFromCart: (product: CartProduct) => {
         const cart = get().cart;
         const updatedCart = cart.filter(
-          (item) => item.slug.current !== product.slug.current,
+          (item) => item.slug!.current !== product.slug!.current,
         );
         set((state) => ({
           cart: updatedCart,
           totalItems: state.totalItems - product.quantity,
           totalAmount: Math.max(
-            state.totalAmount - product.price * product.quantity,
+            state.totalAmount - product.price! * product.quantity,
             0,
           ),
         }));

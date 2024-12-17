@@ -6,16 +6,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Category } from "@/lib/types";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
 import { Button } from "./ui/button";
+import { CategoriesQueryResult } from "@/sanity/types";
 
 export default async function MenuSheet({
   categories,
 }: {
-  categories: Category[];
+  categories: CategoriesQueryResult;
 }) {
   return (
     <Sheet>
@@ -37,9 +37,9 @@ export default async function MenuSheet({
               </Button>
             </Link>
           </SheetClose>
-          {categories.map((category: Category, index: number) => (
+          {categories.map((category, index: number) => (
             <SheetClose asChild key={index}>
-              <Link href={`/category/${category.slug.current}`}>
+              <Link href={`/category/${category.slug?.current}`}>
                 <Button className="text-lg" variant="ghost">
                   {category.name}
                 </Button>

@@ -8,7 +8,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Actions, Product, State, useCartStore } from "@/store/useCartStore";
+import { Actions, State, useCartStore } from "@/store/useCartStore";
 import { ShoppingCartIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -40,7 +40,7 @@ export default function CartSheet() {
           {cart.length > 0 ? "" : "Empty"}
         </SheetDescription>
         <div className="h-full overflow-y-auto">
-          {cart.map((product: Product, index: number) => (
+          {cart.map((product, index: number) => (
             <CartProductCard
               key={index}
               product={product}
