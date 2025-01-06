@@ -3,8 +3,13 @@ import ProductsMarqueeWrapper from "@/components/product/ProductsMarqueeWrapper"
 import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
-import { productBySlugQuery, productsSlugQuery } from "@/sanity/lib/queries";
 import {
+  featuredProductsQuery,
+  productBySlugQuery,
+  productsSlugQuery,
+} from "@/sanity/lib/queries";
+import {
+  FeaturedProductsQueryResult,
   ProductBySlugQueryResult,
   ProductsSlugQueryResult,
 } from "@/sanity/types";
@@ -13,7 +18,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 export const dynamicParams = false;
 
 type Props = {
-  params: { productSlug: string };
+  params: Promise<{ productSlug: string }>;
 };
 
 export async function generateStaticParams() {
@@ -27,9 +32,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  { params }: Props,
+  props: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
+  const params = await props.params;
   const product = await client.fetch<ProductBySlugQueryResult>(
     productBySlugQuery,
     {
@@ -59,12 +65,17 @@ export async function generateMetadata(
   };
 }
 
-const ProductPage = async ({ params }: Props) => {
+const ProductPage = async (props: Props) => {
+  const params = await props.params;
   const product = await client.fetch<ProductBySlugQueryResult>(
     productBySlugQuery,
     {
       slug: params.productSlug,
     },
+  );
+
+  const favProducts = await client.fetch<FeaturedProductsQueryResult>(
+    featuredProductsQuery,
   );
 
   const jsonLd = {
@@ -81,7 +92,7 @@ const ProductPage = async ({ params }: Props) => {
   return (
     <div className="px-2">
       <ProductDetailCard product={product} />
-      <ProductsMarqueeWrapper />
+      <ProductsMarqueeWrapper products={favProducts} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

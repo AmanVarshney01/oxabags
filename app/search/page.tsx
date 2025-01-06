@@ -4,11 +4,12 @@ import { client } from "@/sanity/lib/client";
 import { searchProductsQuery } from "@/sanity/lib/queries";
 import { SearchProductsQueryResult } from "@/sanity/types";
 
-export default async function SearchPage({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string };
-}) {
+export default async function SearchPage(
+  props: {
+    searchParams: Promise<{ [key: string]: string }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const { q } = searchParams;
 
   const searchResults = await client.fetch<SearchProductsQueryResult>(
