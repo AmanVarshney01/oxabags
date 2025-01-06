@@ -9,10 +9,19 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useCartStore } from "@/store/useCartStore";
+import { useShallow } from "zustand/shallow";
 
 export default function CartOrderTable() {
-  const { cart, removeFromCart, addToCart, deleteFromCart, totalAmount } =
-    useCartStore();
+  const [cart, removeFromCart, addToCart, deleteFromCart, totalAmount] =
+    useCartStore(
+      useShallow((state) => [
+        state.cart,
+        state.removeFromCart,
+        state.addToCart,
+        state.deleteFromCart,
+        state.totalAmount,
+      ]),
+    );
   return (
     <div className="py-2">
       <h1 className="p-2 text-2xl font-bold">Cart</h1>

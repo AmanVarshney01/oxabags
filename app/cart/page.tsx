@@ -23,13 +23,16 @@ import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { useShallow } from "zustand/shallow";
 
 const formSchema = checkoutFormSchema;
 
 export default function CartPage() {
   const router = useRouter();
   const { toast } = useToast();
-  const { cart, totalItems, clearCart } = useCartStore();
+  const [cart, totalItems, clearCart] = useCartStore(
+    useShallow((state) => [state.cart, state.totalItems, state.clearCart]),
+  );
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {

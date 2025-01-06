@@ -8,16 +8,23 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Actions, State, useCartStore } from "@/store/useCartStore";
+import { useCartStore } from "@/store/useCartStore";
 import { ShoppingCartIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useShallow } from "zustand/shallow";
 import { Button } from "../ui/button";
 import CartProductCard from "./CartProductCard";
 
 export default function CartSheet() {
-  const { cart, removeFromCart, addToCart, deleteFromCart }: Actions & State =
-    useCartStore();
+  const [cart, removeFromCart, addToCart, deleteFromCart] = useCartStore(
+    useShallow((state) => [
+      state.cart,
+      state.removeFromCart,
+      state.addToCart,
+      state.deleteFromCart,
+    ]),
+  );
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
