@@ -1,5 +1,10 @@
 "use client";
-import { OWNER_PHONE_1, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
+import {
+  OWNER_PHONE_1,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/constants";
 import Whatsapp from "@/public/whatsapp_logo.svg";
 import { PhoneCallIcon, Share } from "lucide-react";
 import Image from "next/image";
@@ -22,7 +27,7 @@ export default function FloatingBar() {
   };
 
   return (
-    <div className="fixed bottom-2 left-1/2 w-max -translate-x-1/2 transform rounded-full border-2 border-border bg-background/95 shadow-md shadow-black/20 backdrop-blur supports-[backdrop-filter]:bg-background/90">
+    <div className="border-border bg-background/95 supports-backdrop-filter:bg-background/90 fixed bottom-2 left-1/2 w-max -translate-x-1/2 transform rounded-full border-2 shadow-md shadow-black/20 backdrop-blur-sm">
       <div className="flex flex-row divide-x p-1">
         <Link
           href={`tel:${OWNER_PHONE_1}`}
@@ -52,7 +57,7 @@ export default function FloatingBar() {
           <span className="text-sm">Share</span>
         </button>
       </div>
-      <span className="absolute inset-x-0 -bottom-px mx-auto h-px w-1/2 bg-gradient-to-r from-transparent via-primary to-transparent" />
+      <span className="via-primary absolute inset-x-0 -bottom-px mx-auto h-px w-1/2 bg-linear-to-r from-transparent to-transparent" />
     </div>
   );
 }

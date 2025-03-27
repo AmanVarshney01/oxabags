@@ -16,6 +16,9 @@ const nextConfig: NextConfig = {
     ],
     formats: ["image/webp"],
   },
+  experimental: {
+    reactCompiler: true,
+  },
 };
 
 export default nextConfig;
